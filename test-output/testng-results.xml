@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results total="2" passed="2" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2023-06-26T19:25:29Z" name="FolderApi@mongo" finished-at="2023-06-26T19:25:33Z" duration-ms="4165">
+    <groups>
+    </groups>
+    <test started-at="2023-06-26T19:25:29Z" name="FolderApi@mongoTest" finished-at="2023-06-26T19:25:33Z" duration-ms="4165">
+      <class name="testScript.API">
+        <test-method is-config="true" signature="reporting(org.testng.ITestContext)[pri:0, instance:testScript.API@6f03482]" started-at="2023-06-27T00:55:28Z" name="reporting" finished-at="2023-06-27T00:55:29Z" duration-ms="402" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@1e79d43]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- reporting -->
+        <test-method signature="runAPITest(java.util.Map)[pri:0, instance:testScript.API@6f03482]" started-at="2023-06-27T00:55:29Z" name="runAPITest" data-provider="getInput" finished-at="2023-06-27T00:55:32Z" duration-ms="3446" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[{isRunableApi=yes, ResponseHeaderExpressionValidation=NA, Description=This test is to validate rlogin API., RequestCookies=_did=%%rnd, ResponseBodySchema=NA, BasePath=/recruit/login, PathParameters=NA, ResponseBodyParameters=NA, TestCaseName=rLogin, RequestParameters=NA, ResponseHeaderValidation=Server=nginx, RequestHeaders=AppId=121;SystemId=jobseeker;Accept-Encoding=gzip,deflate;cache-control=no-cache;Accept=*/*;Content-Type=application/json, BaseURI=https://www.naukri.com, RequestBody=NA, ResponseHeadersToBeSaved=NA, ResponseCode=200, MultiPartData=NA, ResponseCookiesToBeSaved=NA, ResponseBodyFieldToBeSaved=token=auth_token, RandomValues=rnd=String(12), ResponseBodyExpressionValidation=NA, QueryParameters=NA, ResponseType=HTML, ResponseBody=NA, ResponseCookieExpressionValidation=bs_rnd*len=8;bs_rnd*typeof=String, ResponseCookieValidation=test=naukri.com, DependOnTest=NA, RequestType=GET}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runAPITest -->
+        <test-method is-config="true" signature="afterMethod()[pri:0, instance:testScript.API@6f03482]" started-at="2023-06-27T00:55:32Z" name="afterMethod" finished-at="2023-06-27T00:55:32Z" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method signature="runAPITest(java.util.Map)[pri:0, instance:testScript.API@6f03482]" started-at="2023-06-27T00:55:32Z" name="runAPITest" data-provider="getInput" finished-at="2023-06-27T00:55:33Z" duration-ms="689" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[{isRunableApi=yes, ResponseHeaderExpressionValidation=NA, Description=This test is to validate login service API., RequestCookies=_did=%%rnd, ResponseBodySchema=NA, BasePath=/Login/loginService, PathParameters=NA, ResponseBodyParameters=NA, TestCaseName=loginService, RequestParameters=NA, ResponseHeaderValidation=Content-Type=application/json; charset=utf-8, RequestHeaders=AppId=121;SystemId=jobseeker;Accept-Encoding=gzip,deflate;cache-control=no-cache;Accept=*/*;Content-Type=application/json, BaseURI=https://login.recruit.naukri.com, RequestBody=NA, ResponseHeadersToBeSaved=NA, ResponseCode=200, MultiPartData=NA, ResponseCookiesToBeSaved=strUNID=UNID, ResponseBodyFieldToBeSaved=NA, RandomValues=NA, ResponseBodyExpressionValidation=NA, QueryParameters=username=company16@yopmail.com;password=P@ssw0rd100;g-recaptcha-response='';URL=https://recruit.naukri.com/;isIE7=false;csrf=%%token, ResponseType=JSON, ResponseBody=NA, ResponseCookieExpressionValidation=NA, ResponseCookieValidation=ER=deleted;ERV=deleted, DependOnTest=rLogin, RequestType=POST}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runAPITest -->
+        <test-method is-config="true" signature="afterMethod()[pri:0, instance:testScript.API@6f03482]" started-at="2023-06-27T00:55:33Z" name="afterMethod" finished-at="2023-06-27T00:55:33Z" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method is-config="true" signature="afterSuite()[pri:0, instance:testScript.API@6f03482]" started-at="2023-06-27T00:55:33Z" name="afterSuite" finished-at="2023-06-27T00:55:33Z" duration-ms="283" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterSuite -->
+      </class> <!-- testScript.API -->
+    </test> <!-- FolderApi@mongoTest -->
+  </suite> <!-- FolderApi@mongo -->
+</testng-results>

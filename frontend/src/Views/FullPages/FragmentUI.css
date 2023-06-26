@@ -1,0 +1,70 @@
+body{
+  margin:10px;
+  padding:0;
+   font-family: 'Pathway Extreme', sans-serif; 
+
+}
+.fragment_header{
+    height:50px;
+    background-color: #333;
+    display:block;
+    border-radius: 5px;
+  }
+  .options{
+    display:flex;
+    color:white;
+    text-align: center;
+    justify-content: center;
+  }
+  .options button{
+    width: 100%;
+    background:transparent;
+    color:white;
+    font-size: 14px;
+    border: 0;
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+  .option {
+    margin: top 0;
+    height: 49.5px;
+  width: 49.5%;  
+  }
+  .option :hover{
+    background-color: #4CAF50;
+
+  }
+  .option-active{
+    margin: top 0;
+    height: 49.5px;
+  width: 49.5%;  
+    background-color: #4CAF50;
+
+  }
+
+  .option-query {
+    margin: top 0;
+    height: 49.5px;
+  width: 49.5%;  
+  }
+
+  .fragment_header_query{
+    height:80px;
+    background-color: #4CAF50;
+    display:block;
+    border-radius: 5px;
+  }
+  .option-query .section{
+    padding: 10px;
+  }
+
+  .lineseperator{
+    border-color: #333;
+    margin-top: 6px;
+    height: 2px;
+    /* border-bottom-width: 5px; */
+    border-color: #333;
+    background-color: #333;
+    border-radius: 5px;
+    width: 100%;
+  }

@@ -1,0 +1,20 @@
+.form-group {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 10px;
+    margin-top: 20px;
+  }
+
+  .form-group label {
+    flex: 0 0 100px;
+  }
+
+  .form-group textarea{
+    flex: 1;
+    height: 100px;
+    resize: none;
+    font-family: 'Pathway Extreme', sans-serif;
+  }
+  .form button{
+   width: 100%; 
+  }

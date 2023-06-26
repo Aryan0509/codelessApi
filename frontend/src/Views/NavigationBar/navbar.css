@@ -1,0 +1,222 @@
+body{
+    margin:10px;
+    padding:0;
+    /* font-family: 'Red Hat Display', sans-serif; */
+  }
+  p{
+    font-size:12px;
+  }
+  .tuple-bg{
+    background-color:#fffbf4;
+    min-height:100px;
+    border: 2px solid #e29c48;
+    border-radius:5px;
+    display:flex;
+    margin-top: 6px;
+    margin-bottom: 6px;
+    justify-content: space-between;
+  }
+  .firstsec,.secondsec,.thirdsec{
+    color:#0d1e40;
+    min-width:30%;
+    margin: auto;
+    display: inline-block;
+    padding: 10px;
+    border: 20px;
+  }
+
+  nav {
+    background-color: #333;
+    overflow: hidden;
+    margin-bottom: 5px;
+    border-radius:5px;
+  }
+  
+  nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  nav li {
+    float: left;
+  }
+  
+  nav li a, nav li button {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 14px;
+    cursor: pointer;
+  }
+  
+  nav li button {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 14px 20px;
+    border-radius:5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px;
+    cursor: pointer;
+    
+  }
+
+  .moredetails{
+    width: 20px;
+    height: 20px;
+  }
+
+  /* modal CSS */
+
+  .modal {
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.4);
+  }
+  
+  .modal-content {
+    background-color: #fefefe;
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+  }
+  
+  .close {
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  label {
+    margin-bottom: 5px;
+  }
+  
+  input[type="text"] {
+    padding: 5px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  button[type="submit"] {
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: #4CAF50;
+    color: white;
+    cursor: pointer;
+  }
+  
+  button[type="submit"]:hover {
+    background-color: #3e8e41;
+  }
+  
+
+  .tip {
+    background-color: #3e8e41;
+    padding: 8px;
+    font-weight: bold;
+  }
+  
+  /* Define styles for the label and textbox */
+  label {
+    display: block;
+    margin-bottom: 4px;
+  }
+  
+  input[type="text"] {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
+  /* Define styles for the buttons */
+  button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #3e8e41;
+  }
+  
+  button:active {
+    background-color: #367c39;
+  }
+  
+  /* Define styles for the button container */
+  .button-container {
+    margin-top: 8px;
+    text-align: center;
+  }
+  
+  .button-container button {
+    margin-left: 4px;
+    margin-right: 4px;
+  }
+  
+  .widget{
+    width: 500px;
+    position: absolute;
+    z-index: 10;
+    float: right;
+    right: 10px;
+    background-color: white;
+    border-radius: 5px;
+    border: 5px solid #333;
+    border-width: 2px;
+    padding-bottom: 10px;
+    border-top-width: 0;
+  }
+
+  .widget label{
+    padding-left: 10px;
+    
+  }
+  .widget input{
+    width: 480px;
+    margin: 0 5px;
+  }
+  .fill-details-form {
+    background-color: #fefefe;
+    margin: 2% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    max-width: 600px;
+  }

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@300&display=swap" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+
+  <nav>
+    <ul>
+      <li><a href="#">New Test Case</a></li>
+      <li><a href="#">Update Test Case</a></li>
+      <li><a href="#">Query</a></li>
+      <li><button>Add Db Connection</button></li>
+    </ul>
+  </nav>
+
+<div class="tuple-bg">
+  
+    <div class ="firstsec">
+      <h5>Auth_service_01</h5>
+      <p>To veify authorization api </p>
+    </div>
+    <div class ="secondsec">Suite - LoginService</div>
+    <div class ="thirdsec">
+      <img src="detail.svg" title="More Details..." class="moredetails" onclick="openModal()"/>
+    </div>
+  </div>
+<div id="modal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <h2>Auth_service_01</h2>
+    <form>
+
+      <label for="suiteName">Suite Name</label>
+      <input type="text" id="suiteName" name="suiteName" disabled>
+
+      <label for="description">Description</label>
+      <input type="text" id="description" name="description" disabled>
+
+      <label for="headers">Headers</label>
+      <input type="text" id="headers" name="headers" disabled>
+
+      <label for="cookies">Cookies</label>
+      <input type="text" id="cookies" name="cookies" disabled>
+
+      <label for="validations">Validations</label>
+      <input type="text" id="validations" name="validations" disabled>
+
+      <button type="submit">Close</button>
+    </form>
+  </div>
+</div>
+
+</body>
+<script src="../Design/sample.js"></script>
+</html>
