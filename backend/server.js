@@ -295,7 +295,12 @@ app.post('/run-command',(req,res)=>{
   //   arg3=sheetName;
   // }
   // const command="java -Dlog4j.configuration=file:DataInput\Logger_Property\log4j.properties -jar codeless.jar '"+arg1+"' '"+arg2+"' '"+arg3+"'";
-  let command='java -Dlog4j.configuration=file:DataInput\Logger_Property\log4j.properties -jar codeless.jar "no" "/home/aryangupta/CodelessAPIAutomation/API_Automation_Suite.xlsx" "APITestSuites"';
+  const c=req.body.choice;
+  let command="";
+  if(c==="mongo")
+  command='java -Dlog4j.configuration=file:DataInput\Logger_Property\log4j.properties -jar codeless.jar "no" "/home/aryangupta/react/Testing/API_Automation_Suite.xlsx" "APITestSuites"';
+  else
+  command='java -Dlog4j.configuration=file:DataInput\Logger_Property\log4j.properties -jar codeless.jar "yes" "/home/aryangupta/react/Testing/API_Automation_Suite.xlsx" "APITestSuites"';
   // let command="ls";
   console.log(command);
   exec(command, (error, stdout, stderr) => {
@@ -568,8 +573,9 @@ app.get('*', (req, res) =>
   res.sendFile(path.join(__dirname, '/frontend/build/index.html'))
 );
 
-app.listen(3000, () => {
+app.listen(8000, () => {
   console.log('Server listening on port 3000');
 });
+
 
 

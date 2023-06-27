@@ -1,0 +1,469 @@
+<html>
+<head>
+<title>TestNG:  CompanyServiceTest</title>
+<link href="../testng.css" rel="stylesheet" type="text/css" />
+<link href="../my-testng.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+.log { display: none;} 
+.stack-trace { display: none;} 
+</style>
+<script type="text/javascript">
+<!--
+function flip(e) {
+  current = e.style.display;
+  if (current == 'block') {
+    e.style.display = 'none';
+    return 0;
+  }
+  else {
+    e.style.display = 'block';
+    return 1;
+  }
+}
+
+function toggleBox(szDivId, elem, msg1, msg2)
+{
+  var res = -1;  if (document.getElementById) {
+    res = flip(document.getElementById(szDivId));
+  }
+  else if (document.all) {
+    // this is the way old msie versions work
+    res = flip(document.all[szDivId]);
+  }
+  if(elem) {
+    if(res == 0) elem.innerHTML = msg1; else elem.innerHTML = msg2;
+  }
+
+}
+
+function toggleAllBoxes() {
+  if (document.getElementsByTagName) {
+    d = document.getElementsByTagName('div');
+    for (i = 0; i < d.length; i++) {
+      if (d[i].className == 'log') {
+        flip(d[i]);
+      }
+    }
+  }
+}
+
+// -->
+</script>
+
+</head>
+<body>
+<h2 align='center'>CompanyServiceTest</h2><table border='1' align="center">
+<tr>
+<td>Tests passed/Failed/Skipped:</td><td>0/10/0</td>
+</tr><tr>
+<td>Started on:</td><td>Tue Jun 27 16:08:57 IST 2023</td>
+</tr>
+<tr><td>Total time:</td><td>8 seconds (8967 ms)</td>
+</tr><tr>
+<td>Included groups:</td><td></td>
+</tr><tr>
+<td>Excluded groups:</td><td></td>
+</tr>
+</table><p/>
+<small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='testScript.API.runAPITest()'><b>runAPITest</b><br>Test class: testScript.API<br>Parameters: {ResponseHeaderExpressionValidation=NA, Description=This test is to validate Get City API with city id value as 1., RequestCookies=NA, ResponseBodySchema=CompanyService\\sample.txt, BasePath=/cities/{cityID}, PathParameters=cityID=1, ResponseBodyParameters=NA, TestCaseName=GetCity_1, RequestParameters=NA, ResponseHeaderValidation=NA, RequestHeaders=AppId=114;SystemId=naukriIndia;Accept-Encoding=gzip,deflate;cache-control=no-cache;Accept=*/*;Content-Type=application/json, BaseURI=http://services.test2.mnr-services-test2.cluster.infoedge.com/company-services/company-service-refactor, RequestBody=NA, ResponseHeadersToBeSaved=NA, ResponseCode=200, MultiPartData=NA, ResponseCookiesToBeSaved=NA, ResponseBodyFieldToBeSaved=NA, RandomValues=NA, ResponseBodyExpressionValidation=NA, QueryParameters=NA, ResponseType=JSON, ResponseBody={"cityId":1,"city":"Mathura_23","stateId":100,"countryId":1000,"stdCode":10000,"gulfCityId":"180.28","gulfCountryId":180}, ResponseCookieExpressionValidation=NA, ResponseCookieValidation=NA, DependOnTest=NA, RequestType=GET}</td>
+<td><div><pre>java.lang.AssertionError: expected [true] but found [false]
+	at testScript.API.runAPITest(API.java:363)
+	at utility.GenerateTestNGXml.CreateTestNGXml(GenerateTestNGXml.java:53)
+	at launch.Master.main(Master.java:36)
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace944826636", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace944826636'><pre>java.lang.AssertionError: expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:94)
+	at org.testng.Assert.failNotEquals(Assert.java:494)
+	at org.testng.Assert.assertTrue(Assert.java:42)
+	at org.testng.Assert.assertTrue(Assert.java:52)
+	at testScript.API.runAPITest(API.java:363)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:84)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:348)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:343)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:305)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:254)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1224)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1149)
+	at org.testng.TestNG.run(TestNG.java:1057)
+	at utility.GenerateTestNGXml.CreateTestNGXml(GenerateTestNGXml.java:53)
+	at launch.Master.main(Master.java:36)
+</pre></div></td>
+<td>0</td>
+<td>testScript.API@cad498c</td></tr>
+<tr>
+<td title='testScript.API.runAPITest()'><b>runAPITest</b><br>Test class: testScript.API<br>Parameters: {ResponseHeaderExpressionValidation=NA, Description=This test is to validate Get City API with city id value as 2., RequestCookies=NA, ResponseBodySchema=CompanyService\\sample.json, BasePath=/cities/{cityID}, PathParameters=cityID=2, ResponseBodyParameters=cityname=Agra, TestCaseName=GetCity_2, RequestParameters=NA, ResponseHeaderValidation=NA, RequestHeaders=AppId=114;SystemId=naukriIndia;Accept-Encoding=gzip,deflate;cache-control=no-cache;Accept=*/*;Content-Type=application/json, BaseURI=http://services.test2.mnr-services-test2.cluster.infoedge.com/company-services/company-service-refactor, RequestBody=NA, ResponseHeadersToBeSaved=NA, ResponseCode=200, MultiPartData=NA, ResponseCookiesToBeSaved=NA, ResponseBodyFieldToBeSaved=NA, RandomValues=NA, ResponseBodyExpressionValidation=NA, QueryParameters=NA, ResponseType=JSON, ResponseBody={"cityId":2,"city":"%%cityname","stateId":31,"countryId":66,"stdCode":562,"gulfCityId":"80.29","gulfCountryId":80}, ResponseCookieExpressionValidation=NA, ResponseCookieValidation=NA, DependOnTest=NA, RequestType=GET}</td>
+<td><div><pre>java.lang.AssertionError: expected [true] but found [false]
+	at testScript.API.runAPITest(API.java:363)
+	at utility.GenerateTestNGXml.CreateTestNGXml(GenerateTestNGXml.java:53)
+	at launch.Master.main(Master.java:36)
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace993343057", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace993343057'><pre>java.lang.AssertionError: expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:94)
+	at org.testng.Assert.failNotEquals(Assert.java:494)
+	at org.testng.Assert.assertTrue(Assert.java:42)
+	at org.testng.Assert.assertTrue(Assert.java:52)
+	at testScript.API.runAPITest(API.java:363)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:84)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:348)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:343)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:305)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:254)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1224)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1149)
+	at org.testng.TestNG.run(TestNG.java:1057)
+	at utility.GenerateTestNGXml.CreateTestNGXml(GenerateTestNGXml.java:53)
+	at launch.Master.main(Master.java:36)
+</pre></div></td>
+<td>0</td>
+<td>testScript.API@cad498c</td></tr>
+<tr>
+<td title='testScript.API.runAPITest()'><b>runAPITest</b><br>Test class: testScript.API<br>Parameters: {ResponseHeaderExpressionValidation=NA, Description=This test is to validate Get City API with city id value as 3., RequestCookies=NA, ResponseBodySchema={   "$schema": "http://json-schema.org/draft-04/schema#",   "type": "object",   "properties": {     "cityId": {       "type": "integer"     },     "city": {       "type": "string"     },     "stateId": {       "type": "integer"     },     "countryId": {       "type": "integer"     },     "stdCode": {       "type": "integer"     },     "gulfCityId": {       "type": "string"     },     "gulfCountryId": {       "type": "integer"     }   },   "required": [     "cityId",     "city",     "stateId",     "countryId",     "stdCode",     "gulfCityId",     "gulfCountryId"   ] }, BasePath=/cities/{cityID}, PathParameters=cityID=3, ResponseBodyParameters=stateId=11, TestCaseName=GetCity_3, RequestParameters=NA, ResponseHeaderValidation=NA, RequestHeaders=AppId=114;SystemId=naukriIndia;Accept-Encoding=gzip,deflate;cache-control=no-cache;Accept=*/*;Content-Type=application/json, BaseURI=http://services.test2.mnr-services-test2.cluster.infoedge.com/company-services/company-service-refactor, RequestBody=NA, ResponseHeadersToBeSaved=NA, ResponseCode=200, MultiPartData=NA, ResponseCookiesToBeSaved=NA, ResponseBodyFieldToBeSaved=NA, RandomValues=NA, ResponseBodyExpressionValidation=NA, QueryParameters=NA, ResponseType=JSON, ResponseBody=CompanyServices\\getcity3.txt, ResponseCookieExpressionValidation=NA, ResponseCookieValidation=NA, DependOnTest=NA, RequestType=GET}</td>
+<td><div><pre>java.lang.AssertionError: expected [true] but found [false]
+	at testScript.API.runAPITest(API.java:363)
+	at utility.GenerateTestNGXml.CreateTestNGXml(GenerateTestNGXml.java:53)
+	at launch.Master.main(Master.java:36)
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1954761469", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1954761469'><pre>java.lang.AssertionError: expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:94)
+	at org.testng.Assert.failNotEquals(Assert.java:494)
+	at org.testng.Assert.assertTrue(Assert.java:42)
+	at org.testng.Assert.assertTrue(Assert.java:52)
+	at testScript.API.runAPITest(API.java:363)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:84)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:348)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:343)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:305)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:254)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1224)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1149)
+	at org.testng.TestNG.run(TestNG.java:1057)
+	at utility.GenerateTestNGXml.CreateTestNGXml(GenerateTestNGXml.java:53)
+	at launch.Master.main(Master.java:36)
+</pre></div></td>
+<td>5</td>
+<td>testScript.API@cad498c</td></tr>
+<tr>
+<td title='testScript.API.runAPITest()'><b>runAPITest</b><br>Test class: testScript.API<br>Parameters: {ResponseHeaderExpressionValidation=NA, Description=This test is to validate Get City API with city id value as 4., RequestCookies=NA, ResponseBodySchema={   "$schema": "http://json-schema.org/draft-04/schema#",   "type": "object",   "properties": {     "cityId": {       "type": "integer"     },     "city": {       "type": "string"     },     "stateId": {       "type": "integer"     },     "countryId": {       "type": "integer"     },     "stdCode": {       "type": "integer"     },     "gulfCityId": {       "type": "string"     },     "gulfCountryId": {       "type": "integer"     }   },   "required": [     "cityId",     "city",     "stateId",     "countryId",     "stdCode",     "gulfCityId",     "gulfCountryId"   ] }, BasePath=/cities/{cityID}, PathParameters=cityID=4, ResponseBodyParameters=Cityid=4, TestCaseName=GetCity_4, RequestParameters=NA, ResponseHeaderValidation=NA, RequestHeaders=AppId=114;SystemId=naukriIndia;Accept-Encoding=gzip,deflate;cache-control=no-cache;Accept=*/*;Content-Type=application/json, BaseURI=http://services.test2.mnr-services-test2.cluster.infoedge.com/company-services/company-service-refactor, RequestBody=NA, ResponseHeadersToBeSaved=NA, ResponseCode=200, MultiPartData=NA, ResponseCookiesToBeSaved=NA, ResponseBodyFieldToBeSaved=NA, RandomValues=NA, ResponseBodyExpressionValidation=NA, QueryParameters=NA, ResponseType=JSON, ResponseBody=CompanyServices\\getcity4.json, ResponseCookieExpressionValidation=NA, ResponseCookieValidation=NA, DependOnTest=NA, RequestType=GET}</td>
+<td><div><pre>java.lang.AssertionError: expected [true] but found [false]
+	at testScript.API.runAPITest(API.java:363)
+	at utility.GenerateTestNGXml.CreateTestNGXml(GenerateTestNGXml.java:53)
+	at launch.Master.main(Master.java:36)
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1437977899", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1437977899'><pre>java.lang.AssertionError: expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:94)
+	at org.testng.Assert.failNotEquals(Assert.java:494)
+	at org.testng.Assert.assertTrue(Assert.java:42)
+	at org.testng.Assert.assertTrue(Assert.java:52)
+	at testScript.API.runAPITest(API.java:363)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:84)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:348)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:343)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:305)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:254)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1224)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1149)
+	at org.testng.TestNG.run(TestNG.java:1057)
+	at utility.GenerateTestNGXml.CreateTestNGXml(GenerateTestNGXml.java:53)
+	at launch.Master.main(Master.java:36)
+</pre></div></td>
+<td>0</td>
+<td>testScript.API@cad498c</td></tr>
+<tr>
+<td title='testScript.API.runAPITest()'><b>runAPITest</b><br>Test class: testScript.API<br>Parameters: {ResponseHeaderExpressionValidation=NA, Description=This test is to validate Get City API with city id value as 5., RequestCookies=NA, ResponseBodySchema={   "$schema": "http://json-schema.org/draft-04/schema#",   "type": "object",   "properties": {     "cityId": {       "type": "integer"     },     "city": {       "type": "string"     },     "stateId": {       "type": "integer"     },     "countryId": {       "type": "integer"     },     "stdCode": {       "type": "integer"     },     "gulfCityId": {       "type": "string"     },     "gulfCountryId": {       "type": "integer"     }   },   "required": [     "cityId",     "city",     "stateId",     "countryId",     "stdCode",     "gulfCityId",     "gulfCountryId"   ] }, BasePath=/cities/{cityID}, PathParameters=cityID=5, ResponseBodyParameters=NA, TestCaseName=GetCity_5, RequestParameters=NA, ResponseHeaderValidation=NA, RequestHeaders=AppId=114;SystemId=naukriIndia;Accept-Encoding=gzip,deflate;cache-control=no-cache;Accept=*/*;Content-Type=application/json, BaseURI=http://services.test2.mnr-services-test2.cluster.infoedge.com/company-services/company-service-refactor, RequestBody=NA, ResponseHeadersToBeSaved=NA, ResponseCode=200, MultiPartData=NA, ResponseCookiesToBeSaved=NA, ResponseBodyFieldToBeSaved=NA, RandomValues=NA, ResponseBodyExpressionValidation=NA, QueryParameters=NA, ResponseType=JSON, ResponseBody=city=Aizawl;stdCode=389, ResponseCookieExpressionValidation=NA, ResponseCookieValidation=NA, DependOnTest=NA, RequestType=GET}</td>
+<td><div><pre>java.lang.AssertionError: expected [true] but found [false]
+	at testScript.API.runAPITest(API.java:363)
+	at utility.GenerateTestNGXml.CreateTestNGXml(GenerateTestNGXml.java:53)
+	at launch.Master.main(Master.java:36)
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace229581552", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace229581552'><pre>java.lang.AssertionError: expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:94)
+	at org.testng.Assert.failNotEquals(Assert.java:494)
+	at org.testng.Assert.assertTrue(Assert.java:42)
+	at org.testng.Assert.assertTrue(Assert.java:52)
+	at testScript.API.runAPITest(API.java:363)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:84)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:348)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:343)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:305)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:254)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1224)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1149)
+	at org.testng.TestNG.run(TestNG.java:1057)
+	at utility.GenerateTestNGXml.CreateTestNGXml(GenerateTestNGXml.java:53)
+	at launch.Master.main(Master.java:36)
+</pre></div></td>
+<td>0</td>
+<td>testScript.API@cad498c</td></tr>
+<tr>
+<td title='testScript.API.runAPITest()'><b>runAPITest</b><br>Test class: testScript.API<br>Parameters: {ResponseHeaderExpressionValidation=NA, Description=This test is to validate Put City API with city id value as 5000., RequestCookies=NA, ResponseBodySchema=NA, BasePath=/cities/, PathParameters=NA, ResponseBodyParameters=NA, TestCaseName=PutCity_1, RequestParameters=NA, ResponseHeaderValidation=NA, RequestHeaders=AppId=114;SystemId=naukriIndia;Accept-Encoding=gzip,deflate;cache-control=no-cache;Accept=*/*;Content-Type=application/json, BaseURI=http://services.test2.mnr-services-test2.cluster.infoedge.com/company-services/company-service-refactor, RequestBody={"cityId":5000,"city": "Sumant", "stateId": 100, "countryId": 1000,"stdCode": 10000,"gulfCityId":"180.28","gulfCountryId":"180"}, ResponseHeadersToBeSaved=NA, ResponseCode=200, MultiPartData=NA, ResponseCookiesToBeSaved=NA, ResponseBodyFieldToBeSaved=NA, RandomValues=NA, ResponseBodyExpressionValidation=NA, QueryParameters=NA, ResponseType=JSON, ResponseBody=NA, ResponseCookieExpressionValidation=NA, ResponseCookieValidation=NA, DependOnTest=NA, RequestType=PUT}</td>
+<td><div><pre>java.lang.AssertionError: expected [true] but found [false]
+	at testScript.API.runAPITest(API.java:363)
+	at utility.GenerateTestNGXml.CreateTestNGXml(GenerateTestNGXml.java:53)
+	at launch.Master.main(Master.java:36)
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace83554564", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace83554564'><pre>java.lang.AssertionError: expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:94)
+	at org.testng.Assert.failNotEquals(Assert.java:494)
+	at org.testng.Assert.assertTrue(Assert.java:42)
+	at org.testng.Assert.assertTrue(Assert.java:52)
+	at testScript.API.runAPITest(API.java:363)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:84)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:348)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:343)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:305)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:254)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1224)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1149)
+	at org.testng.TestNG.run(TestNG.java:1057)
+	at utility.GenerateTestNGXml.CreateTestNGXml(GenerateTestNGXml.java:53)
+	at launch.Master.main(Master.java:36)
+</pre></div></td>
+<td>0</td>
+<td>testScript.API@cad498c</td></tr>
+<tr>
+<td title='testScript.API.runAPITest()'><b>runAPITest</b><br>Test class: testScript.API<br>Parameters: {ResponseHeaderExpressionValidation=NA, Description=This test is to validate Put City API with city id value as 100., RequestCookies=NA, ResponseBodySchema=NA, BasePath=/cities/, PathParameters=NA, ResponseBodyParameters=NA, TestCaseName=PutCity_2, RequestParameters=cityid=100;cityname=gurugram, ResponseHeaderValidation=NA, RequestHeaders=AppId=114;SystemId=naukriIndia;Accept-Encoding=gzip,deflate;cache-control=no-cache;Accept=*/*;Content-Type=application/json, BaseURI=http://services.test2.mnr-services-test2.cluster.infoedge.com/company-services/company-service-refactor, RequestBody={"cityId":%%cityid,"city": "%%cityname", "stateId": 100, "countryId": 1000,"stdCode": 10000,"gulfCityId":"180.28","gulfCountryId":"180"}, ResponseHeadersToBeSaved=NA, ResponseCode=200, MultiPartData=NA, ResponseCookiesToBeSaved=NA, ResponseBodyFieldToBeSaved=NA, RandomValues=NA, ResponseBodyExpressionValidation=NA, QueryParameters=NA, ResponseType=JSON, ResponseBody=NA, ResponseCookieExpressionValidation=NA, ResponseCookieValidation=NA, DependOnTest=NA, RequestType=PUT}</td>
+<td><div><pre>java.lang.AssertionError: expected [true] but found [false]
+	at testScript.API.runAPITest(API.java:363)
+	at utility.GenerateTestNGXml.CreateTestNGXml(GenerateTestNGXml.java:53)
+	at launch.Master.main(Master.java:36)
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1768142988", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1768142988'><pre>java.lang.AssertionError: expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:94)
+	at org.testng.Assert.failNotEquals(Assert.java:494)
+	at org.testng.Assert.assertTrue(Assert.java:42)
+	at org.testng.Assert.assertTrue(Assert.java:52)
+	at testScript.API.runAPITest(API.java:363)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:84)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:348)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:343)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:305)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:254)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1224)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1149)
+	at org.testng.TestNG.run(TestNG.java:1057)
+	at utility.GenerateTestNGXml.CreateTestNGXml(GenerateTestNGXml.java:53)
+	at launch.Master.main(Master.java:36)
+</pre></div></td>
+<td>1</td>
+<td>testScript.API@cad498c</td></tr>
+<tr>
+<td title='testScript.API.runAPITest()'><b>runAPITest</b><br>Test class: testScript.API<br>Parameters: {ResponseHeaderExpressionValidation=NA, Description=This test is to validate Put City API with city id value as 90., RequestCookies=NA, ResponseBodySchema=NA, BasePath=/cities/, PathParameters=NA, ResponseBodyParameters=NA, TestCaseName=PutCity_3, RequestParameters=cityid=90;cityname=delhi, ResponseHeaderValidation=NA, RequestHeaders=AppId=114;SystemId=naukriIndia;Accept-Encoding=gzip,deflate;cache-control=no-cache;Accept=*/*;Content-Type=application/json, BaseURI=http://services.test2.mnr-services-test2.cluster.infoedge.com/company-services/company-service-refactor, RequestBody=CompanyService\\sample.txt, ResponseHeadersToBeSaved=NA, ResponseCode=200, MultiPartData=NA, ResponseCookiesToBeSaved=NA, ResponseBodyFieldToBeSaved=NA, RandomValues=NA, ResponseBodyExpressionValidation=NA, QueryParameters=NA, ResponseType=JSON, ResponseBody=NA, ResponseCookieExpressionValidation=NA, ResponseCookieValidation=NA, DependOnTest=NA, RequestType=PUT}</td>
+<td><div><pre>java.lang.AssertionError: expected [true] but found [false]
+	at testScript.API.runAPITest(API.java:363)
+	at utility.GenerateTestNGXml.CreateTestNGXml(GenerateTestNGXml.java:53)
+	at launch.Master.main(Master.java:36)
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace999864329", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace999864329'><pre>java.lang.AssertionError: expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:94)
+	at org.testng.Assert.failNotEquals(Assert.java:494)
+	at org.testng.Assert.assertTrue(Assert.java:42)
+	at org.testng.Assert.assertTrue(Assert.java:52)
+	at testScript.API.runAPITest(API.java:363)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:84)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:348)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:343)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:305)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:254)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1224)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1149)
+	at org.testng.TestNG.run(TestNG.java:1057)
+	at utility.GenerateTestNGXml.CreateTestNGXml(GenerateTestNGXml.java:53)
+	at launch.Master.main(Master.java:36)
+</pre></div></td>
+<td>0</td>
+<td>testScript.API@cad498c</td></tr>
+<tr>
+<td title='testScript.API.runAPITest()'><b>runAPITest</b><br>Test class: testScript.API<br>Parameters: {ResponseHeaderExpressionValidation=NA, Description=This test is to validate Put City API with city id value as 80., RequestCookies=NA, ResponseBodySchema=NA, BasePath=/cities/, PathParameters=NA, ResponseBodyParameters=NA, TestCaseName=PutCity_4, RequestParameters=cityid=80;cityname=noida, ResponseHeaderValidation=NA, RequestHeaders=AppId=114;SystemId=naukriIndia;Accept-Encoding=gzip,deflate;cache-control=no-cache;Accept=*/*;Content-Type=application/json, BaseURI=http://services.test2.mnr-services-test2.cluster.infoedge.com/company-services/company-service-refactor, RequestBody=CompanyService\\sample.json, ResponseHeadersToBeSaved=NA, ResponseCode=200, MultiPartData=NA, ResponseCookiesToBeSaved=NA, ResponseBodyFieldToBeSaved=NA, RandomValues=NA, ResponseBodyExpressionValidation=NA, QueryParameters=NA, ResponseType=JSON, ResponseBody=NA, ResponseCookieExpressionValidation=NA, ResponseCookieValidation=NA, DependOnTest=NA, RequestType=PUT}</td>
+<td><div><pre>java.lang.AssertionError: expected [true] but found [false]
+	at testScript.API.runAPITest(API.java:363)
+	at utility.GenerateTestNGXml.CreateTestNGXml(GenerateTestNGXml.java:53)
+	at launch.Master.main(Master.java:36)
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace1740571776", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1740571776'><pre>java.lang.AssertionError: expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:94)
+	at org.testng.Assert.failNotEquals(Assert.java:494)
+	at org.testng.Assert.assertTrue(Assert.java:42)
+	at org.testng.Assert.assertTrue(Assert.java:52)
+	at testScript.API.runAPITest(API.java:363)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:84)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:348)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:343)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:305)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:254)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1224)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1149)
+	at org.testng.TestNG.run(TestNG.java:1057)
+	at utility.GenerateTestNGXml.CreateTestNGXml(GenerateTestNGXml.java:53)
+	at launch.Master.main(Master.java:36)
+</pre></div></td>
+<td>0</td>
+<td>testScript.API@cad498c</td></tr>
+<tr>
+<td title='testScript.API.runAPITest()'><b>runAPITest</b><br>Test class: testScript.API<br>Parameters: {ResponseHeaderExpressionValidation=NA, Description=This test is to validate Get State API with state id value as 31., RequestCookies=NA, ResponseBodySchema={   "$schema": "http://json-schema.org/draft-04/schema#",   "type": "object",   "properties": {     "stateId": {       "type": "integer"    },     "state": {       "type": "string"    },     "countryId": {       "type": "integer"    },     "gstnStateId": {       "type": "string"    },     "igst": {       "type": "number"    },     "cgst": {       "type": "number"     },     "sgst": {       "type": "number"     }   },   "required": [     "stateId",     "state",     "countryId",     "gstnStateId",     "igst",     "cgst",     "sgst"   ] }, BasePath=/states/{stateId}, PathParameters=stateId=31, ResponseBodyParameters=NA, TestCaseName=GetState, RequestParameters=NA, ResponseHeaderValidation=NA, RequestHeaders=AppId=114;SystemId=naukriIndia;Accept-Encoding=gzip,deflate;cache-control=no-cache;Accept=*/*;Content-Type=application/json, BaseURI=http://services.test2.mnr-services-test2.cluster.infoedge.com/company-services/company-service-refactor, RequestBody=NA, ResponseHeadersToBeSaved=NA, ResponseCode=200, MultiPartData=NA, ResponseCookiesToBeSaved=NA, ResponseBodyFieldToBeSaved=NA, RandomValues=NA, ResponseBodyExpressionValidation=NA, QueryParameters=NA, ResponseType=JSON, ResponseBody={"stateId":31,"state":"Uttar Pradesh","countryId":66,"gstnStateId":"9","igst":18.0,"cgst":9.0,"sgst":9.0}, ResponseCookieExpressionValidation=NA, ResponseCookieValidation=NA, DependOnTest=NA, RequestType=GET}</td>
+<td><div><pre>java.lang.AssertionError: expected [true] but found [false]
+	at testScript.API.runAPITest(API.java:363)
+	at utility.GenerateTestNGXml.CreateTestNGXml(GenerateTestNGXml.java:53)
+	at launch.Master.main(Master.java:36)
+... Removed 25 stack frames</pre></div><a href='#' onClick='toggleBox("stack-trace34419690", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace34419690'><pre>java.lang.AssertionError: expected [true] but found [false]
+	at org.testng.Assert.fail(Assert.java:94)
+	at org.testng.Assert.failNotEquals(Assert.java:494)
+	at org.testng.Assert.assertTrue(Assert.java:42)
+	at org.testng.Assert.assertTrue(Assert.java:52)
+	at testScript.API.runAPITest(API.java:363)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:84)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
+	at org.testng.TestRunner.privateRun(TestRunner.java:767)
+	at org.testng.TestRunner.run(TestRunner.java:617)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:348)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:343)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:305)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:254)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1224)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1149)
+	at org.testng.TestNG.run(TestNG.java:1057)
+	at utility.GenerateTestNGXml.CreateTestNGXml(GenerateTestNGXml.java:53)
+	at launch.Master.main(Master.java:36)
+</pre></div></td>
+<td>0</td>
+<td>testScript.API@cad498c</td></tr>
+</table><p>
+</body>
+</html>

@@ -28,7 +28,7 @@ const UpdateRunable = (() => {
 
     const toggleModal = () => {
         setShowModel(!showModel);
-      }
+    }
 
     const handleChangeForTest = (e) => {
         console.log(e.target.value);
@@ -42,22 +42,22 @@ const UpdateRunable = (() => {
 
     const handleSubmit = async () => {
         console.log(formData.testSuitName + formData.isRunable);
-        try{
+        try {
             await axios.post("/update-runable",
-            {
-            testSuitName:formData.testSuitName,
-            isRunable:formData.isRunable
-        })
-        setFormData({
-            testSuitName:"",
-            isRunable:""
-        })
+                {
+                    testSuitName: formData.testSuitName,
+                    isRunable: formData.isRunable
+                })
+            setFormData({
+                testSuitName: "",
+                isRunable: ""
+            })
         }
-        catch(error){
+        catch (error) {
             console.error('Error submitting form data:', error);
         }
 
-        
+
     };
 
 
@@ -65,12 +65,19 @@ const UpdateRunable = (() => {
         <div>
             {showModel ? (<div id="modal" class="modal">
                 <div class="modal-content">
-                <span class="close" onClick={toggleModal}>&times;</span>
+                    <span class="close" onClick={toggleModal}>&times;</span>
 
                     <label>
                         Select a testSuitName    :
                     </label>
-                    <select name="testSuitName" value={formData.testSuitName} onChange={handleChangeForTest}>
+                    <select name="testSuitName" value={formData.testSuitName} onChange={handleChangeForTest} style={{
+                        padding: '8px',
+                        fontSize: '16px',
+                        borderRadius: '4px',
+                        border: '1px solid #ccc',
+                        backgroundColor: '#fff',
+                        boxShadow: 'inset 0 1px 1px rgba(0, 0, 0, 0.075)',
+                    }}>
                         <option value="">Choose an option</option>
                         {choices.map((choice, index) => (
                             <option key={index} value={choice}>

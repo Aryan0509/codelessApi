@@ -1,5 +1,5 @@
 import '../NavigationBar/navbar.css'
-// import axios from "axios";
+import axios from "axios";
 // import { useState,useEffect } from 'react';
 
 function DbConnectionWidget({toggleDbConnection}){
@@ -24,14 +24,34 @@ function DbConnectionWidget({toggleDbConnection}){
     //     fetchData();
     //   }, []);
 
+    const handleSubmitForMongo=async()=>{
+        await axios.post("/run-command",{choice:"mongo"}).then((response)=>{
+            console.log(response);
+        }).catch((error)=>{
+            console.error(error);
+        })
+    }
+    const handleSubmitForExcel=async()=>{
+        await axios.post("/run-command",{choice:"excel"}).then((response)=>{
+            console.log(response);
+        }).catch((error)=>{
+            console.error(error);
+        })
+    }
+    const linkUrl = 'file:///home/aryangupta/react/Testing/Reports/APISummaryReport.html';
+  const linkText = 'view report';
+
     return(
 <div class="widget">
-<div class="tip">Edit Run Status</div>
-    <label for="textbox" class="">Enter Connection String:</label>
-    <input type="text" id="textbox" name="textbox"/>
+<span class="close" onClick={toggleDbConnection}>&times;</span>
+<div class="tip">Excecute</div>
+    {/* <label for="textbox" class="">Enter Connection String:</label>
+    <input type="text" id="textbox" name="textbox"/> */}
     <div class="button-container">
-      <button type="button">OK</button>
+      <button type="button" onClick={handleSubmitForMongo}>Excecute via Mongo</button>
+      <button type="button" onClick={handleSubmitForExcel}>Excecute via Excel</button>
       <button type="button" onClick={toggleDbConnection}>Cancel</button>
+      <a href={linkUrl} target="_blank" rel="noopener noreferrer">{linkText}</a>
     </div>
 </div>
 

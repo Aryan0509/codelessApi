@@ -23,11 +23,11 @@ const QueryFragment = (props) => {
         console.log(response);
         setChoices(response.data);
         console.log(choices);
-        localStorage.setItem("testSuites",JSON.stringify(response.data));
+        localStorage.setItem("testSuites", JSON.stringify(response.data));
       } catch (error) {
         // Handle error
         console.error(error);
-        
+
       }
     };
     fetchData();
@@ -80,7 +80,7 @@ const QueryFragment = (props) => {
       } catch (error) {
         // Handle error
         console.error(error);
-        
+
       }
     };
 
@@ -116,7 +116,7 @@ const QueryFragment = (props) => {
         })
         .catch((error) => {
           console.error('Error submitting form data:', error);
-          
+
         });
     }
     else {
@@ -134,7 +134,7 @@ const QueryFragment = (props) => {
         })
         .catch((error) => {
           console.error('Error submitting form data:', error);
-          
+
         });
       console.log(data);
 
@@ -166,7 +166,7 @@ const QueryFragment = (props) => {
   //   {
   //     console.error(error);
   //   }
-   
+
   // };
 
 
@@ -180,7 +180,14 @@ const QueryFragment = (props) => {
                 <label>
                   Select a testSuitName    :
                 </label>
-                <select name="testSuitName" value={formData.testSuitName} onChange={handleChangeForTest}>
+                <select name="testSuitName" value={formData.testSuitName} onChange={handleChangeForTest} style={{
+                  padding: '8px',
+                  fontSize: '16px',
+                  borderRadius: '4px',
+                  border: '1px solid #ccc',
+                  backgroundColor: '#fff',
+                  boxShadow: 'inset 0 1px 1px rgba(0, 0, 0, 0.075)',
+                }}>
                   <option value="">Choose an option</option>
                   {choices.map((choice, index) => (
                     <option key={index} value={choice}>
@@ -197,7 +204,14 @@ const QueryFragment = (props) => {
                   <label>
                     Select an Apiname  :
                   </label>
-                  <select name="apiname" value={formData.apiname} onChange={handleChange}>
+                  <select name="apiname" value={formData.apiname} onChange={handleChange} style={{
+                    padding: '8px',
+                    fontSize: '16px',
+                    borderRadius: '4px',
+                    border: '1px solid #ccc',
+                    backgroundColor: '#fff',
+                    boxShadow: 'inset 0 1px 1px rgba(0, 0, 0, 0.075)',
+                  }}>
                     <option value="">Choose an option</option>
                     {apiChoices.map((choice, index) => (
                       <option key={index} value={choice}>
@@ -229,7 +243,7 @@ const QueryFragment = (props) => {
           {data.api.map((api, index) => (
             <Tuple testSuitName={data.testSuitName} apiname={api.apiname} Description={api.parameters.Description} />
           ))}
-           <ToastContainer />
+          <ToastContainer />
           {/* <button
         onClick={() => handlePagination(currentPage - 1)}
         disabled={currentPage === 1}
