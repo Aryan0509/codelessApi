@@ -1,0 +1,83 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "userId": {
+      "type": "string"
+    },
+    "username": {
+      "type": "string"
+    },
+    "email": {
+      "type": "string"
+    },
+    "alternateEmail": {
+      "type": "string"
+    },
+    "residencePhone": {
+      "type": "string"
+    },
+    "mobile": {
+      "type": "string"
+    },
+    "resdexVisibility": {
+      "type": "string"
+    },
+    "mailer": {
+      "type": "string"
+    },
+    "accountCompletion": {
+      "type": "string"
+    },
+    "jobAlert": {
+      "type": "string"
+    },
+	"emailVerification": {
+      "type": "string"
+    },
+	"accountCreationSource": {
+      "type": "string"
+    },
+	"serviceType": {
+      "type": "string"
+    },
+	"sourceTemp": {
+      "type": "string"
+    },
+	"mobileVerified": {
+      "type": "string"
+    },
+	"emailVerified": {
+      "type": "string"
+    },
+	"profileStatus": {
+      "type": "string"
+    },
+	"isPremium": {
+      "type": "string"
+    },
+	"accountCreationDate": {
+      "type": "string"
+    },
+    "accountCreatiofghaskjnDate": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "serviceType",
+	"accountCreationSource",
+	"emailVerification",
+	"jobAlert",
+	"accountCompletion",
+	"mailer",
+	"mobile",
+	"email",
+    "sourceTemp",
+    "mobileVerified",
+    "emailVerified",
+    "profileStatus",
+    "isPremium",
+    "accountCreationDate",
+    "accountCreatiofghaskjnDate"
+  ]
+}

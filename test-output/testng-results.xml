@@ -2,23 +2,23 @@
 <testng-results total="2" passed="2" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-06-26T19:25:29Z" name="FolderApi@mongo" finished-at="2023-06-26T19:25:33Z" duration-ms="4165">
+  <suite started-at="2023-06-27T06:44:29Z" name="FolderApi@mongo" finished-at="2023-06-27T06:44:34Z" duration-ms="5309">
     <groups>
     </groups>
-    <test started-at="2023-06-26T19:25:29Z" name="FolderApi@mongoTest" finished-at="2023-06-26T19:25:33Z" duration-ms="4165">
+    <test started-at="2023-06-27T06:44:29Z" name="FolderApi@mongoTest" finished-at="2023-06-27T06:44:34Z" duration-ms="5309">
       <class name="testScript.API">
-        <test-method is-config="true" signature="reporting(org.testng.ITestContext)[pri:0, instance:testScript.API@6f03482]" started-at="2023-06-27T00:55:28Z" name="reporting" finished-at="2023-06-27T00:55:29Z" duration-ms="402" status="PASS">
+        <test-method is-config="true" signature="reporting(org.testng.ITestContext)[pri:0, instance:testScript.API@185a6e9]" started-at="2023-06-27T12:14:29Z" name="reporting" finished-at="2023-06-27T12:14:29Z" duration-ms="300" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@1e79d43]]>
+                <![CDATA[org.testng.TestRunner@60df7989]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- reporting -->
-        <test-method signature="runAPITest(java.util.Map)[pri:0, instance:testScript.API@6f03482]" started-at="2023-06-27T00:55:29Z" name="runAPITest" data-provider="getInput" finished-at="2023-06-27T00:55:32Z" duration-ms="3446" status="PASS">
+        <test-method signature="runAPITest(java.util.Map)[pri:0, instance:testScript.API@185a6e9]" started-at="2023-06-27T12:14:29Z" name="runAPITest" data-provider="getInput" finished-at="2023-06-27T12:14:33Z" duration-ms="3856" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -29,11 +29,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runAPITest -->
-        <test-method is-config="true" signature="afterMethod()[pri:0, instance:testScript.API@6f03482]" started-at="2023-06-27T00:55:32Z" name="afterMethod" finished-at="2023-06-27T00:55:32Z" duration-ms="1" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterMethod -->
-        <test-method signature="runAPITest(java.util.Map)[pri:0, instance:testScript.API@6f03482]" started-at="2023-06-27T00:55:32Z" name="runAPITest" data-provider="getInput" finished-at="2023-06-27T00:55:33Z" duration-ms="689" status="PASS">
+        <test-method signature="runAPITest(java.util.Map)[pri:0, instance:testScript.API@185a6e9]" started-at="2023-06-27T12:14:33Z" name="runAPITest" data-provider="getInput" finished-at="2023-06-27T12:14:34Z" duration-ms="1430" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -44,11 +40,15 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runAPITest -->
-        <test-method is-config="true" signature="afterMethod()[pri:0, instance:testScript.API@6f03482]" started-at="2023-06-27T00:55:33Z" name="afterMethod" finished-at="2023-06-27T00:55:33Z" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="afterMethod()[pri:0, instance:testScript.API@185a6e9]" started-at="2023-06-27T12:14:33Z" name="afterMethod" finished-at="2023-06-27T12:14:33Z" duration-ms="0" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->
-        <test-method is-config="true" signature="afterSuite()[pri:0, instance:testScript.API@6f03482]" started-at="2023-06-27T00:55:33Z" name="afterSuite" finished-at="2023-06-27T00:55:33Z" duration-ms="283" status="PASS">
+        <test-method is-config="true" signature="afterMethod()[pri:0, instance:testScript.API@185a6e9]" started-at="2023-06-27T12:14:34Z" name="afterMethod" finished-at="2023-06-27T12:14:34Z" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method is-config="true" signature="afterSuite()[pri:0, instance:testScript.API@185a6e9]" started-at="2023-06-27T12:14:34Z" name="afterSuite" finished-at="2023-06-27T12:14:35Z" duration-ms="176" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterSuite -->

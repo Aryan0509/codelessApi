@@ -1,0 +1,36 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "cityId": {
+      "type": "integer"
+    },
+    "city": {
+      "type": "string"
+    },
+    "stateId": {
+      "type": "integer"
+    },
+    "countryId": {
+      "type": "integer"
+    },
+    "stdCode": {
+      "type": "integer"
+    },
+    "gulfCityId": {
+      "type": "string"
+    },
+    "gulfCountryId": {
+      "type": "integer"
+    }
+  },
+  "required": [
+    "cityId",
+    "city",
+    "stateId",
+    "countryId",
+    "stdCode",
+    "gulfCityId",
+    "gulfCountryId"
+  ]
+}
