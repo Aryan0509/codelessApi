@@ -7,6 +7,39 @@ import 'react-toastify/dist/ReactToastify.css';
 
 function NewTestForm({ formType }) {
 
+
+  const emptyForm={
+    testSuitName: '',
+    apiname: '',
+    isRunableApi:'',
+    DependOnTest: "",
+    Description: "",
+    RandomValues: "",
+    RequestType: "",
+    BaseURI: "",
+    BasePath: "",
+    RequestHeaders: "",
+    RequestCookies:"",
+    QueryParameters: "",
+    PathParameters: "",
+    RequestBody: "",
+    RequestParameters: "",
+    MultiPartData: "",
+    ResponseCode:"",
+    ResponseType: "",
+    ResponseCookiesToBeSaved: "",
+    ResponseHeadersToBeSaved: "",
+    ResponseBodyFieldToBeSaved: "",
+    ResponseCookieValidation: "",
+    ResponseCookieExpressionValidation: "",
+    ResponseHeaderValidation: "",
+    ResponseHeaderExpressionValidation:"",
+    ResponseBodySchema: "",
+    ResponseBody: "",
+    ResponseBodyParameters: "",
+    ResponseBodyExpressionValidation: ""
+  };
+
   const [formData, setFormData] = useState({
     testSuitName: '',
     apiname: '',
@@ -84,6 +117,7 @@ function NewTestForm({ formType }) {
       )
         .then((response) => {
           console.log('Form data submitted successfully:', response);
+          setFormData(emptyForm);
           // Do something with the response if needed
         })
         .catch((error) => {
