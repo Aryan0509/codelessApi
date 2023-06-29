@@ -10,6 +10,7 @@ import QueryFragment from './Views/FullPages/QueryFragment';
 import axios from 'axios';
 import Modal from './Views/FullPages/Modal';
 import UpdateRunable from './Views/FullPages/UpdateRunable';
+import UpdateRunable2 from './Views/FullPages/UpdateRunable2';
 
 function App() {
 
@@ -136,7 +137,7 @@ const handleSubmit = async () => {
 {showStateName==='runable' ?(
     <>
       {/* <QueryFragment queryType={'update'}/> */}
-      <UpdateRunable />
+      <UpdateRunable2 />
     </>)
      :null
 }
