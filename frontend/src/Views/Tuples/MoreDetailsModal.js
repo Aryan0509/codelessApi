@@ -1,6 +1,8 @@
 import '../NavigationBar/navbar.css'
+
+
 const MoreDetailInfo=(props)=>{
-  const {toggleModal}=props;
+  const {testSuitName,apiname,toggleModal}=props;
   return (
 <div id="modal" class="modal">
 <div class="modal-content">

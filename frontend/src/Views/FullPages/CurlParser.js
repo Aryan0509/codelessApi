@@ -17,7 +17,6 @@ return(
       <label for="enterCurl">Enter Curl (bash) :</label>
       <textarea type="text" id="enterCurl" name="enterCurl" onChange={handleChange}/>
     </div>
-
     <button type="submit" onClick={() =>{PrintValue();setParseCurlButtonClickedStatus(true)}}>Parse Curl</button>
   </div>
 

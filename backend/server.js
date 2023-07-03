@@ -23,7 +23,7 @@ let choice = "";
 const workbook = new ExcelJS.Workbook();
 let sheetNames = new Set();
 
-const headers=[
+const headers = [
   "TestCaseName",
   "DependOnTest",
   "Description",
@@ -89,7 +89,7 @@ app.post('/get-server', (req, res) => {
     sheetPath = req.body.input1;
     sheetName = req.body.input2;
     if (sheetPath === "/") {
-      sheetPath = "/home/aryangupta/CodelessAPIAutomation/API_Automation_Suite.xlsx";
+      sheetPath = "/home/aryangupta/react/Testing/API_Automation_Suite.xlsx";
     }
     if (sheetName === "/") {
       sheetName = "APITestSuites";
@@ -233,8 +233,8 @@ app.post('/new-suite', (req, res) => {
       });
     }).catch(error => res.status(403).json({ message: error.message }));
   }
-  else{
-    const values=[
+  else {
+    const values = [
       apiname,
       DependOnTest,
       Description,
@@ -264,7 +264,7 @@ app.post('/new-suite', (req, res) => {
       ResponseBodyExpressionValidation
     ]
 
-    addRowOrSheet(testSuitName,values,headers).then(() => {
+    addRowOrSheet(testSuitName, values, headers).then(() => {
       res.status(200).json({
         message: 'Success!'
       });
@@ -312,83 +312,82 @@ app.post('/update-suite', (req, res) => {
     ResponseBodyParameters,
     ResponseBodyExpressionValidation } = req.body;
 
-    if(choice==="mongodb")
-    {
-      const newParameters = {
-        isRunableApi,
-        DependOnTest,
-        Description,
-        RandomValues,
-        RequestType,
-        BaseURI,
-        BasePath,
-        RequestHeaders,
-        RequestCookies,
-        QueryParameters,
-        PathParameters,
-        RequestBody,
-        RequestParameters,
-        MultiPartData,
-        ResponseCode,
-        ResponseType,
-        ResponseCookiesToBeSaved,
-        ResponseHeadersToBeSaved,
-        ResponseBodyFieldToBeSaved,
-        ResponseCookieValidation,
-        ResponseCookieExpressionValidation,
-        ResponseHeaderValidation,
-        ResponseHeaderExpressionValidation,
-        ResponseBodySchema,
-        ResponseBody,
-        ResponseBodyParameters,
-        ResponseBodyExpressionValidation
-      };
-    
-      updateQuery(testSuitName, apiname, newParameters).then(() => {
-        res.status(200).json({
-          message: 'Success!'
-        });
-      }).catch(error => res.status(403).json({ message: error.message }));
-    }
+  if (choice === "mongodb") {
+    const newParameters = {
+      isRunableApi,
+      DependOnTest,
+      Description,
+      RandomValues,
+      RequestType,
+      BaseURI,
+      BasePath,
+      RequestHeaders,
+      RequestCookies,
+      QueryParameters,
+      PathParameters,
+      RequestBody,
+      RequestParameters,
+      MultiPartData,
+      ResponseCode,
+      ResponseType,
+      ResponseCookiesToBeSaved,
+      ResponseHeadersToBeSaved,
+      ResponseBodyFieldToBeSaved,
+      ResponseCookieValidation,
+      ResponseCookieExpressionValidation,
+      ResponseHeaderValidation,
+      ResponseHeaderExpressionValidation,
+      ResponseBodySchema,
+      ResponseBody,
+      ResponseBodyParameters,
+      ResponseBodyExpressionValidation
+    };
 
-    else{
-      const values=[
-        apiname,
-        DependOnTest,
-        Description,
-        RandomValues,
-        RequestType,
-        BaseURI,
-        BasePath,
-        RequestHeaders,
-        RequestCookies,
-        QueryParameters,
-        PathParameters,
-        RequestBody,
-        RequestParameters,
-        MultiPartData,
-        ResponseCode,
-        ResponseType,
-        ResponseCookiesToBeSaved,
-        ResponseHeadersToBeSaved,
-        ResponseBodyFieldToBeSaved,
-        ResponseCookieValidation,
-        ResponseCookieExpressionValidation,
-        ResponseHeaderValidation,
-        ResponseHeaderExpressionValidation,
-        ResponseBodySchema,
-        ResponseBody,
-        ResponseBodyParameters,
-        ResponseBodyExpressionValidation
-      ]
-      findAndUpdateRow(testSuitName,values).then(() => {
-        res.status(200).json({
-          message: 'Success!'
-        });
-      }).catch(error => res.status(404).json({ message: error.message }));
-    }
+    updateQuery(testSuitName, apiname, newParameters).then(() => {
+      res.status(200).json({
+        message: 'Success!'
+      });
+    }).catch(error => res.status(403).json({ message: error.message }));
+  }
 
- 
+  else {
+    const values = [
+      apiname,
+      DependOnTest,
+      Description,
+      RandomValues,
+      RequestType,
+      BaseURI,
+      BasePath,
+      RequestHeaders,
+      RequestCookies,
+      QueryParameters,
+      PathParameters,
+      RequestBody,
+      RequestParameters,
+      MultiPartData,
+      ResponseCode,
+      ResponseType,
+      ResponseCookiesToBeSaved,
+      ResponseHeadersToBeSaved,
+      ResponseBodyFieldToBeSaved,
+      ResponseCookieValidation,
+      ResponseCookieExpressionValidation,
+      ResponseHeaderValidation,
+      ResponseHeaderExpressionValidation,
+      ResponseBodySchema,
+      ResponseBody,
+      ResponseBodyParameters,
+      ResponseBodyExpressionValidation
+    ]
+    findAndUpdateRow(testSuitName, values).then(() => {
+      res.status(200).json({
+        message: 'Success!'
+      });
+    }).catch(error => res.status(404).json({ message: error.message }));
+  }
+
+
 });
 
 app.post('/get-query', (req, res) => {
@@ -417,21 +416,20 @@ app.post('/delete', (req, res) => {
 
 
 app.post('/run-command', (req, res) => {
-  let arg3="";
-  let arg2="";
-  let arg1="yes";
-  if(choice==="mongodb")
-  {
-    arg1="No";
-    arg2=dataserver;
-    arg3=projectName;
+  let arg3 = "";
+  let arg2 = "";
+  let arg1 = "yes";
+  if (choice === "mongodb") {
+    arg1 = "No";
+    arg2 = dataserver;
+    arg3 = projectName;
   }
-  else{
-    arg1="yes";
-    arg2=sheetPath;
-    arg3=sheetName;
+  else {
+    arg1 = "yes";
+    arg2 = sheetPath;
+    arg3 = sheetName;
   }
-  const command="java -Dlog4j.configuration=file:DataInput/Logger_Property/log4j.properties -jar codeless.jar '"+arg1+"' '"+arg2+"' '"+arg3+"'";
+  const command = "java -Dlog4j.configuration=file:DataInput/Logger_Property/log4j.properties -jar codeless.jar '" + arg1 + "' '" + arg2 + "' '" + arg3 + "'";
   // const c = req.body.choice;
   // let command = "";
   // if (c === "mongo")
@@ -450,16 +448,13 @@ app.post('/run-command', (req, res) => {
       console.error(`Command execution failed: ${stderr}`);
       res.send(stderr);
     }
-    else{
+    else {
       console.log('Command output:');
-      console.log(stdout);
+      console.log(stdout.type);
       res.send(stdout);
     }
 
-   
   })
-  // Usage example
-  runCommandInNewTerminal('echo "Hello, World!"');
 });
 
 
@@ -467,52 +462,50 @@ app.post('/test-query', asyncHandler(async (req, res) => {
   // Perform asynchronous operations here
   const testSuitName = req.body.testSuitName;
   const apiname = req.body.apiname;
-  if(choice==="mongodb")
-  {
+  if (choice === "mongodb") {
     const result = await ProjectData.findOne({ testSuitName: testSuitName, 'api.apiname': apiname });
-  if (result) {
-    console.log(result);
-    const apiEntry = result.api.find(api => api.apiname === apiname);
-    if (apiEntry) {
-      console.log("api entry is"+ apiEntry);
-      res.status(200).json(apiEntry);
+    if (result) {
+      console.log(result);
+      const apiEntry = result.api.find(api => api.apiname === apiname);
+      if (apiEntry) {
+        console.log("api entry is" + apiEntry);
+        res.status(200).json(apiEntry);
+      }
+    }
+    else {
+      res.status(403).json({ message: 'Not Found' });
     }
   }
   else {
-    res.status(403).json({ message: 'Not Found' });
-  }
-  }
-  else{
     const worksheet = workbook.getWorksheet(testSuitName);
 
-    if(!worksheet) {
-        throw new Error('No such sheet found');
+    if (!worksheet) {
+      throw new Error('No such sheet found');
     }
 
     let headers = [];
     let parameters = {};
 
     worksheet.eachRow((row, rowNumber) => {
-        if(rowNumber === 1) { // Read headers row
-            row.eachCell(cell => {
-                headers.push(cell.value);
-            });
-        } else if(row.getCell(1).value === apiname) { // Match the testcase name in other rows
-            row.eachCell((cell, cellNumber) => {
-                // Match each cell with corresponding header and add it to parameters object
-                parameters[headers[cellNumber-1]] = cell.value;
-            });
-        }
+      if (rowNumber === 1) { // Read headers row
+        row.eachCell(cell => {
+          headers.push(cell.value);
+        });
+      } else if (row.getCell(1).value === apiname) { // Match the testcase name in other rows
+        row.eachCell((cell, cellNumber) => {
+          // Match each cell with corresponding header and add it to parameters object
+          parameters[headers[cellNumber - 1]] = cell.value;
+        });
+      }
     });
-    console.log({parameters});
+    console.log({ parameters });
     res.send({ parameters });
   }
-  
+
 }));
 
 app.get('/return-testSuites', asyncHandler(async (req, res) => {
-  if(choice==="mongodb")
-  {
+  if (choice === "mongodb") {
     try {
       const testSuitNames = await ProjectData.find({}, 'testSuitName');
       const result = testSuitNames.map((project) => project.testSuitName);
@@ -524,17 +517,16 @@ app.get('/return-testSuites', asyncHandler(async (req, res) => {
       throw error;
     }
   }
-  else{
+  else {
     console.log(sheetNames);
     res.send(Array.from(sheetNames));
   }
-  
+
 }))
 app.post('/get-apis', asyncHandler(async (req, res) => {
   const testSuitName = req.body.testSuitName;
   console.log(req.body);
-  if(choice==="mongodb")
-  {
+  if (choice === "mongodb") {
     try {
       const result = await ProjectData.aggregate([
         { $match: { testSuitName } },
@@ -547,33 +539,32 @@ app.post('/get-apis', asyncHandler(async (req, res) => {
       res.status(403).json(error.message);
     }
   }
-  else{
+  else {
     const worksheet = workbook.getWorksheet(testSuitName);
 
-    if(!worksheet) {
-        throw new Error('No such sheet found');
+    if (!worksheet) {
+      throw new Error('No such sheet found');
     }
 
     let firstColumnValues = [];
 
     // skip the header row with a condition in the loop
     worksheet.eachRow((row, rowNumber) => {
-        if(rowNumber !== 1) {  // Skip header row
-            firstColumnValues.push(row.getCell(1).value);
-        }
+      if (rowNumber !== 1) {  // Skip header row
+        firstColumnValues.push(row.getCell(1).value);
+      }
     });
 
     res.send(firstColumnValues);
 
   }
- 
+
 }))
 
 app.post('/all-data', asyncHandler(async (req, res) => {
   const testSuitName = req.body.testSuitName;
   console.log(req.body);
-  if(choice==="mongodb")
-  {
+  if (choice === "mongodb") {
     try {
       const result = await ProjectData.findOne({ testSuitName: testSuitName });
       //  console.log(result);
@@ -584,49 +575,48 @@ app.post('/all-data', asyncHandler(async (req, res) => {
       throw error;
     }
   }
-  else{
+  else {
     const worksheet = workbook.getWorksheet(testSuitName);
 
-    if(!worksheet) {
-        throw new Error('No such sheet found');
+    if (!worksheet) {
+      throw new Error('No such sheet found');
     }
 
     let headers = [];
     let apiData = [];
 
     worksheet.eachRow((row, rowNumber) => {
-        if(rowNumber === 1) { // Reading Header Row
-            row.eachCell((cell, cellNumber) => {
-                if(cellNumber !== 1){ // Skipping first column header
-                    headers.push(cell.value);
-                }
-            });
-        } else {
-            let apiObj = {};
-            apiObj.apiname = row.getCell(1).value; //first column value as apiname
+      if (rowNumber === 1) { // Reading Header Row
+        row.eachCell((cell, cellNumber) => {
+          if (cellNumber !== 1) { // Skipping first column header
+            headers.push(cell.value);
+          }
+        });
+      } else {
+        let apiObj = {};
+        apiObj.apiname = row.getCell(1).value; //first column value as apiname
 
-            let parameters = {};
-            row.eachCell((cell, cellNumber) => {
-                if(cellNumber !== 1){ // Skipping first column
-                    parameters[headers[cellNumber-2]] = cell.value;
-                }
-            });
+        let parameters = {};
+        row.eachCell((cell, cellNumber) => {
+          if (cellNumber !== 1) { // Skipping first column
+            parameters[headers[cellNumber - 2]] = cell.value;
+          }
+        });
 
-            apiObj.parameters = parameters;
-            apiData.push(apiObj);
-        }
+        apiObj.parameters = parameters;
+        apiData.push(apiObj);
+      }
     });
 
     res.send({ testSuitName: testSuitName, api: apiData });
   }
-  
+
 }))
 
 app.post('/update-runables', asyncHandler(async (req, res) => {
-  const projectArray=req.body.projectArray;
+  const projectArray = req.body.projectArray;
 
-  if(choice==="mongodb")
-  {
+  if (choice === "mongodb") {
     // ProjectData.findOne({ testSuitName }, (err, doc) => {
 
     //   if (err) {
@@ -646,7 +636,7 @@ app.post('/update-runables', asyncHandler(async (req, res) => {
     //     res.status(200).json({ message: "updated successfully" });
     //   });
     // });
-    try{
+    try {
       for (let project of projectArray) {
         const { testSuitName, isRunable } = project;
         await ProjectData.findOneAndUpdate(
@@ -656,21 +646,21 @@ app.post('/update-runables', asyncHandler(async (req, res) => {
         );
       }
       console.log("updated");
-      res.send(200);
+      res.sendStatus(200);
     }
-    catch(err){
+    catch (err) {
       console.error(err);
     }
-    
+
 
   }
-  else{
+  else {
     const worksheet = workbook.getWorksheet(sheetName);
 
     // if(!worksheet) {
     //     throw new Error('mainsheet not found');
     // }
- 
+
     // // Find row and update value
     // worksheet.eachRow((row, rowNumber) => {
     //     if(row.getCell(1).value === testSuitName) {
@@ -679,11 +669,11 @@ app.post('/update-runables', asyncHandler(async (req, res) => {
     //         console.log(`Updated isRunnable for sheet: ${testSuitName}`);
     //     }
     // });
- 
+
     // // Write to filepath
     // await workbook.xlsx.writeFile(sheetPath);
     // res.sendStatus(200);
-
+try{
   projectArray.forEach(test => {
     let rowToBeUpdated;
     worksheet.eachRow((row, rowNumber) => {
@@ -696,35 +686,40 @@ app.post('/update-runables', asyncHandler(async (req, res) => {
     }
   });
 
-  await workbook.xlsx.writeFile(sheetPath); 
+  await workbook.xlsx.writeFile(sheetPath);
+  res.sendStatus(200);
+}
+catch(err)
+{
+  res.sendStatus(400).json(err.message);
+}
 
 
 
   }
-  
+
 
 }))
 
 
 
-app.post('/testAndRuns',asyncHandler(async(req,res)=>{
-  if(choice=="mongodb")
-  {
-    try{
+app.post('/testAndRuns', asyncHandler(async (req, res) => {
+  if (choice == "mongodb") {
+    try {
       const projects = await ProjectData.find();
-      const result= projects.map(project => ({ testSuitName: project.testSuitName, isRunable: project.isRunable }));
+      const result = projects.map(project => ({ testSuitName: project.testSuitName, isRunable: project.isRunable }));
       console.log(result);
       res.send(result);
     }
-    catch(err){
+    catch (err) {
       console.error(err);
       res.status(400).json(err.message);
     }
   }
-  else{
+  else {
     const worksheet = workbook.getWorksheet(sheetName);
     const data = [];
-  
+
     // Go through each row in the worksheet skipping the header row (i.e., row index 1)
     worksheet.eachRow({ includeEmpty: false }, (row, rowNumber) => {
       if (rowNumber > 1) {
@@ -738,7 +733,7 @@ app.post('/testAndRuns',asyncHandler(async(req,res)=>{
     });
     res.send(data);
   }
-  
+
 }))
 
 
@@ -905,7 +900,7 @@ async function getApiRangeByTestSuitName(testSuitName, skip, limit) {
 
 async function addRowOrSheet(sheetNamee, values, headers) {
   if (values.length !== 27 || headers.length !== 27) {
-      throw new Error('values and headers arrays should contain exactly 27 items');
+    throw new Error('values and headers arrays should contain exactly 27 items');
   }
 
   const workbook = new ExcelJS.Workbook();
@@ -913,18 +908,18 @@ async function addRowOrSheet(sheetNamee, values, headers) {
 
   let sheet = workbook.getWorksheet(sheetNamee);
 
-  if(sheet) {
-      sheet.addRow(values);
+  if (sheet) {
+    sheet.addRow(values);
   } else {
-      // Add the new sheet name to the main sheet and the sheetNames array
-      const mainSheet = workbook.getWorksheet(sheetName); // Enter your main sheet name here
-      mainSheet.addRow([sheetNamee,"yes"]);
-      sheetNames.add(sheetNamee);
+    // Add the new sheet name to the main sheet and the sheetNames array
+    const mainSheet = workbook.getWorksheet(sheetName); // Enter your main sheet name here
+    mainSheet.addRow([sheetNamee, "yes"]);
+    sheetNames.add(sheetNamee);
 
-      // Create a new sheet with this name, add the headers and the values
-      sheet = workbook.addWorksheet(sheetNamee);
-      sheet.addRow(headers);
-      sheet.addRow(values);
+    // Create a new sheet with this name, add the headers and the values
+    sheet = workbook.addWorksheet(sheetNamee);
+    sheet.addRow(headers);
+    sheet.addRow(values);
   }
 
   await workbook.xlsx.writeFile(sheetPath); // Enter your file path here
@@ -933,7 +928,7 @@ async function addRowOrSheet(sheetNamee, values, headers) {
 
 async function findAndUpdateRow(sheetName, values) {
   if (values.length !== 27) {
-      throw new Error('values array should contain exactly 27 items');
+    throw new Error('values array should contain exactly 27 items');
   }
 
 
@@ -942,24 +937,24 @@ async function findAndUpdateRow(sheetName, values) {
 
   const worksheet = workbook.getWorksheet(sheetName);
 
-  if(!worksheet) {
-      throw new Error('No such sheet found');
+  if (!worksheet) {
+    throw new Error('No such sheet found');
   }
 
   let isFound = false;
 
   worksheet.eachRow((row, rowNumber) => {
-      if(row.getCell(1).value === values[0]) {
-          row.values = values;
-          isFound = true;
-      }
+    if (row.getCell(1).value === values[0]) {
+      row.values = values;
+      isFound = true;
+    }
   });
 
-  if(!isFound) {
-      throw new Error('No such entry present');
+  if (!isFound) {
+    throw new Error('No such entry present');
   } else {
-      await workbook.xlsx.writeFile(sheetPath); // Replace with your file path
-      console.log('Row updated successfully');
+    await workbook.xlsx.writeFile(sheetPath); // Replace with your file path
+    console.log('Row updated successfully');
   }
 }
 

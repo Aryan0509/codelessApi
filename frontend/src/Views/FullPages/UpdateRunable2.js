@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 const UpdateRunable2 = (() => {
 
     const [suits, setSuits] = useState([]);
@@ -62,6 +65,7 @@ const UpdateRunable2 = (() => {
             projectArray: suits
         }).then((response) => {
             console.log(response);
+            toast.success("Runables updated successfully")
         })
             .catch((err) => {
                 console.error(err);
@@ -91,6 +95,7 @@ const UpdateRunable2 = (() => {
             <button onClick={handleClickSubmit} >
                 Submit
             </button>
+            <ToastContainer />
         </div>
     );
 

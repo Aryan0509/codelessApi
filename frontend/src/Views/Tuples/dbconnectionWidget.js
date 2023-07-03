@@ -2,7 +2,11 @@ import '../NavigationBar/navbar.css'
 import axios from "axios";
 import { useState } from 'react';
 import Modal from 'react-modal';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 // import { useState,useEffect } from 'react';
+Modal.setAppElement('#root')
 
 function DbConnectionWidget({ toggleDbConnection }) {
     // const [formData, setFormData] = useState({
@@ -42,6 +46,7 @@ function DbConnectionWidget({ toggleDbConnection }) {
         }
 
     }
+ 
     const handleClose = () => {
         setIsOpen(false);
         setData("Your Test is being excecuted...");
@@ -69,7 +74,7 @@ function DbConnectionWidget({ toggleDbConnection }) {
          style={
              {
                 overlay: { backgroundColor: 'grey', zIndex: 1000 }, // add a zIndex here
-                 content: { color: 'lightsteelblue' }
+                 content: { color: 'black' },
              }
          }
          contentLabel="Example Modal"

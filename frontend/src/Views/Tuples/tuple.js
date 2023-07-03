@@ -21,7 +21,7 @@ return(
   <img src={moreinfo} title="More Details..." className="moredetails" onClick={toggleModal}/>
   </div>
 </div>
-{showModal ?  <MoreDetailInfo toggleModal={toggleModal}/> : null }
+{showModal ?  <MoreDetailInfo testSuitName={testSuitName} apiname={apiname} toggleModal={toggleModal}/> : null }
 </>
   );
  

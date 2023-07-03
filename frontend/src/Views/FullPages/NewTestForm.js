@@ -117,6 +117,7 @@ function NewTestForm({ formType }) {
       )
         .then((response) => {
           console.log('Form data submitted successfully:', response);
+          toast.success("Test Case added successfully");
           setFormData(emptyForm);
           // Do something with the response if needed
         })
@@ -161,6 +162,7 @@ function NewTestForm({ formType }) {
       )
         .then((response) => {
           console.log('Form data submitted successfully:', response);
+          toast.success("Test Case updated successfully");
           // Do something with the response if needed
         })
         .catch((error) => {
