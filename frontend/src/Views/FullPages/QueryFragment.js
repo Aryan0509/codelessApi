@@ -6,7 +6,6 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 const QueryFragment = (props) => {
   const { queryType, onFormSubmit } = props
-  // const choices = ['FolderApi1', 'Option 2', 'Option 3', 'Option 4']; // Replace with your array of choices
 
   const [choices, setChoices] = useState([]);
   const [apiChoices, setApiChoices] = useState([]);
@@ -79,6 +78,7 @@ const QueryFragment = (props) => {
         setApiChoices(response.data);
       } catch (error) {
         // Handle error
+        setApiChoices([]);
         console.error(error);
 
       }
@@ -95,7 +95,7 @@ const QueryFragment = (props) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     // Make Axios request to the backend
 
@@ -120,7 +120,7 @@ const QueryFragment = (props) => {
         });
     }
     else {
-      axios.post('/all-data', {
+      await axios.post('/all-data', {
         testSuitName: formData.testSuitName,
       }
       )

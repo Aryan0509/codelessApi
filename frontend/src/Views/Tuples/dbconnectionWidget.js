@@ -9,28 +9,6 @@ import 'react-toastify/dist/ReactToastify.css';
 Modal.setAppElement('#root')
 
 function DbConnectionWidget({ toggleDbConnection }) {
-    // const [formData, setFormData] = useState({
-    //     testSuitName:"",
-    //     isRunable:""
-    // });
-    // const [choices, setChoices] = useState([]);
-
-    // useEffect(() => {
-    //     const fetchData = async () => {
-    //       try {
-    //         const response = await axios.get('/return-testSuites'); // Replace '/api/data' with your backend API endpoint
-    //         console.log(response);
-    //         setChoices(response.data);
-    //         console.log(choices);
-    //       } catch (error) {
-    //         // Handle error
-    //         console.error(error);
-    //       }
-    //     };
-    //     fetchData();
-    //   }, []);
-
-
     const [isOpen, setIsOpen] = useState(false);
     const [data, setData] = useState("Your Test is being excecuted...");
 

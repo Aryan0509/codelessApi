@@ -2,7 +2,7 @@ import './App.css';
 import Navbar from './Views/NavigationBar/Navbar';  
 import MoreDetailInfo from './Views/Tuples/MoreDetailsModal'; 
 import FragmentUI from './Views/FullPages/FragmentUI'; 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import DbConnectionWidget from './Views/Tuples/dbconnectionWidget';
 import NewTestForm from './Views/FullPages/NewTestForm';
 import CurlParser from './Views/FullPages/CurlParser';
@@ -11,21 +11,29 @@ import axios from 'axios';
 import Modal from './Views/FullPages/Modal';
 import UpdateRunable from './Views/FullPages/UpdateRunable';
 import UpdateRunable2 from './Views/FullPages/UpdateRunable2';
+import HomePage from './Views/FullPages/HomePage';
+import TopNavbar from './Views/NavigationBar/TopNavbar';
+import SecondaryNavbar from './Views/NavigationBar/SecondaryNavbar';
 
 function App() {
 
   const [showModal, setModal] = useState(false);
   const [showDbModal,setDbModal] = useState(false);
-  const [showStateName,setPageName]=useState('new')
+  const [showStateName,setPageName]=useState('runable')
   const [showNewCurrentState,setNewCurrentState]=useState('fillDetails')
   const [showCurlAdded,setCurlAdded]=useState('')
   const [showParseCurlButtonClickedStatus,setParseCurlButtonClickedStatus]=useState(false)
+  const [configData, setConfigData] = useState(null);
   const toggleModal = () => {
     setModal(!showModal);
   }
 
   const toggleDbConnection = () => {
     setDbModal(!showDbModal);
+  }
+  const toggleHomePageCaseConnection=()=>{
+    setParseCurlButtonClickedStatus(false)
+    setPageName('home');
   }
   const toggleNewTestCaseConnection = () => {
     setParseCurlButtonClickedStatus(false)
@@ -49,58 +57,71 @@ const changeStateofNewFragment=(data)=>{
   
 }
 
-const [showmodal, setShowModal] = useState(true);
-const [choice, setChoice] = useState('');
-const [input1, setInput1] = useState('');
-const [input2, setInput2] = useState('');
-const [error, setError] = useState('');
+const [showmodal, setShowModal] = useState(false);
+// const [choice, setChoice] = useState('');
+// const [input1, setInput1] = useState('');
+// const [input2, setInput2] = useState('');
+// const [error, setError] = useState('');
 
-const handleSubmit = async () => {
-  if (choice === '' || input1 === '' || input2 === '') {
-    setError('All fields are required');
-    return;
-  }
 
+useEffect(() => {
+  const checkConfigFile = async () => {
+    try {
+      const response = await axios.get('/api/config');
+      const data = response.data;
+      if (Object.keys(data).length === 0) {
+        setShowModal(true);
+      } else {
+        console.log(data);
+        setConfigData(data);
+      }
+    } catch (error) {
+      // Handle API request error
+      console.error('Error fetching config data:', error);
+    }
+  };
+
+  checkConfigFile();
+}, []);
+
+
+const handleSubmit = async (formData) => {
   try {
-    // Make the Axios call to send the data to the backend
-    await axios.post('/get-server', {
-      choice,
-      input1,
-      input2
-    });
-
-    // Once the call is successful, hide the modal
+    console.log("post called");
+    await axios.post('/api/config', formData);
+    setConfigData(formData);
     setShowModal(false);
   } catch (error) {
-    console.error(error);
+    // Handle API request error
+    console.error('Error saving config data:', error);
   }
 };
-
-
-  const names = ['shubhm',""];
   var tuples;
   return (
     <div >
 <div color='black'>
 {showmodal && (
         <Modal
-          choice={choice}
-          setChoice={setChoice}
-          input1={input1}
-          setInput1={setInput1}
-          input2={input2}
-          setInput2={setInput2}
-          handleSubmit={handleSubmit}
+          onSubmit={handleSubmit}
         />
       )}
 </div>
     <>
-
-    <Navbar toggleDbConnection={toggleDbConnection} toggleNewTestCaseConnection={toggleNewTestCaseConnection} toggleUpdateTestCaseConnection={toggleUpdateTestCaseConnection} toggleQueryTestCaseConnection={toggleQueryTestCaseConnection} toggleUpdateRunableConnection={toggleUpdateRunableConnection}/>
-    {showDbModal?<DbConnectionWidget toggleDbConnection={toggleDbConnection}/> : null}
+    <TopNavbar />
+    <SecondaryNavbar toggleDbConnection={toggleDbConnection} toggleNewTestCaseConnection={toggleNewTestCaseConnection} toggleUpdateTestCaseConnection={toggleUpdateTestCaseConnection} toggleQueryTestCaseConnection={toggleQueryTestCaseConnection} toggleUpdateRunableConnection={toggleUpdateRunableConnection} toggleHomePageCaseConnection={toggleHomePageCaseConnection} />
+    {/* <Navbar toggleDbConnection={toggleDbConnection} toggleNewTestCaseConnection={toggleNewTestCaseConnection} toggleUpdateTestCaseConnection={toggleUpdateTestCaseConnection} toggleQueryTestCaseConnection={toggleQueryTestCaseConnection} toggleUpdateRunableConnection={toggleUpdateRunableConnection} toggleHomePageCaseConnection={toggleHomePageCaseConnection}/> */}
+    {/* {showDbModal?<DbConnectionWidget toggleDbConnection={toggleDbConnection}/> : null} */}
     {/* {showStateName==='query' ? names.map(name=>(
       <Tuple toggleModal={toggleModal}/>
     )) :null} */}
+
+{showStateName==='home' ?(
+    <>
+      <HomePage/>
+      {/* <Tuple toggleModal={toggleModal}/> */}
+    </>)
+     :null
+}
 {showStateName==='new' ?(
   
   <>

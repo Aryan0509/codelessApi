@@ -2,11 +2,15 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import './UpdateTable.css'
+import QueryFragment2 from './QueryFragment2';
 
-const UpdateRunable2 = (() => {
+const UpdateRunable2 = ((props) => {
 
     const [suits, setSuits] = useState([]);
     const[initial,setInitial]=useState([]);
+    const [showQuery,setShowQuery]=useState([]);
+    const [suitName,setSuitName]=useState(null);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -73,29 +77,82 @@ const UpdateRunable2 = (() => {
 
     };
 
+    const handleSelectAll=async()=>{
+        const updatedSuits = suits.map((suit) => ({ ...suit, isRunable: 'yes' }));
+        setSuits(updatedSuits);
+    }
+
+    const handleDisableAll=async()=>{
+        const updatedSuits = suits.map((suit) => ({ ...suit, isRunable: 'no' }));
+        setSuits(updatedSuits);
+    }
+
+    const openQueryFragment=(e)=>{
+        setShowQuery(true);
+        setSuitName(e.target.name);
+        console.log(e.target.name);
+    }
+
+    const tableStyle = {
+        borderCollapse: 'collapse',
+        width: '100%',
+      };
+    
+      const thStyle = {
+        background: '#f2f2f2',
+        padding: '8px',
+      };
+    
+      const tdStyle = {
+        border: '1px solid #ddd',
+        padding: '8px',
+      };
+
     return (
-        <div className='divCenter'>
+        <div className=''>
+            {showQuery==false?(<div>
+                <table style={tableStyle}>
+            <caption>List of All the Test Suits</caption>
+            <thead>
+              <tr >
+                <th style={thStyle}>Test Suit Name</th>
+                <th style={thStyle}>No. of APIs</th>
+                {/* <th>Edit</th> */}
+                <th style={thStyle}>Checkbox</th>
+              </tr>
+            </thead>
+            <tbody>
             {suits.map((suit, index) => (
-                <div className="tuple-bgg">
-                    <div key={suit.testSuitName}>
-                        <div className="firstsec">
-                            <span>{suit.testSuitName}</span>
+               
+                    <tr  key={suit.testSuitName}>
+                       
+                            <td style={tdStyle}><a name={suit.testSuitName} onClick={openQueryFragment}>{suit.testSuitName}</a></td>
+                            <td style={tdStyle}>{suit.apiLength}</td>
                         
                         {/* <div className="secondsec"> */}
+                        <td style={tdStyle}>
                             <input
                                 type="checkbox"
                                 checked={suit.isRunable.toLowerCase() === "yes"}
                                 onChange={handleToggleRunable(index)}
                             />
                         {/* </div> */}
-                        </div>
-                    </div>
-                </div>
+                        </td>
+                        
+                    </tr>
+               
             ))}
+            </tbody>
+            </table>
             <button onClick={handleClickSubmit} >
                 Submit
             </button>
+            <button onClick={handleSelectAll}>Select All</button>
+            <button onClick={handleDisableAll}>Disable All</button>
             <ToastContainer />
+
+            </div>):<QueryFragment2 testSuitName={suitName}/>}
+            
         </div>
     );
 
