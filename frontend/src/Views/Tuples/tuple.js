@@ -2,12 +2,31 @@ import '../NavigationBar/navbar.css'
 import moreinfo from '../../images/detail.svg';
 import MoreDetailInfo from "./MoreDetailsModal.js";
 import React, { useState} from 'react';
+import { FaTrash } from 'react-icons/fa';
+import axios from 'axios';
+import { RiEdit2Fill } from 'react-icons/ri';
 const Tuple=(props)=>{
 
-  const{testSuitName,apiname,Description}=props;
+  const{testSuitName,apiname,Description,updateArray,changeState}=props;
   const [showModal, setModal] = useState(false);
   const toggleModal = () => {
     setModal(!showModal);
+  }
+  const HandleDelete=async()=>{
+    try{
+      await axios.post("/delete",{
+        testSuitName:testSuitName,
+        apiname:apiname
+      });
+      console.log("deleted");
+      updateArray(apiname);
+    }
+    catch(err){
+      console.log(err);
+    }
+  }
+  const handleEdit=()=>{
+    changeState("update",testSuitName,apiname);
   }
 return(
 <>      
@@ -18,7 +37,9 @@ return(
   </div>
   <div className ="secondsec">{"Suite -"+ testSuitName}</div>
   <div className ="thirdsec">
-  <img src={moreinfo} title="More Details..." className="moredetails" onClick={toggleModal}/>
+  <a onClick={handleEdit}> <RiEdit2Fill /></a>
+  <span style={{ margin: '0 20px' }}></span> 
+  <a onClick={HandleDelete}><FaTrash /></a>
   </div>
 </div>
 {showModal ?  <MoreDetailInfo testSuitName={testSuitName} apiname={apiname} toggleModal={toggleModal}/> : null }

@@ -107,11 +107,14 @@ const QueryFragment = (props) => {
       )
         .then((response) => {
           console.log('Entry Found:', response.data);
-          setFormData((formData) => ({
-            ...formData,
-            ...response.data.parameters,
-          }));
-          onFormSubmit(formData);
+          const currentData={...formData, ...response.data.parameters};
+          // setFormData((formData) => ({
+          //   ...formData,
+          //   ...response.data.parameters,
+          // }));
+          console.log(currentData);
+          setFormData(currentData);
+          onFormSubmit(currentData);
           // Do something with the response if needed
         })
         .catch((error) => {

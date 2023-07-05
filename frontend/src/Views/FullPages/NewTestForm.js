@@ -1,11 +1,76 @@
 import './NewTestForm.css'
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import QueryFragment from './QueryFragment';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-function NewTestForm({ formType }) {
+function NewTestForm({ formType,testSuitName,apiname }) {
+
+  
+  const [formData, setFormData] = useState({
+    testSuitName: '',
+    apiname: '',
+    isRunableApi:'',
+    DependOnTest: "",
+    Description: "",
+    RandomValues: "",
+    RequestType: "",
+    BaseURI: "",
+    BasePath: "",
+    RequestHeaders: "",
+    RequestCookies:"",
+    QueryParameters: "",
+    PathParameters: "",
+    RequestBody: "",
+    RequestParameters: "",
+    MultiPartData: "",
+    ResponseCode:"",
+    ResponseType: "",
+    ResponseCookiesToBeSaved: "",
+    ResponseHeadersToBeSaved: "",
+    ResponseBodyFieldToBeSaved: "",
+    ResponseCookieValidation: "",
+    ResponseCookieExpressionValidation: "",
+    ResponseHeaderValidation: "",
+    ResponseHeaderExpressionValidation:"",
+    ResponseBodySchema: "",
+    ResponseBody: "",
+    ResponseBodyParameters: "",
+    ResponseBodyExpressionValidation: ""
+  });
+  
+  useEffect(()=>{
+
+    const fetchData=(async()=>{
+      try{
+        const response =await axios.post('/test-query', {
+          testSuitName: testSuitName,
+          apiname: apiname,
+        });
+        console.log('Entry Found:', response.data);
+            const currentData={...formData, ...response.data.parameters};
+            // setFormData((formData) => ({
+            //   ...formData,
+            //   ...response.data.parameters,
+            // }));
+            currentData.testSuitName=testSuitName;
+            currentData.apiname=apiname;
+            console.log(currentData);
+            setFormData(currentData);
+      }
+      catch(err){
+        console.error('Error submitting form data:', err);
+      }
+  
+    })
+    if(formType=='update')
+    {
+      console.log(testSuitName);
+      fetchData();
+    }
+  },[]);
+
 
 
   const emptyForm={
@@ -40,37 +105,6 @@ function NewTestForm({ formType }) {
     ResponseBodyExpressionValidation: ""
   };
 
-  const [formData, setFormData] = useState({
-    testSuitName: '',
-    apiname: '',
-    isRunableApi:'',
-    DependOnTest: "",
-    Description: "",
-    RandomValues: "",
-    RequestType: "",
-    BaseURI: "",
-    BasePath: "",
-    RequestHeaders: "",
-    RequestCookies:"",
-    QueryParameters: "",
-    PathParameters: "",
-    RequestBody: "",
-    RequestParameters: "",
-    MultiPartData: "",
-    ResponseCode:"",
-    ResponseType: "",
-    ResponseCookiesToBeSaved: "",
-    ResponseHeadersToBeSaved: "",
-    ResponseBodyFieldToBeSaved: "",
-    ResponseCookieValidation: "",
-    ResponseCookieExpressionValidation: "",
-    ResponseHeaderValidation: "",
-    ResponseHeaderExpressionValidation:"",
-    ResponseBodySchema: "",
-    ResponseBody: "",
-    ResponseBodyParameters: "",
-    ResponseBodyExpressionValidation: ""
-  });
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -193,7 +227,7 @@ function NewTestForm({ formType }) {
 
   return (
     <div>
-    {formType==='update'? <QueryFragment queryType={'update'} onFormSubmit={handleFormSubmit}/>:null}
+    {/* {formType==='update'? <QueryFragment queryType={'update'} onFormSubmit={handleFormSubmit}/>:null} */}
     <div class="fill-details-form">
       <div>
       

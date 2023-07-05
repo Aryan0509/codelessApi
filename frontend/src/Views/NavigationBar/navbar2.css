@@ -27,4 +27,12 @@
   padding: 10px;
 
   }
+  a {
+    color: black; /* Default color of the text */
+    /* Other styles for the links */
+  }
+  
+  a:hover {
+    color: grey; /* Color of the text on hover */
+  }
   

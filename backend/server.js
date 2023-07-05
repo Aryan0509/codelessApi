@@ -130,61 +130,61 @@ app.get('/api/config', (req, res) => {
       configData = JSON.parse(configFileContent);
       console.log(configData);
       choice = configData.choice;
-  console.log(choice);
-  if (choice === "mongodb") {
-    dataserver = configData.input1;
-    projectName = configData.input2;
-    let x = "";
-    if (dataserver === "/") {
-      dataserver = "mongodb://localhost:27017/";
-    }
-    if (projectName === "/") {
-      projectName = "testing";
-    }
-    console.log(dataserver);
-    console.log(projectName)
-    let mongoCall = x.concat(dataserver, projectName);
-    console.log(mongoCall);
-    mongoose.connect(mongoCall, {
-      useNewUrlParser: true,
-      useFindAndModify: false,
-      useUnifiedTopology: true,
-    })
-      .then(() => {
-        console.log('Connected to MongoDB');
+      console.log(choice);
+      if (choice === "mongodb") {
+        dataserver = configData.input1;
+        projectName = configData.input2;
+        let x = "";
+        if (dataserver === "/") {
+          dataserver = "mongodb://localhost:27017/";
+        }
+        if (projectName === "/") {
+          projectName = "testing";
+        }
+        console.log(dataserver);
+        console.log(projectName)
+        let mongoCall = x.concat(dataserver, projectName);
+        console.log(mongoCall);
+        mongoose.connect(mongoCall, {
+          useNewUrlParser: true,
+          useFindAndModify: false,
+          useUnifiedTopology: true,
+        })
+          .then(() => {
+            console.log('Connected to MongoDB');
+            // res.sendStatus(200);
+            res.json(configData);
+          })
+          .catch((error) => {
+            res.err;
+            console.error('Failed to connect to MongoDB', error);
+          });
+      }
+      else {
+        sheetPath = configData.input1;
+        sheetName = configData.input2;
+        if (sheetPath === "/") {
+          sheetPath = "/home/aryangupta/react/Testing/API_Automation_Suite.xlsx";
+        }
+        if (sheetName === "/") {
+          sheetName = "APITestSuites";
+        }
+        workbook.xlsx.readFile(sheetPath).then(() => {
+          const mainSheet = workbook.getWorksheet(sheetName);
+          mainSheet.eachRow((row, rowNumber) => {
+            if (rowNumber !== 1) { // Skip header row
+              sheetNames.add(row.getCell(1).value); // Assuming sheet names are in column 1
+            }
+          });
+          console.log("excel connected");
+          console.log(sheetNames);
+
+        }).catch((error) => {
+          console.error(error);
+        })
         // res.sendStatus(200);
         res.json(configData);
-      })
-      .catch((error) => {
-        res.err;
-        console.error('Failed to connect to MongoDB', error);
-      });
-  }
-  else {
-    sheetPath = configData.input1;
-    sheetName = configData.input2;
-    if (sheetPath === "/") {
-      sheetPath = "/home/aryangupta/react/Testing/API_Automation_Suite.xlsx";
-    }
-    if (sheetName === "/") {
-      sheetName = "APITestSuites";
-    }
-    workbook.xlsx.readFile(sheetPath).then(() => {
-      const mainSheet = workbook.getWorksheet(sheetName);
-      mainSheet.eachRow((row, rowNumber) => {
-        if (rowNumber !== 1) { // Skip header row
-          sheetNames.add(row.getCell(1).value); // Assuming sheet names are in column 1
-        }
-      });
-      console.log("excel connected");
-      console.log(sheetNames);
-
-    }).catch((error) => {
-      console.error(error);
-    })
-    // res.sendStatus(200);
-    res.json(configData);
-  }
+      }
     } catch (error) {
       // If the config file contains invalid JSON data, handle the error
       console.error('Error parsing config file:', error);
@@ -192,7 +192,7 @@ app.get('/api/config', (req, res) => {
       return;
     }
 
-    
+
   } catch (error) {
     // Handle file read error
     console.error('Error reading config file:', error);
@@ -205,60 +205,60 @@ app.post('/api/config', (req, res) => {
   try {
     fs.writeFileSync('/home/aryangupta/react/Testing/config.json', JSON.stringify(configData));
     console.log(configData);
-      choice = configData.choice;
-  console.log(choice);
-  if (choice === "mongodb") {
-    dataserver = configData.input1;
-    projectName = configData.input2;
-    let x = "";
-    if (dataserver === "/") {
-      dataserver = "mongodb://localhost:27017/";
-    }
-    if (projectName === "/") {
-      projectName = "testing";
-    }
-    console.log(dataserver);
-    console.log(projectName)
-    let mongoCall = x.concat(dataserver, projectName);
-    console.log(mongoCall);
-    mongoose.connect(mongoCall, {
-      useNewUrlParser: true,
-      useFindAndModify: false,
-      useUnifiedTopology: true,
-    })
-      .then(() => {
-        console.log('Connected to MongoDB');
-        res.sendStatus(200);
+    choice = configData.choice;
+    console.log(choice);
+    if (choice === "mongodb") {
+      dataserver = configData.input1;
+      projectName = configData.input2;
+      let x = "";
+      if (dataserver === "/") {
+        dataserver = "mongodb://localhost:27017/";
+      }
+      if (projectName === "/") {
+        projectName = "testing";
+      }
+      console.log(dataserver);
+      console.log(projectName)
+      let mongoCall = x.concat(dataserver, projectName);
+      console.log(mongoCall);
+      mongoose.connect(mongoCall, {
+        useNewUrlParser: true,
+        useFindAndModify: false,
+        useUnifiedTopology: true,
       })
-      .catch((error) => {
-        res.err;
-        console.error('Failed to connect to MongoDB', error);
-      });
-  }
-  else {
-    sheetPath = configData.input1;
-    sheetName = configData.input2;
-    if (sheetPath === "/") {
-      sheetPath = "/home/aryangupta/react/Testing/API_Automation_Suite.xlsx";
+        .then(() => {
+          console.log('Connected to MongoDB');
+          res.sendStatus(200);
+        })
+        .catch((error) => {
+          res.err;
+          console.error('Failed to connect to MongoDB', error);
+        });
     }
-    if (sheetName === "/") {
-      sheetName = "APITestSuites";
-    }
-    workbook.xlsx.readFile(sheetPath).then(() => {
-      const mainSheet = workbook.getWorksheet(sheetName);
-      mainSheet.eachRow((row, rowNumber) => {
-        if (rowNumber !== 1) { // Skip header row
-          sheetNames.add(row.getCell(1).value); // Assuming sheet names are in column 1
-        }
-      });
-      console.log("excel connected");
-      console.log(sheetNames);
+    else {
+      sheetPath = configData.input1;
+      sheetName = configData.input2;
+      if (sheetPath === "/") {
+        sheetPath = "/home/aryangupta/react/Testing/API_Automation_Suite.xlsx";
+      }
+      if (sheetName === "/") {
+        sheetName = "APITestSuites";
+      }
+      workbook.xlsx.readFile(sheetPath).then(() => {
+        const mainSheet = workbook.getWorksheet(sheetName);
+        mainSheet.eachRow((row, rowNumber) => {
+          if (rowNumber !== 1) { // Skip header row
+            sheetNames.add(row.getCell(1).value); // Assuming sheet names are in column 1
+          }
+        });
+        console.log("excel connected");
+        console.log(sheetNames);
 
-    }).catch((error) => {
-      console.error(error);
-    })
-    res.sendStatus(200);
-  }
+      }).catch((error) => {
+        console.error(error);
+      })
+      res.sendStatus(200);
+    }
   } catch (error) {
     // Handle file write error
     console.error('Error saving config file:', error);
@@ -315,7 +315,7 @@ projectSchema.index({ testSuitName: 1, 'api.apiname': 1 }, { unique: true });
 const ProjectData = mongoose.model('ProjectData', projectSchema);
 
 
-app.delete("/delete-config",(req,res)=>{
+app.delete("/delete-config", (req, res) => {
   try {
     const emptyConfigData = {};
     fs.writeFileSync('/home/aryangupta/react/Testing/config.json', JSON.stringify(emptyConfigData));
@@ -572,15 +572,47 @@ app.post('/get-query', (req, res) => {
 });
 
 
-app.post('/delete', (req, res) => {
+app.post('/delete', asyncHandler(async(req, res) => {
   const testSuitName = req.body.testSuitName;
   const apiname = req.body.apiname;
-  deleteApiEntry(testSuitName, apiname).then(() => {
-    res.status(200).json({ message: 'Success' });
-  }).catch((error) => {
-    res.status(500).json({ message: error.message });
-  })
-})
+  if (choice === "mongo") {
+    deleteApiEntry(testSuitName, apiname).then(() => {
+      res.status(200).json({ message: 'Success' });
+    }).catch((error) => {
+      res.status(500).json({ message: error.message });
+    })
+  }
+  else {
+    const worksheet = workbook.getWorksheet(testSuitName);
+
+    if (!worksheet) {
+      console.log(`Sheet "${testSuitName}" not found in the workbook.`);
+      res.sendStatus(400);
+      return;
+    }
+
+    let rowToDelete;
+
+    worksheet.eachRow({ includeEmpty: false }, (row, rowNumber) => {
+      if (rowNumber !== 1 && row.getCell(1).value === apiname) {
+        rowToDelete = row;
+        return false; // Exit the loop after finding the first matching row
+      }
+    });
+
+    if (!rowToDelete) {
+      console.log(`No row found in sheet "${testSuitName}" where value in the first column matches "${apiname}".`);
+      return;
+    }
+
+    worksheet.spliceRows(rowToDelete.number, 1);
+
+    await workbook.xlsx.writeFile(sheetPath);
+    res.sendStatus(200);
+    console.log(`Deleted row in sheet "${testSuitName}" where value in the first column matches "${apiname}".`);
+  }
+
+}))
 
 
 app.post('/run-command', (req, res) => {
@@ -841,26 +873,25 @@ app.post('/update-runables', asyncHandler(async (req, res) => {
     // // Write to filepath
     // await workbook.xlsx.writeFile(sheetPath);
     // res.sendStatus(200);
-try{
-  projectArray.forEach(test => {
-    let rowToBeUpdated;
-    worksheet.eachRow((row, rowNumber) => {
-      if (rowNumber !== 1 && row.getCell(1).text === test.testSuitName) {
-        rowToBeUpdated = row;  // Get the row to be updated
-      }
-    });
-    if (rowToBeUpdated) {
-      rowToBeUpdated.getCell(2).value = test.isRunable;  // Update isRunable value
-    }
-  });
+    try {
+      projectArray.forEach(test => {
+        let rowToBeUpdated;
+        worksheet.eachRow((row, rowNumber) => {
+          if (rowNumber !== 1 && row.getCell(1).text === test.testSuitName) {
+            rowToBeUpdated = row;  // Get the row to be updated
+          }
+        });
+        if (rowToBeUpdated) {
+          rowToBeUpdated.getCell(2).value = test.isRunable;  // Update isRunable value
+        }
+      });
 
-  await workbook.xlsx.writeFile(sheetPath);
-  res.sendStatus(200);
-}
-catch(err)
-{
-  res.sendStatus(400).json(err.message);
-}
+      await workbook.xlsx.writeFile(sheetPath);
+      res.sendStatus(200);
+    }
+    catch (err) {
+      res.sendStatus(400).json(err.message);
+    }
 
 
 
@@ -875,7 +906,7 @@ app.post('/testAndRuns', asyncHandler(async (req, res) => {
   if (choice == "mongodb") {
     try {
       const projects = await ProjectData.find();
-      const result = projects.map(project => ({ testSuitName: project.testSuitName, isRunable: project.isRunable , apiLength:project.api.length }));
+      const result = projects.map(project => ({ testSuitName: project.testSuitName, isRunable: project.isRunable, apiLength: project.api.length }));
       console.log(result);
       res.send(result);
     }
@@ -893,10 +924,15 @@ app.post('/testAndRuns', asyncHandler(async (req, res) => {
       if (rowNumber > 1) {
         const rowValues = row.values;
         // Push the values into the data array in the desired format
-        data.push({
-          testSuitName: rowValues[1],
-          isRunable: rowValues[2]
-        });
+        const sheet = workbook.getWorksheet(rowValues[1]);
+        if (sheet) {
+          data.push({
+            testSuitName: rowValues[1],
+            isRunable: rowValues[2],
+            apiLength: sheet.rowCount - 1
+          });
+        }
+
       }
     });
     res.send(data);

@@ -5,3 +5,60 @@
     height: 100vh;
     
   }
+  .button-container {
+    display: flex;
+    /* justify-content: space-between; */
+    align-items: flex-end;
+    margin-top: 20px;
+  }
+  
+  .left-button {
+    margin-right: 1px;
+  }
+  
+  .right-button {
+    margin-left: auto;
+  }
+  
+  .search-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 10px;
+}
+
+.dropdown {
+  position: absolute;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 5px;
+}
+
+.dropdown input {
+  width: 100%;
+  padding: 5px;
+  margin-bottom: 5px;
+}
+
+.dropdown ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.dropdown li {
+  cursor: pointer;
+  padding: 5px;
+}
+
+.dropdown li:hover {
+  background-color: #f2f2f2;
+}
+.close-button {
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 5px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }

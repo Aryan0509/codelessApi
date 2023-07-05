@@ -3,7 +3,7 @@ import Tuple from "../Tuples/tuple";
 import axios from "axios";
 
 const QueryFragment2 =(props)=>{
-    const {testSuitName}=props;
+    const {testSuitName,toggleQuery ,changeState}=props;
     const [apiChoices, setApiChoices] = useState([]);
     const [data, setData] = useState(null);
     const [showTuple, setTuple] = useState(false);
@@ -28,18 +28,45 @@ const QueryFragment2 =(props)=>{
     fetchData();
   }, []);
 
+  const updateArray=(apiname)=>{
+    try{
+      const index = data.api.findIndex(item => item.apiname === apiname);
 
+      // If the index is found, remove the object from the array
+      if (index !== -1) {
+        const newData = {...data};
+        console.log("Before update");
+        console.log(newData);
+        newData.api.splice(index, 1);
+        setData(newData);
+        console.log("After update");
+        console.log(newData);
+        setTuple(false);
+        setTuple(true);
+      }
+    }
+    catch(err)
+    {
+        console.log(err);
+    }
+    
+  }
 
+  const addTestCase=()=>{
+    changeState('newCase',testSuitName);
+  }
     
 
       return(
         <div>
-            
+        <button onClick={toggleQuery}>back</button>
+        <span style={{ margin: '0 20px' }}></span> 
+        <button onClick={addTestCase}>Add a new Test Case</button>
       {(showTuple && data.api) ? (
         <div>
 
           {data.api.map((api, index) => (
-            <Tuple testSuitName={data.testSuitName} apiname={api.apiname} Description={api.parameters.Description} />
+            <Tuple testSuitName={data.testSuitName} apiname={api.apiname} Description={api.parameters.Description} updateArray={updateArray} changeState={changeState}/>
           ))}
          
           {/* <button
@@ -56,7 +83,14 @@ const QueryFragment2 =(props)=>{
         Next
       </button> */}
         </div>
-      ) : null}
+      ) : 
+      (
+        <div>
+            No TestCases to show.
+        </div>
+      )
+      
+      }
         </div>
       )
 

@@ -14,6 +14,7 @@ import UpdateRunable2 from './Views/FullPages/UpdateRunable2';
 import HomePage from './Views/FullPages/HomePage';
 import TopNavbar from './Views/NavigationBar/TopNavbar';
 import SecondaryNavbar from './Views/NavigationBar/SecondaryNavbar';
+import NewCase from './Views/FullPages/NewCase';
 
 function App() {
 
@@ -24,6 +25,8 @@ function App() {
   const [showCurlAdded,setCurlAdded]=useState('')
   const [showParseCurlButtonClickedStatus,setParseCurlButtonClickedStatus]=useState(false)
   const [configData, setConfigData] = useState(null);
+  const [suitName,setSuitName]=useState(null);
+  const [apiname,setApiname]=useState(null);
   const toggleModal = () => {
     setModal(!showModal);
   }
@@ -96,7 +99,14 @@ const handleSubmit = async (formData) => {
     console.error('Error saving config data:', error);
   }
 };
-  var tuples;
+  
+const changeState=(state,suitName,apiname)=>{
+  setPageName(state);
+  setSuitName(suitName);
+  setApiname(apiname);
+}
+
+
   return (
     <div >
 <div color='black'>
@@ -115,7 +125,7 @@ const handleSubmit = async (formData) => {
       <Tuple toggleModal={toggleModal}/>
     )) :null} */}
 
-{showStateName==='home' ?(
+{(showStateName==='home') ?(
     <>
       <HomePage/>
       {/* <Tuple toggleModal={toggleModal}/> */}
@@ -151,18 +161,20 @@ const handleSubmit = async (formData) => {
 {showStateName==='update' ?(
     <>
       {/* <QueryFragment queryType={'update'}/> */}
-      <NewTestForm formType={'update'}/>
+      <NewTestForm formType={'update'} testSuitName={suitName} apiname={apiname} />
     </>)
      :null
 }
-{showStateName==='runable' ?(
+{showStateName=='newCase'?(<NewCase testSuitName={suitName} />):null}
+
+
+{(showmodal==false && showStateName==='runable') ?(
     <>
       {/* <QueryFragment queryType={'update'}/> */}
-      <UpdateRunable2 />
+      <UpdateRunable2 changeState={changeState}/>
     </>)
      :null
 }
-
 
 
     {showModal ?  <MoreDetailInfo toggleModal={toggleModal}/> : null }
