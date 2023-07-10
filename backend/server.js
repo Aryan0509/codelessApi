@@ -575,7 +575,7 @@ app.post('/get-query', (req, res) => {
 app.post('/delete', asyncHandler(async(req, res) => {
   const testSuitName = req.body.testSuitName;
   const apiname = req.body.apiname;
-  if (choice === "mongo") {
+  if (choice === "mongodb") {
     deleteApiEntry(testSuitName, apiname).then(() => {
       res.status(200).json({ message: 'Success' });
     }).catch((error) => {
@@ -591,21 +591,18 @@ app.post('/delete', asyncHandler(async(req, res) => {
       return;
     }
 
-    let rowToDelete;
-
     worksheet.eachRow({ includeEmpty: false }, (row, rowNumber) => {
-      if (rowNumber !== 1 && row.getCell(1).value === apiname) {
-        rowToDelete = row;
-        return false; // Exit the loop after finding the first matching row
+      if (rowNumber <= 1) return; // skip the header
+  
+      const cellValue = row.getCell(1).text;
+      if (cellValue === apiname) {
+        // delete row if cell value matches API name
+        worksheet.spliceRows(rowNumber, 1);
+        console.log(`deleted ${apiname} at row number ${rowNumber}`);
       }
     });
 
-    if (!rowToDelete) {
-      console.log(`No row found in sheet "${testSuitName}" where value in the first column matches "${apiname}".`);
-      return;
-    }
-
-    worksheet.spliceRows(rowToDelete.number, 1);
+    // worksheet.spliceRows(rowToDelete.number, 1);
 
     await workbook.xlsx.writeFile(sheetPath);
     res.sendStatus(200);

@@ -27,6 +27,7 @@ function App() {
   const [configData, setConfigData] = useState(null);
   const [suitName,setSuitName]=useState(null);
   const [apiname,setApiname]=useState(null);
+  const [isAppLoaded, setIsAppLoaded] = useState(false);
   const toggleModal = () => {
     setModal(!showModal);
   }
@@ -77,6 +78,7 @@ useEffect(() => {
       } else {
         console.log(data);
         setConfigData(data);
+        setIsAppLoaded(true);
       }
     } catch (error) {
       // Handle API request error
@@ -94,6 +96,7 @@ const handleSubmit = async (formData) => {
     await axios.post('/api/config', formData);
     setConfigData(formData);
     setShowModal(false);
+    setIsAppLoaded(true);
   } catch (error) {
     // Handle API request error
     console.error('Error saving config data:', error);
@@ -125,13 +128,7 @@ const changeState=(state,suitName,apiname)=>{
       <Tuple toggleModal={toggleModal}/>
     )) :null} */}
 
-{(showStateName==='home') ?(
-    <>
-      <HomePage/>
-      {/* <Tuple toggleModal={toggleModal}/> */}
-    </>)
-     :null
-}
+
 {showStateName==='new' ?(
   
   <>
@@ -171,7 +168,7 @@ const changeState=(state,suitName,apiname)=>{
 {(showmodal==false && showStateName==='runable') ?(
     <>
       {/* <QueryFragment queryType={'update'}/> */}
-      <UpdateRunable2 changeState={changeState}/>
+      <UpdateRunable2 changeState={changeState} isAppLoaded={isAppLoaded}/>
     </>)
      :null
 }

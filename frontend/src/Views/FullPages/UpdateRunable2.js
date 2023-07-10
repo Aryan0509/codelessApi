@@ -8,7 +8,7 @@ import Modal from 'react-modal';
 
 Modal.setAppElement('#root')
 const UpdateRunable2 = ((props) => {
-    const {changeState}=props;
+    const {changeState, isAppLoaded}=props;
 
     const [suits, setSuits] = useState([]);
     const [initial, setInitial] = useState([]);
@@ -35,13 +35,11 @@ const UpdateRunable2 = ((props) => {
                 console.error(error);
             }
         };
-        fetchData();
-        document.addEventListener('click', handleClickOutside);
-
-        return () => {
-          document.removeEventListener('click', handleClickOutside);
-        };
-    }, []);
+        if(isAppLoaded)
+        {
+            fetchData();
+        }
+    }, [isAppLoaded]);
 
     const handleToggleRunable = (index) => (event) => {
         const newSuits = [...suits];
@@ -173,6 +171,8 @@ const UpdateRunable2 = ((props) => {
     const handleAdd=()=>{
         changeState("new");
     }
+    const linkUrl = 'file:///home/aryangupta/react/Testing/Reports/APISummaryReport.html';
+    const linkText = 'view report';
 
     return (
         <div className=''>
@@ -190,6 +190,7 @@ const UpdateRunable2 = ((props) => {
                             onChange={handleInputChange}
                             placeholder="Type to search..."
                         />
+                        <a className=""onClick={handleClearSearch} >✕</a>
                         <ul>
                             {filteredSuggestions.map((suggestion) => (
                                 <li key={suggestion} onClick={() => handleSelectSuggestion(suggestion)}>
@@ -197,7 +198,6 @@ const UpdateRunable2 = ((props) => {
                                 </li>
                             ))}
                         </ul>
-                        <button className=""onClick={handleClearSearch}>✕</button>
                     </div>
                 )}
             </div>
@@ -239,6 +239,8 @@ const UpdateRunable2 = ((props) => {
                     <button className="left-button" onClick={handleDisableAll}>Disable All</button>
                     <button className="right-button" onClick={handleClickSubmit}>Update Runables</button>
                     <button className="right-button" onClick={handleExecute}>Excecute Test</button>
+                    <a href={linkUrl} target="_blank" rel="noopener noreferrer">{linkText}</a>
+
                 </div>
                 <Modal
                     isOpen={isOpen}
