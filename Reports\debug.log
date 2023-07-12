@@ -1,72 +1,200 @@
-INFO	2023-07-10 11:13:55,100	0	launch.Master	[main]	Deleting Reports folder.
-INFO	2023-07-10 11:13:55,103	3	launch.Master	[main]	Reading command line arguments
-INFO	2023-07-10 11:13:55,279	179	org.mongodb.driver.client	[main]	MongoClient with metadata {"driver": {"name": "mongo-java-driver|sync", "version": "4.9.1"}, "os": {"type": "Linux", "name": "Linux", "architecture": "amd64", "version": "5.19.0-46-generic"}, "platform": "Java/Ubuntu/11.0.19+7-post-Ubuntu-0ubuntu122.04.1"} created with settings MongoClientSettings{readPreference=primary, writeConcern=WriteConcern{w=null, wTimeout=null ms, journal=null}, retryWrites=true, retryReads=true, readConcern=ReadConcern{level=null}, credential=null, streamFactoryFactory=null, commandListeners=[], codecRegistry=ProvidersCodecRegistry{codecProviders=[ValueCodecProvider{}, BsonValueCodecProvider{}, DBRefCodecProvider{}, DBObjectCodecProvider{}, DocumentCodecProvider{}, CollectionCodecProvider{}, IterableCodecProvider{}, MapCodecProvider{}, GeoJsonCodecProvider{}, GridFSFileCodecProvider{}, Jsr310CodecProvider{}, JsonObjectCodecProvider{}, BsonCodecProvider{}, EnumCodecProvider{}, com.mongodb.client.model.mql.ExpressionCodecProvider@4c40b76e, com.mongodb.Jep395RecordCodecProvider@2ea6137]}, loggerSettings=LoggerSettings{maxDocumentLength=1000}, clusterSettings={hosts=[localhost:27017], srvServiceName=mongodb, mode=SINGLE, requiredClusterType=UNKNOWN, requiredReplicaSetName='null', serverSelector='null', clusterListeners='[]', serverSelectionTimeout='30000 ms', localThreshold='30000 ms'}, socketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=0, receiveBufferSize=0, sendBufferSize=0}, heartbeatSocketSettings=SocketSettings{connectTimeoutMS=10000, readTimeoutMS=10000, receiveBufferSize=0, sendBufferSize=0}, connectionPoolSettings=ConnectionPoolSettings{maxSize=100, minSize=0, maxWaitTimeMS=120000, maxConnectionLifeTimeMS=0, maxConnectionIdleTimeMS=0, maintenanceInitialDelayMS=0, maintenanceFrequencyMS=60000, connectionPoolListeners=[], maxConnecting=2}, serverSettings=ServerSettings{heartbeatFrequencyMS=10000, minHeartbeatFrequencyMS=500, serverListeners='[]', serverMonitorListeners='[]'}, sslSettings=SslSettings{enabled=false, invalidHostNameAllowed=false, context=null}, applicationName='null', compressorList=[], uuidRepresentation=UNSPECIFIED, serverApi=ServerApi{version=V1, deprecationErrors=null, strict=null}, autoEncryptionSettings=null, contextProvider=null}
-INFO	2023-07-10 11:13:55,303	203	org.mongodb.driver.cluster	[main]	Cluster description not yet available. Waiting for 30000 ms before timing out
-INFO	2023-07-10 11:13:55,340	240	org.mongodb.driver.cluster	[cluster-ClusterId{value='64ab9a9be9ead31b8deb595c', description='null'}-localhost:27017]	Monitor thread successfully connected to server with description ServerDescription{address=localhost:27017, type=STANDALONE, state=CONNECTED, ok=true, minWireVersion=0, maxWireVersion=17, maxDocumentSize=16777216, logicalSessionTimeoutMinutes=30, roundTripTimeNanos=44005526}
-INFO	2023-07-10 11:13:55,426	326	utility.GenerateTestNGXml	[main]	Generating testNG XML.
-INFO	2023-07-10 11:13:55,429	329	utility.GenerateTestNGXml	[main]	Test Suite FolderApi@mongo added successfully in testng.xml
-INFO	2023-07-10 11:13:55,434	334	utility.GenerateTestNGXml	[main]	Test Suite VideoKYC@mongo added successfully in testng.xml
-INFO	2023-07-10 11:13:55,434	334	utility.GenerateTestNGXml	[main]	Test Suite zipp@mongo added successfully in testng.xml
-INFO	2023-07-10 11:13:55,448	348	utility.GenerateTestNGXml	[main]	testNG XML generated successfully.
-INFO	2023-07-10 11:13:55,546	446	report.ExtentReportInitialization	[main]	Reporting start for Test Suite: FolderApi@mongo
-INFO	2023-07-10 11:13:55,698	598	testScript.API	[main]	Start Executing Suite : FolderApi@mongo
-INFO	2023-07-10 11:13:55,714	614	testScript.API	[main]	Executing Start for the TestCase :rLogin
-INFO	2023-07-10 11:13:56,456	1356	testScript.API	[main]	Generating random string value.
-INFO	2023-07-10 11:13:56,459	1359	testScript.API	[main]	Step: Setting up base URI: https://www.naukri.com
-INFO	2023-07-10 11:13:56,460	1360	testScript.API	[main]	Step: Setting up base Path: /recruit/login
-INFO	2023-07-10 11:13:56,492	1392	api_Lib.APIRequest	[main]	Step: Setting up cookies: {_did=55T2K9IzL2E6}
-INFO	2023-07-10 11:13:56,526	1426	api_Lib.APIRequest	[main]	Step: Setting up headers: {AppId=121, Accept=*/*, SystemId=jobseeker, Accept-Encoding=gzip,deflate, cache-control=no-cache, Content-Type=application/json}
-INFO	2023-07-10 11:13:57,952	2852	api_Lib.APIResponse	[main]	GET request hits.
-INFO	2023-07-10 11:13:57,955	2855	testScript.API	[main]	Request is successful with response code: 200
-INFO	2023-07-10 11:13:58,052	2952	api_Lib.APIResponse	[main]	Fields from response Body got saved: token:d249433479c0a14e9829cd2d864df8dc08c7def68cc3bda0f5016db7a4e8081a0466acc7fb16cf97e1e0596dec33624f14d6d96afdcc5f7cf5b0c0afd3ab111c
-INFO	2023-07-10 11:13:58,054	2954	testScript.API	[main]	Executing Completed for the Test Case:rLogin
-INFO	2023-07-10 11:13:58,055	2955	testScript.API	[main]	Executing Start for the TestCase :loginService
-INFO	2023-07-10 11:13:58,056	2956	testScript.API	[main]	Step: Setting up base URI: https://login.recruit.naukri.com
-INFO	2023-07-10 11:13:58,056	2956	testScript.API	[main]	Step: Setting up base Path: /Login/loginService
-INFO	2023-07-10 11:13:58,057	2957	api_Lib.APIRequest	[main]	Step: Setting up cookies: {_did=55T2K9IzL2E6}
-INFO	2023-07-10 11:13:58,058	2958	api_Lib.APIRequest	[main]	Step: Setting up headers: {AppId=121, Accept=*/*, SystemId=jobseeker, Accept-Encoding=gzip,deflate, cache-control=no-cache, Content-Type=application/json}
-INFO	2023-07-10 11:13:58,068	2968	api_Lib.APIRequest	[main]	Step: Setting up query Parameters: {g-recaptcha-response='', password=P@ssw0rd100, csrf=d249433479c0a14e9829cd2d864df8dc08c7def68cc3bda0f5016db7a4e8081a0466acc7fb16cf97e1e0596dec33624f14d6d96afdcc5f7cf5b0c0afd3ab111c, isIE7=false, URL=https://recruit.naukri.com/, username=company16@yopmail.com}
-INFO	2023-07-10 11:13:58,863	3763	api_Lib.APIResponse	[main]	POST request hits.
-INFO	2023-07-10 11:13:58,863	3763	testScript.API	[main]	Request is successful with response code: 200
-INFO	2023-07-10 11:13:58,864	3764	api_Lib.APIResponse	[main]	Cookies Saved: strUNID:53SF6mjDqsQdre0nvwVivadsrjf7dB6W09X5UyhV
-INFO	2023-07-10 11:13:58,865	3765	testScript.API	[main]	Executing Completed for the Test Case:loginService
-INFO	2023-07-10 11:13:59,068	3968	report.ExtentReportInitialization	[main]	Reporting start for Test Suite: VideoKYC@mongo
-INFO	2023-07-10 11:13:59,071	3971	testScript.API	[main]	Start Executing Suite : VideoKYC@mongo
-INFO	2023-07-10 11:13:59,077	3977	testScript.API	[main]	Executing Start for the TestCase :uploadImage
-INFO	2023-07-10 11:13:59,077	3977	testScript.API	[main]	Step: Setting up base URI: https://v2.convertapi.com
-INFO	2023-07-10 11:13:59,077	3977	testScript.API	[main]	Step: Setting up base Path: /upload
-INFO	2023-07-10 11:13:59,079	3979	api_Lib.APIRequest	[main]	Step: Setting up headers: {Accept=*/*, Accept-Encoding=gzip,deflate, cache-control=no-cache, Content-Type=multipart/form-data}
-INFO	2023-07-10 11:13:59,091	3991	api_Lib.APIRequest	[main]	Step: Setting up Multipart as : {file=VideoKYC\\files\\Naukri_[3y_0m].doc}
-INFO	2023-07-10 11:13:59,799	4699	org.apache.http.impl.client.DefaultHttpClient	[main]	I/O exception (java.io.FileNotFoundException) caught when processing request to {s}->https://v2.convertapi.com:443: /home/aryangupta/react/Testing/DataInput/RequestBody/VideoKYC\\files\\Naukri_[3y_0m].doc (No such file or directory)
-INFO	2023-07-10 11:13:59,800	4700	org.apache.http.impl.client.DefaultHttpClient	[main]	Retrying request to {s}->https://v2.convertapi.com:443
-INFO	2023-07-10 11:14:00,392	5292	org.apache.http.impl.client.DefaultHttpClient	[main]	I/O exception (java.io.FileNotFoundException) caught when processing request to {s}->https://v2.convertapi.com:443: /home/aryangupta/react/Testing/DataInput/RequestBody/VideoKYC\\files\\Naukri_[3y_0m].doc (No such file or directory)
-INFO	2023-07-10 11:14:00,393	5293	org.apache.http.impl.client.DefaultHttpClient	[main]	Retrying request to {s}->https://v2.convertapi.com:443
-INFO	2023-07-10 11:14:00,972	5872	org.apache.http.impl.client.DefaultHttpClient	[main]	I/O exception (java.io.FileNotFoundException) caught when processing request to {s}->https://v2.convertapi.com:443: /home/aryangupta/react/Testing/DataInput/RequestBody/VideoKYC\\files\\Naukri_[3y_0m].doc (No such file or directory)
-INFO	2023-07-10 11:14:00,972	5872	org.apache.http.impl.client.DefaultHttpClient	[main]	Retrying request to {s}->https://v2.convertapi.com:443
-ERROR	2023-07-10 11:14:01,419	6319	api_Lib.APIResponse	[main]	On hitting POST request, error occurs: /home/aryangupta/react/Testing/DataInput/RequestBody/VideoKYC\\files\\Naukri_[3y_0m].doc (No such file or directory)
-ERROR	2023-07-10 11:14:01,419	6319	testScript.API	[main]	Test Case:uploadImage not executed due to error. Details: [Ljava.lang.StackTraceElement;@4751e8b9null
-INFO	2023-07-10 11:14:01,488	6388	report.ExtentReportInitialization	[main]	Reporting start for Test Suite: zipp@mongo
-INFO	2023-07-10 11:14:01,492	6392	testScript.API	[main]	Start Executing Suite : zipp@mongo
-INFO	2023-07-10 11:14:01,498	6398	testScript.API	[main]	Executing Start for the TestCase :zipp1
-INFO	2023-07-10 11:14:01,499	6399	testScript.API	[main]	Step: Setting up base URI: https://api.zippopotam.us/us
-INFO	2023-07-10 11:14:01,499	6399	testScript.API	[main]	Step: Setting up base Path: /33162
-INFO	2023-07-10 11:14:02,126	7026	api_Lib.APIResponse	[main]	GET request hits.
-INFO	2023-07-10 11:14:02,126	7026	testScript.API	[main]	Request is successful with response code: 200
-INFO	2023-07-10 11:14:02,136	7036	api_Lib.APIResponse	[main]	Response body validation is successful Expected Body :{"post code": "33162", "country": "United States", "country abbreviation": "US", "places": [{"place name": "Miami", "longitude": "-80.183", "state": "Florida", "state abbreviation": "FL", "latitude": "25.9286"}]} Actual Body: {"post code": "33162", "country": "United States", "country abbreviation": "US", "places": [{"place name": "Miami", "longitude": "-80.183", "state": "Florida", "state abbreviation": "FL", "latitude": "25.9286"}]}
-INFO	2023-07-10 11:14:02,136	7036	testScript.API	[main]	Executing Completed for the Test Case:zipp1
-INFO	2023-07-10 11:14:02,258	7158	launch.Master	[main]	Test Results:
-INFO	2023-07-10 11:14:02,259	7159	report.CustomReport	[main]	Suite Name: FolderApi@mongo
- Passed Test: 2
- Passed with warning 0
- Failed Test : 0
- Skipped Test : 0
-INFO	2023-07-10 11:14:02,260	7160	report.CustomReport	[main]	Suite Name: VideoKYC@mongo
+INFO	2023-07-12 13:30:11,957	0	launch.Master	[main]	Deleting Reports folder.
+INFO	2023-07-12 13:30:11,958	1	launch.Master	[main]	Reading command line arguments
+INFO	2023-07-12 13:30:11,958	1	launch.Master	[main]	1st Argument will used as an Excel File Path with value as /home/aryangupta/react/Testing/API_Automation_Suite.xlsx
+INFO	2023-07-12 13:30:11,958	1	launch.Master	[main]	2nd Argument will used as a Sheet Name with value as APITestSuites
+INFO	2023-07-12 13:30:11,959	2	utility.ExcelRead	[main]	Reading the Excel Sheet named as APITestSuites at given path /home/aryangupta/react/Testing/API_Automation_Suite.xlsx
+INFO	2023-07-12 13:30:12,194	237	utility.ExcelRead	[main]	Row at no. 1 in excel sheet named as APITestSuites readed successfully.
+INFO	2023-07-12 13:30:12,195	238	utility.ExcelRead	[main]	Row at no. 2 in excel sheet named as APITestSuites readed successfully.
+INFO	2023-07-12 13:30:12,195	238	utility.ExcelRead	[main]	Row at no. 3 in excel sheet named as APITestSuites readed successfully.
+INFO	2023-07-12 13:30:12,195	238	utility.ExcelRead	[main]	Row at no. 4 in excel sheet named as APITestSuites readed successfully.
+INFO	2023-07-12 13:30:12,195	238	utility.GenerateTestNGXml	[main]	Generating testNG XML.
+INFO	2023-07-12 13:30:12,196	239	utility.GenerateTestNGXml	[main]	Test Suite VideoKYC added successfully in testng.xml
+INFO	2023-07-12 13:30:12,199	242	utility.GenerateTestNGXml	[main]	Test Suite zipp added successfully in testng.xml
+INFO	2023-07-12 13:30:12,199	242	utility.GenerateTestNGXml	[main]	Test Suite CompanyService added successfully in testng.xml
+INFO	2023-07-12 13:30:12,205	248	utility.GenerateTestNGXml	[main]	testNG XML generated successfully.
+INFO	2023-07-12 13:30:12,240	283	report.ExtentReportInitialization	[main]	Reporting start for Test Suite: VideoKYC
+INFO	2023-07-12 13:30:12,275	318	testScript.API	[main]	Start Executing Suite : VideoKYC
+INFO	2023-07-12 13:30:12,277	320	utility.ExcelRead	[main]	Reading the Excel Sheet named as VideoKYC at given path /home/aryangupta/react/Testing/API_Automation_Suite.xlsx
+INFO	2023-07-12 13:30:12,299	342	utility.ExcelRead	[main]	Row number 0 of excel sheet named as VideoKYC readed successfully.
+INFO	2023-07-12 13:30:12,301	344	testScript.API	[main]	Executing Start for the TestCase :uploadImage
+INFO	2023-07-12 13:30:12,612	655	testScript.API	[main]	Step: Setting up base URI: https://v2.convertapi.com
+INFO	2023-07-12 13:30:12,612	655	testScript.API	[main]	Step: Setting up base Path: /upload
+INFO	2023-07-12 13:30:12,636	679	api_Lib.APIRequest	[main]	Step: Setting up headers: {Accept=*/*, Accept-Encoding=gzip,deflate, cache-control=no-cache, Content-Type=multipart/form-data}
+INFO	2023-07-12 13:30:12,648	691	api_Lib.APIRequest	[main]	Step: Setting up Multipart as : {file=VideoKYC\\files\\Naukri_[3y_0m].doc}
+INFO	2023-07-12 13:30:13,586	1629	org.apache.http.impl.client.DefaultHttpClient	[main]	I/O exception (java.io.FileNotFoundException) caught when processing request to {s}->https://v2.convertapi.com:443: /home/aryangupta/react/Testing/DataInput/RequestBody/VideoKYC\\files\\Naukri_[3y_0m].doc (No such file or directory)
+INFO	2023-07-12 13:30:13,587	1630	org.apache.http.impl.client.DefaultHttpClient	[main]	Retrying request to {s}->https://v2.convertapi.com:443
+INFO	2023-07-12 13:30:14,267	2310	org.apache.http.impl.client.DefaultHttpClient	[main]	I/O exception (java.io.FileNotFoundException) caught when processing request to {s}->https://v2.convertapi.com:443: /home/aryangupta/react/Testing/DataInput/RequestBody/VideoKYC\\files\\Naukri_[3y_0m].doc (No such file or directory)
+INFO	2023-07-12 13:30:14,267	2310	org.apache.http.impl.client.DefaultHttpClient	[main]	Retrying request to {s}->https://v2.convertapi.com:443
+INFO	2023-07-12 13:30:14,965	3008	org.apache.http.impl.client.DefaultHttpClient	[main]	I/O exception (java.io.FileNotFoundException) caught when processing request to {s}->https://v2.convertapi.com:443: /home/aryangupta/react/Testing/DataInput/RequestBody/VideoKYC\\files\\Naukri_[3y_0m].doc (No such file or directory)
+INFO	2023-07-12 13:30:14,965	3008	org.apache.http.impl.client.DefaultHttpClient	[main]	Retrying request to {s}->https://v2.convertapi.com:443
+ERROR	2023-07-12 13:30:15,578	3621	api_Lib.APIResponse	[main]	On hitting POST request, error occurs: /home/aryangupta/react/Testing/DataInput/RequestBody/VideoKYC\\files\\Naukri_[3y_0m].doc (No such file or directory)
+ERROR	2023-07-12 13:30:15,579	3622	testScript.API	[main]	Test Case:uploadImage not executed due to error. Details: [Ljava.lang.StackTraceElement;@2e1ddc90null
+INFO	2023-07-12 13:30:15,657	3700	report.ExtentReportInitialization	[main]	Reporting start for Test Suite: zipp
+INFO	2023-07-12 13:30:15,658	3701	testScript.API	[main]	Start Executing Suite : zipp
+INFO	2023-07-12 13:30:15,659	3702	utility.ExcelRead	[main]	Reading the Excel Sheet named as zipp at given path /home/aryangupta/react/Testing/API_Automation_Suite.xlsx
+INFO	2023-07-12 13:30:15,673	3716	utility.ExcelRead	[main]	Row number 0 of excel sheet named as zipp readed successfully.
+INFO	2023-07-12 13:30:15,673	3716	testScript.API	[main]	Executing Start for the TestCase :zipp1
+INFO	2023-07-12 13:30:15,674	3717	testScript.API	[main]	Step: Setting up base URI: https://api.zippopotam.us/us
+INFO	2023-07-12 13:30:15,674	3717	testScript.API	[main]	Step: Setting up base Path: /33162
+INFO	2023-07-12 13:30:16,409	4452	api_Lib.APIResponse	[main]	GET request hits.
+INFO	2023-07-12 13:30:16,410	4453	testScript.API	[main]	Request is successful with response code: 200
+INFO	2023-07-12 13:30:16,417	4460	api_Lib.APIResponse	[main]	Response body validation is successful Expected Body :{"post code": "33162", "country": "United States", "country abbreviation": "US", "places": [{"place name": "Miami", "longitude": "-80.183", "state": "Florida", "state abbreviation": "FL", "latitude": "25.9286"}]} Actual Body: {"post code": "33162", "country": "United States", "country abbreviation": "US", "places": [{"place name": "Miami", "longitude": "-80.183", "state": "Florida", "state abbreviation": "FL", "latitude": "25.9286"}]}
+INFO	2023-07-12 13:30:16,417	4460	testScript.API	[main]	Executing Completed for the Test Case:zipp1
+INFO	2023-07-12 13:30:16,433	4476	report.ExtentReportInitialization	[main]	Reporting start for Test Suite: CompanyService
+INFO	2023-07-12 13:30:16,435	4478	testScript.API	[main]	Start Executing Suite : CompanyService
+INFO	2023-07-12 13:30:16,435	4478	utility.ExcelRead	[main]	Reading the Excel Sheet named as CompanyService at given path /home/aryangupta/react/Testing/API_Automation_Suite.xlsx
+INFO	2023-07-12 13:30:16,462	4505	utility.ExcelRead	[main]	Row number 0 of excel sheet named as CompanyService readed successfully.
+INFO	2023-07-12 13:30:16,463	4506	utility.ExcelRead	[main]	Row number 1 of excel sheet named as CompanyService readed successfully.
+INFO	2023-07-12 13:30:16,465	4508	utility.ExcelRead	[main]	Row number 2 of excel sheet named as CompanyService readed successfully.
+INFO	2023-07-12 13:30:16,466	4509	utility.ExcelRead	[main]	Row number 3 of excel sheet named as CompanyService readed successfully.
+INFO	2023-07-12 13:30:16,467	4510	utility.ExcelRead	[main]	Row number 4 of excel sheet named as CompanyService readed successfully.
+INFO	2023-07-12 13:30:16,467	4510	utility.ExcelRead	[main]	Row number 5 of excel sheet named as CompanyService readed successfully.
+INFO	2023-07-12 13:30:16,468	4511	utility.ExcelRead	[main]	Row number 6 of excel sheet named as CompanyService readed successfully.
+INFO	2023-07-12 13:30:16,469	4512	utility.ExcelRead	[main]	Row number 7 of excel sheet named as CompanyService readed successfully.
+INFO	2023-07-12 13:30:16,469	4512	utility.ExcelRead	[main]	Row number 8 of excel sheet named as CompanyService readed successfully.
+INFO	2023-07-12 13:30:16,470	4513	testScript.API	[main]	Executing Start for the TestCase :GetCity_2
+INFO	2023-07-12 13:30:16,471	4514	testScript.API	[main]	Step: Setting up base URI: http://services.test2.mnr-services-test2.cluster.infoedge.com/company-services/company-service-refactor
+INFO	2023-07-12 13:30:16,475	4518	testScript.API	[main]	Step: Setting up base Path: /cities/{cityID} with path parameters as cityID=2
+INFO	2023-07-12 13:30:16,484	4527	api_Lib.APIRequest	[main]	Step: Setting up headers: {AppId=114, Accept=*/*, SystemId=naukriIndia, Accept-Encoding=gzip,deflate, cache-control=no-cache, Content-Type=application/json}
+INFO	2023-07-12 13:30:16,812	4855	api_Lib.APIResponse	[main]	GET request hits.
+ERROR	2023-07-12 13:30:16,812	4855	testScript.API	[main]	Request is unsuccessful with response code: 502 with reason as: <html>
+<head><title>502 Bad Gateway</title></head>
+<body bgcolor="white">
+<center><h1>502 Bad Gateway</h1></center>
+<hr><center>nginx/1.10.2</center>
+</body>
+</html>
+
+ERROR	2023-07-12 13:30:16,812	4855	testScript.API	[main]	Executing completed with error for the Test Case:GetCity_2
+INFO	2023-07-12 13:30:16,813	4856	testScript.API	[main]	Executing Start for the TestCase :GetCity_3
+INFO	2023-07-12 13:30:16,813	4856	testScript.API	[main]	Step: Setting up base URI: http://services.test2.mnr-services-test2.cluster.infoedge.com/company-services/company-service-refactor
+INFO	2023-07-12 13:30:16,813	4856	testScript.API	[main]	Step: Setting up base Path: /cities/{cityID} with path parameters as cityID=3
+INFO	2023-07-12 13:30:16,814	4857	api_Lib.APIRequest	[main]	Step: Setting up headers: {AppId=114, Accept=*/*, SystemId=naukriIndia, Accept-Encoding=gzip,deflate, cache-control=no-cache, Content-Type=application/json}
+INFO	2023-07-12 13:30:16,847	4890	api_Lib.APIResponse	[main]	GET request hits.
+ERROR	2023-07-12 13:30:16,847	4890	testScript.API	[main]	Request is unsuccessful with response code: 502 with reason as: <html>
+<head><title>502 Bad Gateway</title></head>
+<body bgcolor="white">
+<center><h1>502 Bad Gateway</h1></center>
+<hr><center>nginx/1.10.2</center>
+</body>
+</html>
+
+ERROR	2023-07-12 13:30:16,847	4890	testScript.API	[main]	Executing completed with error for the Test Case:GetCity_3
+INFO	2023-07-12 13:30:16,847	4890	testScript.API	[main]	Executing Start for the TestCase :GetCity_4
+INFO	2023-07-12 13:30:16,848	4891	testScript.API	[main]	Step: Setting up base URI: http://services.test2.mnr-services-test2.cluster.infoedge.com/company-services/company-service-refactor
+INFO	2023-07-12 13:30:16,848	4891	testScript.API	[main]	Step: Setting up base Path: /cities/{cityID} with path parameters as cityID=4
+INFO	2023-07-12 13:30:16,848	4891	api_Lib.APIRequest	[main]	Step: Setting up headers: {AppId=114, Accept=*/*, SystemId=naukriIndia, Accept-Encoding=gzip,deflate, cache-control=no-cache, Content-Type=application/json}
+INFO	2023-07-12 13:30:16,878	4921	api_Lib.APIResponse	[main]	GET request hits.
+ERROR	2023-07-12 13:30:16,878	4921	testScript.API	[main]	Request is unsuccessful with response code: 502 with reason as: <html>
+<head><title>502 Bad Gateway</title></head>
+<body bgcolor="white">
+<center><h1>502 Bad Gateway</h1></center>
+<hr><center>nginx/1.10.2</center>
+</body>
+</html>
+
+ERROR	2023-07-12 13:30:16,878	4921	testScript.API	[main]	Executing completed with error for the Test Case:GetCity_4
+INFO	2023-07-12 13:30:16,878	4921	testScript.API	[main]	Executing Start for the TestCase :GetCity_5
+INFO	2023-07-12 13:30:16,879	4922	testScript.API	[main]	Step: Setting up base URI: http://services.test2.mnr-services-test2.cluster.infoedge.com/company-services/company-service-refactor
+INFO	2023-07-12 13:30:16,879	4922	testScript.API	[main]	Step: Setting up base Path: /cities/{cityID} with path parameters as cityID=5
+INFO	2023-07-12 13:30:16,879	4922	api_Lib.APIRequest	[main]	Step: Setting up headers: {AppId=114, Accept=*/*, SystemId=naukriIndia, Accept-Encoding=gzip,deflate, cache-control=no-cache, Content-Type=application/json}
+INFO	2023-07-12 13:30:16,920	4963	api_Lib.APIResponse	[main]	GET request hits.
+ERROR	2023-07-12 13:30:16,920	4963	testScript.API	[main]	Request is unsuccessful with response code: 502 with reason as: <html>
+<head><title>502 Bad Gateway</title></head>
+<body bgcolor="white">
+<center><h1>502 Bad Gateway</h1></center>
+<hr><center>nginx/1.10.2</center>
+</body>
+</html>
+
+ERROR	2023-07-12 13:30:16,920	4963	testScript.API	[main]	Executing completed with error for the Test Case:GetCity_5
+INFO	2023-07-12 13:30:16,920	4963	testScript.API	[main]	Executing Start for the TestCase :PutCity_1
+INFO	2023-07-12 13:30:16,921	4964	testScript.API	[main]	Step: Setting up base URI: http://services.test2.mnr-services-test2.cluster.infoedge.com/company-services/company-service-refactor
+INFO	2023-07-12 13:30:16,921	4964	testScript.API	[main]	Step: Setting up base Path: /cities/
+INFO	2023-07-12 13:30:16,921	4964	api_Lib.APIRequest	[main]	Step: Setting up headers: {AppId=114, Accept=*/*, SystemId=naukriIndia, Accept-Encoding=gzip,deflate, cache-control=no-cache, Content-Type=application/json}
+INFO	2023-07-12 13:30:16,921	4964	api_Lib.APIRequest	[main]	Step: Setting up body: {"cityId":5000,"city": "Sumant", "stateId": 100, "countryId": 1000,"stdCode": 10000,"gulfCityId":"180.28","gulfCountryId":"180"}
+INFO	2023-07-12 13:30:16,944	4987	api_Lib.APIResponse	[main]	PUT request hits.
+ERROR	2023-07-12 13:30:16,944	4987	testScript.API	[main]	Request is unsuccessful with response code: 502 with reason as: <html>
+<head><title>502 Bad Gateway</title></head>
+<body bgcolor="white">
+<center><h1>502 Bad Gateway</h1></center>
+<hr><center>nginx/1.10.2</center>
+</body>
+</html>
+
+ERROR	2023-07-12 13:30:16,944	4987	testScript.API	[main]	Executing completed with error for the Test Case:PutCity_1
+INFO	2023-07-12 13:30:16,945	4988	testScript.API	[main]	Executing Start for the TestCase :PutCity_2
+INFO	2023-07-12 13:30:16,945	4988	testScript.API	[main]	Step: Setting up base URI: http://services.test2.mnr-services-test2.cluster.infoedge.com/company-services/company-service-refactor
+INFO	2023-07-12 13:30:16,945	4988	testScript.API	[main]	Step: Setting up base Path: /cities/
+INFO	2023-07-12 13:30:16,945	4988	api_Lib.APIRequest	[main]	Step: Setting up headers: {AppId=114, Accept=*/*, SystemId=naukriIndia, Accept-Encoding=gzip,deflate, cache-control=no-cache, Content-Type=application/json}
+INFO	2023-07-12 13:30:16,945	4988	api_Lib.APIRequest	[main]	Step: Setting up body: {"cityId":100,"city": "gurugram", "stateId": 100, "countryId": 1000,"stdCode": 10000,"gulfCityId":"180.28","gulfCountryId":"180"}
+INFO	2023-07-12 13:30:16,976	5019	api_Lib.APIResponse	[main]	PUT request hits.
+ERROR	2023-07-12 13:30:16,976	5019	testScript.API	[main]	Request is unsuccessful with response code: 502 with reason as: <html>
+<head><title>502 Bad Gateway</title></head>
+<body bgcolor="white">
+<center><h1>502 Bad Gateway</h1></center>
+<hr><center>nginx/1.10.2</center>
+</body>
+</html>
+
+ERROR	2023-07-12 13:30:16,976	5019	testScript.API	[main]	Executing completed with error for the Test Case:PutCity_2
+INFO	2023-07-12 13:30:16,976	5019	testScript.API	[main]	Executing Start for the TestCase :PutCity_3
+INFO	2023-07-12 13:30:16,976	5019	testScript.API	[main]	Step: Setting up base URI: http://services.test2.mnr-services-test2.cluster.infoedge.com/company-services/company-service-refactor
+INFO	2023-07-12 13:30:16,976	5019	testScript.API	[main]	Step: Setting up base Path: /cities/
+INFO	2023-07-12 13:30:16,977	5020	api_Lib.APIRequest	[main]	Step: Setting up headers: {AppId=114, Accept=*/*, SystemId=naukriIndia, Accept-Encoding=gzip,deflate, cache-control=no-cache, Content-Type=application/json}
+INFO	2023-07-12 13:30:16,978	5021	api_Lib.APIRequest	[main]	Step: Setting up body: 
+INFO	2023-07-12 13:30:17,004	5047	api_Lib.APIResponse	[main]	PUT request hits.
+ERROR	2023-07-12 13:30:17,005	5048	testScript.API	[main]	Request is unsuccessful with response code: 502 with reason as: <html>
+<head><title>502 Bad Gateway</title></head>
+<body bgcolor="white">
+<center><h1>502 Bad Gateway</h1></center>
+<hr><center>nginx/1.10.2</center>
+</body>
+</html>
+
+ERROR	2023-07-12 13:30:17,005	5048	testScript.API	[main]	Executing completed with error for the Test Case:PutCity_3
+INFO	2023-07-12 13:30:17,005	5048	testScript.API	[main]	Executing Start for the TestCase :PutCity_4
+INFO	2023-07-12 13:30:17,005	5048	testScript.API	[main]	Step: Setting up base URI: http://services.test2.mnr-services-test2.cluster.infoedge.com/company-services/company-service-refactor
+INFO	2023-07-12 13:30:17,005	5048	testScript.API	[main]	Step: Setting up base Path: /cities/
+INFO	2023-07-12 13:30:17,006	5049	api_Lib.APIRequest	[main]	Step: Setting up headers: {AppId=114, Accept=*/*, SystemId=naukriIndia, Accept-Encoding=gzip,deflate, cache-control=no-cache, Content-Type=application/json}
+INFO	2023-07-12 13:30:17,006	5049	api_Lib.APIRequest	[main]	Step: Setting up body: 
+INFO	2023-07-12 13:30:17,027	5070	api_Lib.APIResponse	[main]	PUT request hits.
+ERROR	2023-07-12 13:30:17,027	5070	testScript.API	[main]	Request is unsuccessful with response code: 502 with reason as: <html>
+<head><title>502 Bad Gateway</title></head>
+<body bgcolor="white">
+<center><h1>502 Bad Gateway</h1></center>
+<hr><center>nginx/1.10.2</center>
+</body>
+</html>
+
+ERROR	2023-07-12 13:30:17,027	5070	testScript.API	[main]	Executing completed with error for the Test Case:PutCity_4
+INFO	2023-07-12 13:30:17,028	5071	testScript.API	[main]	Executing Start for the TestCase :GetState
+INFO	2023-07-12 13:30:17,028	5071	testScript.API	[main]	Step: Setting up base URI: http://services.test2.mnr-services-test2.cluster.infoedge.com/company-services/company-service-refactor
+INFO	2023-07-12 13:30:17,028	5071	testScript.API	[main]	Step: Setting up base Path: /states/{stateId} with path parameters as stateId=31
+INFO	2023-07-12 13:30:17,028	5071	api_Lib.APIRequest	[main]	Step: Setting up headers: {AppId=114, Accept=*/*, SystemId=naukriIndia, Accept-Encoding=gzip,deflate, cache-control=no-cache, Content-Type=application/json}
+INFO	2023-07-12 13:30:17,053	5096	api_Lib.APIResponse	[main]	GET request hits.
+ERROR	2023-07-12 13:30:17,053	5096	testScript.API	[main]	Request is unsuccessful with response code: 502 with reason as: <html>
+<head><title>502 Bad Gateway</title></head>
+<body bgcolor="white">
+<center><h1>502 Bad Gateway</h1></center>
+<hr><center>nginx/1.10.2</center>
+</body>
+</html>
+
+ERROR	2023-07-12 13:30:17,053	5096	testScript.API	[main]	Executing completed with error for the Test Case:GetState
+INFO	2023-07-12 13:30:17,107	5150	launch.Master	[main]	Test Results:
+INFO	2023-07-12 13:30:17,108	5151	report.CustomReport	[main]	Suite Name: VideoKYC
  Passed Test: 0
  Passed with warning 0
  Failed Test : 0
  Skipped Test : 0
-INFO	2023-07-10 11:14:02,260	7160	report.CustomReport	[main]	Suite Name: zipp@mongo
+INFO	2023-07-12 13:30:17,108	5151	report.CustomReport	[main]	Suite Name: zipp
  Passed Test: 0
  Passed with warning 1
  Failed Test : 0
+ Skipped Test : 0
+INFO	2023-07-12 13:30:17,108	5151	report.CustomReport	[main]	Suite Name: CompanyService
+ Passed Test: 0
+ Passed with warning 0
+ Failed Test : 9
  Skipped Test : 0

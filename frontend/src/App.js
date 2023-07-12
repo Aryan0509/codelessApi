@@ -15,7 +15,7 @@ import HomePage from './Views/FullPages/HomePage';
 import TopNavbar from './Views/NavigationBar/TopNavbar';
 import SecondaryNavbar from './Views/NavigationBar/SecondaryNavbar';
 import NewCase from './Views/FullPages/NewCase';
-
+import "./styles.css";
 function App() {
 
   const [showModal, setModal] = useState(false);
@@ -28,6 +28,7 @@ function App() {
   const [suitName,setSuitName]=useState(null);
   const [apiname,setApiname]=useState(null);
   const [isAppLoaded, setIsAppLoaded] = useState(false);
+  const [isClone,setIsClone]=useState(false);
   const toggleModal = () => {
     setModal(!showModal);
   }
@@ -71,7 +72,7 @@ const [showmodal, setShowModal] = useState(false);
 useEffect(() => {
   const checkConfigFile = async () => {
     try {
-      const response = await axios.get('/api/config');
+      const response = await axios.get('/config');
       const data = response.data;
       if (Object.keys(data).length === 0) {
         setShowModal(true);
@@ -93,7 +94,7 @@ useEffect(() => {
 const handleSubmit = async (formData) => {
   try {
     console.log("post called");
-    await axios.post('/api/config', formData);
+    await axios.post('/config', formData);
     setConfigData(formData);
     setShowModal(false);
     setIsAppLoaded(true);
@@ -154,6 +155,11 @@ const changeState=(state,suitName,apiname)=>{
     </>)
      :null
 }
+{showStateName==='clone'?(
+<>
+<NewCase testSuitName={suitName} apiname={apiname} type={'clone'}/>
+</>
+):null}
 
 {showStateName==='update' ?(
     <>

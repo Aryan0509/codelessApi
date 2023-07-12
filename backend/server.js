@@ -54,67 +54,7 @@ const headers = [
   "ResponseBodyExpressionValidation",
 ]
 
-
-app.post('/get-server', (req, res) => {
-  choice = req.body.choice;
-  console.log(choice);
-  if (choice === "mongodb") {
-    dataserver = req.body.input1;
-    projectName = req.body.input2;
-    let x = "";
-    if (dataserver === "/") {
-      dataserver = "mongodb://localhost:27017/";
-    }
-    if (projectName === "/") {
-      projectName = "testing";
-    }
-    console.log(dataserver);
-    console.log(projectName)
-    let mongoCall = x.concat(dataserver, projectName);
-    console.log(mongoCall);
-    mongoose.connect(mongoCall, {
-      useNewUrlParser: true,
-      useFindAndModify: false,
-      useUnifiedTopology: true,
-    })
-      .then(() => {
-        console.log('Connected to MongoDB');
-        res.sendStatus(200);
-      })
-      .catch((error) => {
-        res.err;
-        console.error('Failed to connect to MongoDB', error);
-      });
-  }
-  else {
-    sheetPath = req.body.input1;
-    sheetName = req.body.input2;
-    if (sheetPath === "/") {
-      sheetPath = "/home/aryangupta/react/Testing/API_Automation_Suite.xlsx";
-    }
-    if (sheetName === "/") {
-      sheetName = "APITestSuites";
-    }
-    workbook.xlsx.readFile(sheetPath).then(() => {
-      const mainSheet = workbook.getWorksheet(sheetName);
-      mainSheet.eachRow((row, rowNumber) => {
-        if (rowNumber !== 1) { // Skip header row
-          sheetNames.add(row.getCell(1).value); // Assuming sheet names are in column 1
-        }
-      });
-      console.log("excel connected");
-      console.log(sheetNames);
-
-    }).catch((error) => {
-      console.error(error);
-    })
-    res.sendStatus(200);
-  }
-
-});
-
-
-app.get('/api/config', (req, res) => {
+app.get('/config', (req, res) => {
   try {
     const configFileContent = fs.readFileSync('/home/aryangupta/react/Testing/config.json', 'utf8');
     console.log(configFileContent);
@@ -162,7 +102,7 @@ app.get('/api/config', (req, res) => {
       }
       else {
         sheetPath = configData.input1;
-        sheetName = configData.input2;
+        sheetName = "APITestSuites";
         if (sheetPath === "/") {
           sheetPath = "/home/aryangupta/react/Testing/API_Automation_Suite.xlsx";
         }
@@ -200,7 +140,7 @@ app.get('/api/config', (req, res) => {
   }
 });
 
-app.post('/api/config', (req, res) => {
+app.post('/config', (req, res) => {
   const configData = req.body;
   try {
     fs.writeFileSync('/home/aryangupta/react/Testing/config.json', JSON.stringify(configData));
@@ -237,7 +177,7 @@ app.post('/api/config', (req, res) => {
     }
     else {
       sheetPath = configData.input1;
-      sheetName = configData.input2;
+      sheetName = "APITestSuites";
       if (sheetPath === "/") {
         sheetPath = "/home/aryangupta/react/Testing/API_Automation_Suite.xlsx";
       }
@@ -246,6 +186,11 @@ app.post('/api/config', (req, res) => {
       }
       workbook.xlsx.readFile(sheetPath).then(() => {
         const mainSheet = workbook.getWorksheet(sheetName);
+        if(!mainSheet)
+        {
+          res.status(400).json("Sheet not found");
+          return;
+        }
         mainSheet.eachRow((row, rowNumber) => {
           if (rowNumber !== 1) { // Skip header row
             sheetNames.add(row.getCell(1).value); // Assuming sheet names are in column 1
@@ -253,11 +198,13 @@ app.post('/api/config', (req, res) => {
         });
         console.log("excel connected");
         console.log(sheetNames);
+        res.sendStatus(200);
 
       }).catch((error) => {
+        res.sendStatus(400);
         console.error(error);
       })
-      res.sendStatus(200);
+      
     }
   } catch (error) {
     // Handle file write error
@@ -319,6 +266,8 @@ app.delete("/delete-config", (req, res) => {
   try {
     const emptyConfigData = {};
     fs.writeFileSync('/home/aryangupta/react/Testing/config.json', JSON.stringify(emptyConfigData));
+    delete workbook._worksheets;
+    delete workbook._worksheetHash;
     res.sendStatus(200);
   } catch (error) {
     // Handle file write error
@@ -590,13 +539,17 @@ app.post('/delete', asyncHandler(async(req, res) => {
       res.sendStatus(400);
       return;
     }
-
+    const rows=worksheet.rowCount;
     worksheet.eachRow({ includeEmpty: false }, (row, rowNumber) => {
       if (rowNumber <= 1) return; // skip the header
   
       const cellValue = row.getCell(1).text;
       if (cellValue === apiname) {
-        // delete row if cell value matches API name
+        if(rowNumber==rows)
+        {
+          worksheet.spliceRows(rowNumber, 1, []);
+        }
+        else
         worksheet.spliceRows(rowNumber, 1);
         console.log(`deleted ${apiname} at row number ${rowNumber}`);
       }
@@ -698,7 +651,6 @@ app.post('/test-query', asyncHandler(async (req, res) => {
     console.log({ parameters });
     res.send({ parameters });
   }
-
 }));
 
 app.get('/return-testSuites', asyncHandler(async (req, res) => {
@@ -720,6 +672,68 @@ app.get('/return-testSuites', asyncHandler(async (req, res) => {
   }
 
 }))
+
+app.post('/delete-testSuite',asyncHandler(async(req,res)=>{
+  const testSuitName=req.body.testSuitName;
+  if(choice==='mongodb')
+  {
+    try{
+      const result= await ProjectData.deleteOne({testSuitName:testSuitName});
+      res.status(200).json({message:"deleted"});
+    }
+    catch(err)
+    {
+      res.status(400).json({message: err.message});
+    }
+    
+  }
+  else{
+    try {
+  const worksheet = workbook.getWorksheet(sheetName);
+
+  if (!worksheet) {
+    console.log(`Sheet "${sheetName}" not found in the workbook.`);
+    res.sendStatus(400);
+    return;
+  }
+  const rows=worksheet.rowCount;
+  worksheet.eachRow({ includeEmpty: false }, (row, rowNumber) => {
+    if (rowNumber >1){// skip the header
+
+    const cellValue = row.getCell(1).text;
+    console.log(testSuitName);
+    if (cellValue === testSuitName) {
+      if(rowNumber==rows)
+      {
+        worksheet.spliceRows(rowNumber, 1, []);
+      }
+      else
+      worksheet.spliceRows(rowNumber, 1);
+      console.log(`deleted ${testSuitName} at row number ${rowNumber}`);
+    }
+  }
+  });
+  const sheet = workbook.getWorksheet(testSuitName);
+  if (sheet!==undefined) {
+    workbook.removeWorksheet(sheet.id);
+    console.log(`Sheet '${testSuitName}' deleted successfully.`);
+  } else {
+    console.log(`Sheet '${testSuitName}' not found.`);
+  }
+
+  // Save the modified workbook
+  await workbook.xlsx.writeFile(sheetPath);
+
+      res.sendStatus(200);
+      console.log('Workbook saved successfully.');
+    } catch (error) {
+      console.error('Error occurred while deleting sheet and row:', error);
+      res.sendStatus(400);
+    }
+  
+  }
+}))
+
 app.post('/get-apis', asyncHandler(async (req, res) => {
   const testSuitName = req.body.testSuitName;
   console.log(req.body);
@@ -753,9 +767,7 @@ app.post('/get-apis', asyncHandler(async (req, res) => {
     });
 
     res.send(firstColumnValues);
-
   }
-
 }))
 
 app.post('/all-data', asyncHandler(async (req, res) => {
@@ -814,25 +826,6 @@ app.post('/update-runables', asyncHandler(async (req, res) => {
   const projectArray = req.body.projectArray;
 
   if (choice === "mongodb") {
-    // ProjectData.findOne({ testSuitName }, (err, doc) => {
-
-    //   if (err) {
-    //     console.error(err);
-    //     res.status(400).json(err.message);
-    //     return;
-    //   }
-    //   doc.isRunable = runable;
-    //   // Save the updated document
-    //   doc.save((err, updatedDoc) => {
-    //     if (err) {
-    //       console.error(err);
-    //       res.status(400).json(err.message);
-    //       return;
-    //     }
-    //     console.log("updated");
-    //     res.status(200).json({ message: "updated successfully" });
-    //   });
-    // });
     try {
       for (let project of projectArray) {
         const { testSuitName, isRunable } = project;
@@ -854,22 +847,6 @@ app.post('/update-runables', asyncHandler(async (req, res) => {
   else {
     const worksheet = workbook.getWorksheet(sheetName);
 
-    // if(!worksheet) {
-    //     throw new Error('mainsheet not found');
-    // }
-
-    // // Find row and update value
-    // worksheet.eachRow((row, rowNumber) => {
-    //     if(row.getCell(1).value === testSuitName) {
-    //         var cell = row.getCell(2); // get second column cell
-    //         cell.value = runable;   // update its value
-    //         console.log(`Updated isRunnable for sheet: ${testSuitName}`);
-    //     }
-    // });
-
-    // // Write to filepath
-    // await workbook.xlsx.writeFile(sheetPath);
-    // res.sendStatus(200);
     try {
       projectArray.forEach(test => {
         let rowToBeUpdated;
@@ -917,6 +894,8 @@ app.post('/testAndRuns', asyncHandler(async (req, res) => {
     const data = [];
 
     // Go through each row in the worksheet skipping the header row (i.e., row index 1)
+    if(worksheet!== undefined)
+    {
     worksheet.eachRow({ includeEmpty: false }, (row, rowNumber) => {
       if (rowNumber > 1) {
         const rowValues = row.values;
@@ -932,6 +911,7 @@ app.post('/testAndRuns', asyncHandler(async (req, res) => {
 
       }
     });
+  }
     res.send(data);
   }
 
@@ -1024,11 +1004,7 @@ async function deleteApiEntry(testSuitName, apiname) {
   else {
     throw new Error("No such entry present");
   }
-
-
 }
-
-
 async function updateQuery(testSuitName, apiname, newParameters) {
   const result = await ProjectData.findOne({ testSuitName: testSuitName, 'api.apiname': apiname });
   if (result) {
@@ -1046,7 +1022,6 @@ async function updateQuery(testSuitName, apiname, newParameters) {
         console.error(`No object found with apiname '${apiname}'`);
         return;
       }
-
       // Update the parameters of the found object
       doc.api[index].parameters = newParameters;
 
@@ -1131,16 +1106,14 @@ async function addRowOrSheet(sheetNamee, values, headers) {
     throw new Error('values and headers arrays should contain exactly 27 items');
   }
 
-  const workbook = new ExcelJS.Workbook();
-  await workbook.xlsx.readFile(sheetPath); // Enter your file path here
-
   let sheet = workbook.getWorksheet(sheetNamee);
 
   if (sheet) {
     sheet.addRow(values);
   } else {
     // Add the new sheet name to the main sheet and the sheetNames array
-    const mainSheet = workbook.getWorksheet(sheetName); // Enter your main sheet name here
+    const mainSheet = workbook.getWorksheet(sheetName);
+    console.log(sheetName); // Enter your main sheet name here
     mainSheet.addRow([sheetNamee, "yes"]);
     sheetNames.add(sheetNamee);
 

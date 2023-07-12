@@ -22,4 +22,28 @@
     max-width: 200px;
     font-size: 14px;
   }
+  .myForm {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 10px;
+  }
+  
+  .myForm input {
+    width: 33.33%;
+  }  
+  /* .icon{
+   
+    border: 1px solid #000;
+    border-radius: 50%;
+    padding: 5px;
+  } */
+ 
+  select{
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  
   

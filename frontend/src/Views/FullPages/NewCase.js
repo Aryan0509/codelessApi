@@ -4,8 +4,11 @@ import axios from 'axios';
 import QueryFragment from './QueryFragment';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Tooltip } from 'react-tooltip'
+import 'react-tooltip/dist/react-tooltip.css'
+import { FaInfoCircle } from 'react-icons/fa';
 
-function NewCase({ testSuitName }) {
+function NewCase({ testSuitName,apiname,type}) {
 
   
   const [formData, setFormData] = useState({
@@ -71,6 +74,52 @@ function NewCase({ testSuitName }) {
     ResponseBodyParameters: "",
     ResponseBodyExpressionValidation: ""
   };
+  const [apiChoices, setApiChoices] = useState([]);
+
+  useEffect(() => {
+
+    const fetchData = (async () => {
+      try {
+        const response = await axios.post('/test-query', {
+          testSuitName: testSuitName,
+          apiname: apiname,
+        });
+        console.log('Entry Found:', response.data);
+        const currentData = { ...formData, ...response.data.parameters };
+        currentData.testSuitName = testSuitName;
+        console.log(currentData);
+        setFormData(currentData);
+      }
+      catch (err) {
+        console.error('Error submitting form data:', err);
+      }
+
+    })
+
+    const fetchData2 = async () => {
+      try {
+        const response = await axios.post('/get-apis', {
+          testSuitName
+        }); // Replace '/api/data' with your backend API endpoint
+        console.log(response);
+        const apis=[...response.data,'NA'];
+        setApiChoices(apis);
+      } catch (error) {
+        // Handle error
+        setApiChoices([]);
+        console.error(error);
+
+      }
+    };
+
+    if (type == 'clone') {
+      console.log(testSuitName);
+      fetchData();
+    }
+    fetchData2();
+  }, []);
+
+
 
 
   const handleChange = (e) => {
@@ -142,314 +191,604 @@ function NewCase({ testSuitName }) {
     }
    
   };
+  const reqTypes=["GET","POST","PUT","FETCH","DELETE","PATCH","OPTIONS"];
 
   return (
     <div>
     <div class="fill-details-form">
-      <div>
-      
-      </div>
       <form onSubmit={handleSubmit}>
-        <label>
-          testSuitName:
-          <input
-            type="text"
-            name="testSuitName"
-            value={testSuitName}
-            onChange={handleChange}
-          />
+          <label>
+            testSuitName:
+        <span
+            data-tooltip-id="my-tooltip"
+            data-tooltip-content="testSuite Detail"
+            data-tooltip-place="top"
+        >
+          <FaInfoCircle className="icon" />
+        </span>
         </label>
-        <br />
-        {/* <label>
-          isRunable:
-          <input
-            type="text"
-            name="isRunable"
-            value={formData.isRunable}
-            onChange={handleChange}
-          />
+        <Tooltip id="my-tooltip" />
+            <input
+              type="text"
+              name="testSuitName"
+              value={testSuitName}
+              onChange={handleChange}
+              required
+              disabled
+            />
+          
+          <br />
+          <label>
+            apiname:
+        <a
+            data-tooltip-id="my-tooltip"
+            data-tooltip-content="api detail"
+            data-tooltip-place="top"
+        >
+          <FaInfoCircle className="icon" />
+        </a>
         </label>
-        <br /> */}
-        <label>
-          apiname:
-          <input
-            type="text"
-            name="apiname"
-            value={formData.apiname}
-            onChange={handleChange}
-          />
+        <Tooltip id="my-tooltip" />
+            <input
+              type="text"
+              name="apiname"
+              value={formData.apiname}
+              onChange={handleChange}
+              required
+            />
+          
+          <br />
+          <label>
+            isRunableApi:
+        <a
+            data-tooltip-id="my-tooltip"
+            data-tooltip-content="Hello world!"
+            data-tooltip-place="top"
+        >
+          <FaInfoCircle className="icon" />
+        </a>
         </label>
-        <br />
-        <label>
-          isRunableApi:
-          <input
-            type="text"
-            name="isRunableApi"
-            value={formData.isRunableApi}
-            onChange={handleChange}
-          />
+        <Tooltip id="my-tooltip" />
+            <input
+              type="text"
+              name="isRunableApi"
+              value={formData.isRunableApi}
+              onChange={handleChange}
+            />
+          
+          <br />
+          <label>
+            DependOnTest:
+        <a
+            data-tooltip-id="my-tooltip"
+            data-tooltip-content="Hello world!"
+            data-tooltip-place="top"
+        >
+          <FaInfoCircle className="icon" />
+        </a>
         </label>
-        <br />
-        <label>
-        DependOnTest:
-          <input
-            type="text"
-            name="DependOnTest"
-            value={formData.DependOnTest}
-            onChange={handleChange}
-          />
+        <Tooltip id="my-tooltip" />
+        <select
+              type="text"
+              name="DependOnTest"
+              value={formData.DependOnTest}
+              onChange={handleChange}
+              required
+            >
+              {apiChoices.map((choice, index) => (
+                    <option key={index} value={choice}>
+                      {choice}
+                    </option>
+                  ))}
+            </select>
+          
+          <br />
+          <label>
+            Description:
+        <a
+            data-tooltip-id="my-tooltip"
+            data-tooltip-content="Hello world!"
+            data-tooltip-place="top"
+        >
+          <FaInfoCircle className="icon" />
+        </a>
         </label>
-        <br />
-        <label>
-        Description:
-          <input
-            type="text"
-            name="Description"
-            value={formData.Description}
-            onChange={handleChange}
-          />
+        <Tooltip id="my-tooltip" />
+            <input
+              type="text"
+              name="Description"
+              value={formData.Description}
+              onChange={handleChange}
+              required
+            />
+          
+          <br />
+          <label>
+            RandomValues:
+        <a
+            data-tooltip-id="my-tooltip"
+            data-tooltip-content="Hello world!"
+            data-tooltip-place="top"
+        >
+          <FaInfoCircle className="icon" />
+        </a>
         </label>
-        <br />
-        <label>
-          RandomValues:
-          <input
-            type="text"
-            name="RandomValues"
-            value={formData.RandomValues}
-            onChange={handleChange}
-          />
+        <Tooltip id="my-tooltip" />
+            <input
+              type="text"
+              name="RandomValues"
+              value={formData.RandomValues}
+              onChange={handleChange}
+              required
+            />
+          
+          <br />
+          <label>
+            RequestType:
+        <a
+            data-tooltip-id="my-tooltip"
+            data-tooltip-content="Hello world!"
+            data-tooltip-place="top"
+        >
+          <FaInfoCircle className="icon" />
+        </a>
         </label>
-        <br />
-        <label>
-          RequestType:
-          <input
-            type="text"
-            name="RequestType"
-            value={formData.RequestType}
-            onChange={handleChange}
-          />
+        <Tooltip id="my-tooltip" />
+            <select
+              type="text"
+              name="RequestType"
+              value={formData.RequestType}
+              onChange={handleChange}
+              required
+            >
+              {reqTypes.map((choice, index) => (
+                    <option key={index} value={choice}>
+                      {choice}
+                    </option>
+                  ))}
+            </select>
+          
+          <br />
+          <label>
+            BaseURI:
+        <a
+            data-tooltip-id="my-tooltip"
+            data-tooltip-content="Hello world!"
+            data-tooltip-place="top"
+        >
+          <FaInfoCircle className="icon" />
+        </a>
         </label>
-        <br />
-        <label>
-          BaseURI:
-          <input
-            type="text"
-            name="BaseURI"
-            value={formData.BaseURI}
-            onChange={handleChange}
-          />
+        <Tooltip id="my-tooltip" />
+            <input
+              type="text"
+              name="BaseURI"
+              value={formData.BaseURI}
+              onChange={handleChange}
+              required
+            />
+          
+          <br />
+          <label>
+            BasePath:
+        <a
+            data-tooltip-id="my-tooltip"
+            data-tooltip-content="Hello world!"
+            data-tooltip-place="top"
+        >
+          <FaInfoCircle className="icon" />
+        </a>
         </label>
-        <br />
-        <label>
-          BasePath:
-          <input
-            type="text"
-            name="BasePath"
-            value={formData.BasePath}
-            onChange={handleChange}
-          />
+        <Tooltip id="my-tooltip" />
+            <input
+              type="text"
+              name="BasePath"
+              value={formData.BasePath}
+              onChange={handleChange}
+              required
+            />
+          
+          <br />
+          <label>
+            RequestHeaders:
+        <a
+            data-tooltip-id="my-tooltip"
+            data-tooltip-content="Hello world!"
+            data-tooltip-place="top"
+        >
+          <FaInfoCircle className="icon" />
+        </a>
         </label>
-        <br />
-        <label>
-          RequestHeaders:
-          <input
-            type="text"
-            name="RequestHeaders"
-            value={formData.RequestHeaders}
-            onChange={handleChange}
-          />
+        <Tooltip id="my-tooltip" />
+            <input
+              type="text"
+              name="RequestHeaders"
+              value={formData.RequestHeaders}
+              onChange={handleChange}
+              required
+            />
+          
+          <br />
+          <label>
+            RequestCookies:
+        <a
+            data-tooltip-id="my-tooltip"
+            data-tooltip-content="Hello world!"
+            data-tooltip-place="top"
+        >
+          <FaInfoCircle className="icon" />
+        </a>
         </label>
-        <br />
-        <label>
-          RequestCookies:
-          <input
-            type="text"
-            name="RequestCookies"
-            value={formData.RequestCookies}
-            onChange={handleChange}
-          />
+        <Tooltip id="my-tooltip" />
+            <input
+              type="text"
+              name="RequestCookies"
+              value={formData.RequestCookies}
+              onChange={handleChange}
+              required
+            />
+          
+          <br />
+          <label>
+            QueryParameters:
+        <a
+            data-tooltip-id="my-tooltip"
+            data-tooltip-content="Hello world!"
+            data-tooltip-place="top"
+        >
+          <FaInfoCircle className="icon" />
+        </a>
         </label>
-        <br />
-        <label>
-          QueryParameters:
-          <input
-            type="text"
-            name="QueryParameters"
-            value={formData.QueryParameters}
-            onChange={handleChange}
-          />
+        <Tooltip id="my-tooltip" />
+            <input
+              type="text"
+              name="QueryParameters"
+              value={formData.QueryParameters}
+              onChange={handleChange}
+              required
+            />
+          
+          <br />
+          <label>
+            PathParameters:
+        <a
+            data-tooltip-id="my-tooltip"
+            data-tooltip-content="Hello world!"
+            data-tooltip-place="top"
+        >
+          <FaInfoCircle className="icon" />
+        </a>
         </label>
-        <br />
-        <label>
-          PathParameters:
-          <input
-            type="text"
-            name="PathParameters"
-            value={formData.PathParameters}
-            onChange={handleChange}
-          />
+        <Tooltip id="my-tooltip" />
+            <input
+              type="text"
+              name="PathParameters"
+              value={formData.PathParameters}
+              onChange={handleChange}
+              required
+            />
+          
+          <br />
+          <label>
+            RequestBody:
+        <a
+            data-tooltip-id="my-tooltip"
+            data-tooltip-content="Hello world!"
+            data-tooltip-place="top"
+        >
+          <FaInfoCircle className="icon" />
+        </a>
         </label>
-        <br />
-        <label>
-          RequestBody:
-          <input
-            type="text"
-            name="RequestBody"
-            value={formData.RequestBody}
-            onChange={handleChange}
-          />
+        <Tooltip id="my-tooltip" />
+            <input
+              type="text"
+              name="RequestBody"
+              value={formData.RequestBody}
+              onChange={handleChange}
+              required
+            />
+          
+          <br />
+          <label>
+            RequestParameters:
+        <a
+            data-tooltip-id="my-tooltip"
+            data-tooltip-content="Hello world!"
+            data-tooltip-place="top"
+        >
+          <FaInfoCircle className="icon" />
+        </a>
         </label>
-        <br />
-        <label>
-          RequestParameters:
-          <input
-            type="text"
-            name="RequestParameters"
-            value={formData.RequestParameters}
-            onChange={handleChange}
-          />
+        <Tooltip id="my-tooltip" />
+            <input
+              type="text"
+              name="RequestParameters"
+              value={formData.RequestParameters}
+              onChange={handleChange}
+              required
+            />
+          
+          <br />
+          <label>
+            MultiPartData:
+        <a
+            data-tooltip-id="my-tooltip"
+            data-tooltip-content="Hello world!"
+            data-tooltip-place="top"
+        >
+          <FaInfoCircle className="icon" />
+        </a>
         </label>
-        <br />
-        <label>
-          MultiPartData:
-          <input
-            type="text"
-            name="MultiPartData"
-            value={formData.MultiPartData}
-            onChange={handleChange}
-          />
+        <Tooltip id="my-tooltip" />
+            <input
+              type="text"
+              name="MultiPartData"
+              value={formData.MultiPartData}
+              onChange={handleChange}
+              required
+            />
+          
+          <br />
+          <label>
+            ResponseCode:
+        <a
+            data-tooltip-id="my-tooltip"
+            data-tooltip-content="Hello world!"
+            data-tooltip-place="top"
+        >
+          <FaInfoCircle className="icon" />
+        </a>
         </label>
-        <br />
-        <label>
-          ResponseCode:
-          <input
-            type="text"
-            name="ResponseCode"
-            value={formData.ResponseCode}
-            onChange={handleChange}
-          />
+        <Tooltip id="my-tooltip" />
+            <input
+              type="text"
+              name="ResponseCode"
+              value={formData.ResponseCode}
+              onChange={handleChange}
+              required
+            />
+          
+          <br />
+          <label>
+            ResponseType:
+        <a
+            data-tooltip-id="my-tooltip"
+            data-tooltip-content="Hello world!"
+            data-tooltip-place="top"
+        >
+          <FaInfoCircle className="icon" />
+        </a>
         </label>
-        <br />
-        <label>
-          ResponseType:
-          <input
-            type="text"
-            name="ResponseType"
-            value={formData.ResponseType}
-            onChange={handleChange}
-          />
+        <Tooltip id="my-tooltip" />
+            <input
+              type="text"
+              name="ResponseType"
+              value={formData.ResponseType}
+              onChange={handleChange}
+              required
+            />
+          
+          <br />
+          <label>
+            ResponseCookiesToBeSaved:
+        <a
+            data-tooltip-id="my-tooltip"
+            data-tooltip-content="Hello world!"
+            data-tooltip-place="top"
+        >
+          <FaInfoCircle className="icon" />
+        </a>
         </label>
-        <br />
-        <label>
-          ResponseCookiesToBeSaved:
-          <input
-            type="text"
-            name="ResponseCookiesToBeSaved"
-            value={formData.ResponseCookiesToBeSaved}
-            onChange={handleChange}
-          />
+        <Tooltip id="my-tooltip" />
+            <input
+              type="text"
+              name="ResponseCookiesToBeSaved"
+              value={formData.ResponseCookiesToBeSaved}
+              onChange={handleChange}
+              required
+            />
+          
+          <br />
+          <label>
+            ResponseHeadersToBeSaved:
+        <a
+            data-tooltip-id="my-tooltip"
+            data-tooltip-content="Hello world!"
+            data-tooltip-place="top"
+        >
+          <FaInfoCircle className="icon" />
+        </a>
         </label>
-        <br />
-        <label>
-          ResponseHeadersToBeSaved:
-          <input
-            type="text"
-            name="ResponseHeadersToBeSaved"
-            value={formData.ResponseHeadersToBeSaved}
-            onChange={handleChange}
-          />
+        <Tooltip id="my-tooltip" />
+            <input
+              type="text"
+              name="ResponseHeadersToBeSaved"
+              value={formData.ResponseHeadersToBeSaved}
+              onChange={handleChange}
+              required
+            />
+          
+          <br />
+          <label>
+            ResponseBodyFieldToBeSaved:
+        <a
+            data-tooltip-id="my-tooltip"
+            data-tooltip-content="Hello world!"
+            data-tooltip-place="top"
+        >
+          <FaInfoCircle className="icon" />
+        </a>
         </label>
-        <br />
-        <label>
-          ResponseBodyFieldToBeSaved:
-          <input
-            type="text"
-            name="ResponseBodyFieldToBeSaved"
-            value={formData.ResponseBodyFieldToBeSaved}
-            onChange={handleChange}
-          />
+        <Tooltip id="my-tooltip" />
+            <input
+              type="text"
+              name="ResponseBodyFieldToBeSaved"
+              value={formData.ResponseBodyFieldToBeSaved}
+              onChange={handleChange}
+              required
+            />
+          
+          <br />
+          <label>
+            ResponseCookieValidation:
+        <a
+            data-tooltip-id="my-tooltip"
+            data-tooltip-content="Hello world!"
+            data-tooltip-place="top"
+        >
+          <FaInfoCircle className="icon" />
+        </a>
         </label>
-        <br />
-        <label>
-          ResponseCookieValidation:
-          <input
-            type="text"
-            name="ResponseCookieValidation"
-            value={formData.ResponseCookieValidation}
-            onChange={handleChange}
-          />
+        <Tooltip id="my-tooltip" />
+            <input
+              type="text"
+              name="ResponseCookieValidation"
+              value={formData.ResponseCookieValidation}
+              onChange={handleChange}
+              required
+            />
+          
+          <br />
+          <label>
+            ResponseCookieExpressionValidation:
+        <a
+            data-tooltip-id="my-tooltip"
+            data-tooltip-content="Hello world!"
+            data-tooltip-place="top"
+        >
+          <FaInfoCircle className="icon" />
+        </a>
         </label>
-        <br />
-        <label>
-          ResponseCookieExpressionValidation:
-          <input
-            type="text"
-            name="ResponseCookieExpressionValidation"
-            value={formData.ResponseCookieExpressionValidation}
-            onChange={handleChange}
-          />
+        <Tooltip id="my-tooltip" />
+            <input
+              type="text"
+              name="ResponseCookieExpressionValidation"
+              value={formData.ResponseCookieExpressionValidation}
+              onChange={handleChange}
+              required
+            />
+          
+          <br />
+          <label>
+            ResponseHeaderValidation:
+        <a
+            data-tooltip-id="my-tooltip"
+            data-tooltip-content="Hello world!"
+            data-tooltip-place="top"
+        >
+          <FaInfoCircle className="icon" />
+        </a>
         </label>
-        <br />
-        <label>
-          ResponseHeaderValidation:
-          <input
-            type="text"
-            name="ResponseHeaderValidation"
-            value={formData.ResponseHeaderValidation}
-            onChange={handleChange}
-          />
+        <Tooltip id="my-tooltip" />
+            <input
+              type="text"
+              name="ResponseHeaderValidation"
+              value={formData.ResponseHeaderValidation}
+              onChange={handleChange}
+              required
+            />
+          
+          <br />
+          <label>
+            ResponseHeaderExpressionValidation:
+        <a
+            data-tooltip-id="my-tooltip"
+            data-tooltip-content="Hello world!"
+            data-tooltip-place="top"
+        >
+          <FaInfoCircle className="icon" />
+        </a>
         </label>
-        <br />
-        <label>
-        ResponseHeaderExpressionValidation:
-          <input
-            type="text"
-            name="ResponseHeaderExpressionValidation"
-            value={formData.ResponseHeaderExpressionValidation}
-            onChange={handleChange}
-          />
+        <Tooltip id="my-tooltip" />
+            <input
+              type="text"
+              name="ResponseHeaderExpressionValidation"
+              value={formData.ResponseHeaderExpressionValidation}
+              onChange={handleChange}
+              required
+            />
+          
+          <br />
+          <label>
+            ResponseBodySchema:
+        <a
+            data-tooltip-id="my-tooltip"
+            data-tooltip-content="Hello world!"
+            data-tooltip-place="top"
+        >
+          <FaInfoCircle className="icon" />
+        </a>
         </label>
-        <br />
-        <label>
-          ResponseBodySchema:
-          <input
-            type="text"
-            name="ResponseBodySchema"
-            value={formData.ResponseBodySchema}
-            onChange={handleChange}
-          />
+        <Tooltip id="my-tooltip" />
+            <input
+              type="text"
+              name="ResponseBodySchema"
+              value={formData.ResponseBodySchema}
+              onChange={handleChange}
+              required
+            />
+          
+          <br />
+          <label>
+            ResponseBody:
+        <a
+            data-tooltip-id="my-tooltip"
+            data-tooltip-content="Hello world!"
+            data-tooltip-place="top"
+        >
+          <FaInfoCircle className="icon" />
+        </a>
         </label>
-        <br />
-        <label>
-          ResponseBody:
-          <input
-            type="text"
-            name="ResponseBody"
-            value={formData.ResponseBody}
-            onChange={handleChange}
-          />
+        <Tooltip id="my-tooltip" />
+            <input
+              type="text"
+              name="ResponseBody"
+              value={formData.ResponseBody}
+              onChange={handleChange}
+              required
+            />
+          
+          <br />
+          <label>
+            ResponseBodyParameters:
+        <a
+            data-tooltip-id="my-tooltip"
+            data-tooltip-content="Hello world!"
+            data-tooltip-place="top"
+        >
+          <FaInfoCircle className="icon" />
+        </a>
         </label>
-        <br />
-        <label>
-          ResponseBodyParameters:
-          <input
-            type="text"
-            name="ResponseBodyParameters"
-            value={formData.ResponseBodyParameters}
-            onChange={handleChange}
-          />
+        <Tooltip id="my-tooltip" />
+            <input
+              type="text"
+              name="ResponseBodyParameters"
+              value={formData.ResponseBodyParameters}
+              onChange={handleChange}
+              required
+            />
+          
+          <br />
+          <label>
+            ResponseBodyExpressionValidation:
+        <a
+            data-tooltip-id="my-tooltip"
+            data-tooltip-content="Hello world!"
+            data-tooltip-place="top"
+        >
+          <FaInfoCircle className="icon" />
+        </a>
         </label>
-        <br />
-        <label>
-          ResponseBodyExpressionValidation:
-          <input
-            type="text"
-            name="ResponseBodyExpressionValidation"
-            value={formData.ResponseBodyExpressionValidation}
-            onChange={handleChange}
-          />
-        </label>
-        <br />
+        <Tooltip id="my-tooltip" />
+            <input
+              type="text"
+              name="ResponseBodyExpressionValidation"
+              value={formData.ResponseBodyExpressionValidation}
+              onChange={handleChange}
+              required
+            />
+          
+          <br />
         
         <button type='submit'>Create Test Case</button>
         <ToastContainer />
