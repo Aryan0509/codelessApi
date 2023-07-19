@@ -61,7 +61,7 @@ const UpdateRunable2 = ((props) => {
             projectArray: suits
         }).then((response) => {
             console.log(response);
-            toast.success("Runables updated successfully")
+            // toast.success("Runables updated successfully")
         })
             .catch((err) => {
                 console.error(err);
@@ -213,7 +213,7 @@ const UpdateRunable2 = ((props) => {
                 </div>
                 {suits.length > 0 ? (<div><div>
                     <table style={tableStyle}>
-                        <caption><h3>List of All the Test Suits</h3></caption>
+                        <caption><h3>List of All the Test Suites</h3></caption>
                         <thead>
                             <tr >
                                 <th style={thStyle}>Select</th>

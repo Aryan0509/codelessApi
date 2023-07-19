@@ -13,6 +13,7 @@ app.use(express.static('public'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 import ExcelJS from "exceljs";
+import { error } from "console";
 // import ProjectData from './model.js';
 
 let dataserver = "";
@@ -140,7 +141,7 @@ app.get('/config', (req, res) => {
   }
 });
 
-app.post('/config', (req, res) => {
+app.post('/config', asyncHandler(async(req, res) => {
   const configData = req.body;
   try {
     fs.writeFileSync('/home/aryangupta/react/Testing/config.json', JSON.stringify(configData));
@@ -185,11 +186,14 @@ app.post('/config', (req, res) => {
         sheetName = "APITestSuites";
       }
       workbook.xlsx.readFile(sheetPath).then(() => {
-        const mainSheet = workbook.getWorksheet(sheetName);
+        let mainSheet = workbook.getWorksheet(sheetName);
+
+        const headerRow = ['SuiteNames', 'Runables'];
         if(!mainSheet)
         {
-          res.status(400).json("Sheet not found");
-          return;
+          mainSheet = workbook.addWorksheet(sheetName);
+          mainSheet.addRow(headerRow);
+          console.log("sheetCreated");
         }
         mainSheet.eachRow((row, rowNumber) => {
           if (rowNumber !== 1) { // Skip header row
@@ -199,6 +203,7 @@ app.post('/config', (req, res) => {
         console.log("excel connected");
         console.log(sheetNames);
         res.sendStatus(200);
+        workbook.xlsx.writeFile(sheetPath);
 
       }).catch((error) => {
         res.sendStatus(400);
@@ -211,7 +216,7 @@ app.post('/config', (req, res) => {
     console.error('Error saving config file:', error);
     res.status(500).json({ error: 'Internal Server Error' });
   }
-});
+}));
 
 
 const projectSchema = new mongoose.Schema({
@@ -1109,7 +1114,24 @@ async function addRowOrSheet(sheetNamee, values, headers) {
   let sheet = workbook.getWorksheet(sheetNamee);
 
   if (sheet) {
-    sheet.addRow(values);
+
+    let flag=0;
+    sheet.eachRow((row, rowNumber) => {
+      if (row.getCell(1).value === values[0]) {
+          flag=1;
+      }
+    });
+    
+    if(flag==0)
+    {
+      sheet.addRow(values);
+    }
+    else{
+      throw new Error("Test Case Already exists");
+    }
+
+    
+
   } else {
     // Add the new sheet name to the main sheet and the sheetNames array
     const mainSheet = workbook.getWorksheet(sheetName);

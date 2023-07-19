@@ -102,7 +102,7 @@ function NewTestForm({ formType, testSuitName, apiname }) {
     ResponseBodyParameters: "",
     ResponseBodyExpressionValidation: ""
   };
-  const reqTypes=["GET","POST","PUT","FETCH","DELETE","PATCH","OPTIONS"];
+  const reqTypes=["GET","POST","PUT","FETCH","DELETE"];
 
 
   const handleChange = (e) => {
@@ -227,10 +227,10 @@ function NewTestForm({ formType, testSuitName, apiname }) {
     <div class="fill-details-form">
         <form onSubmit={handleSubmit}>
           <label>
-            testSuitName:
+            testSuiteName:
         <span
             data-tooltip-id="my-tooltip"
-            data-tooltip-content="testSuite Detail"
+            data-tooltip-content="A test suite name is a descriptive identifier for a collection of test cases designed to verify software functionality."
             data-tooltip-place="top"
         >
           <FaInfoCircle className="icon" />
@@ -247,10 +247,10 @@ function NewTestForm({ formType, testSuitName, apiname }) {
           
           <br />
           <label>
-            apiname:
+            Test Case Name:
         <a
             data-tooltip-id="my-tooltip"
-            data-tooltip-content="api detail"
+            data-tooltip-content="A test case is a single unit of testing that verifies a specific aspect or behavior of a software system or application."
             data-tooltip-place="top"
         >
           <FaInfoCircle className="icon" />
@@ -282,7 +282,6 @@ function NewTestForm({ formType, testSuitName, apiname }) {
               name="isRunableApi"
               value={formData.isRunableApi}
               onChange={handleChange}
-              required
             />
           
           <br />
@@ -290,7 +289,7 @@ function NewTestForm({ formType, testSuitName, apiname }) {
             DependOnTest:
         <a
             data-tooltip-id="my-tooltip"
-            data-tooltip-content="Hello world!"
+            data-tooltip-content="Dependency on test refers to the condition where the execution or outcome of one test case relies on the successful execution or outcome of another test case."
             data-tooltip-place="top"
         >
           <FaInfoCircle className="icon" />
@@ -310,7 +309,7 @@ function NewTestForm({ formType, testSuitName, apiname }) {
             Description:
         <a
             data-tooltip-id="my-tooltip"
-            data-tooltip-content="Hello world!"
+            data-tooltip-content="Concise explanation or summary of the purpose, functionality, or behavior of an API endpoint or operation."
             data-tooltip-place="top"
         >
           <FaInfoCircle className="icon" />
@@ -330,7 +329,7 @@ function NewTestForm({ formType, testSuitName, apiname }) {
             RandomValues:
         <a
             data-tooltip-id="my-tooltip"
-            data-tooltip-content="Hello world!"
+            data-tooltip-content="Random values are unpredictable and arbitrary data generated for various purposes."
             data-tooltip-place="top"
         >
           <FaInfoCircle className="icon" />
@@ -350,14 +349,14 @@ function NewTestForm({ formType, testSuitName, apiname }) {
             RequestType:
         <a
             data-tooltip-id="my-tooltip"
-            data-tooltip-content="Hello world!"
+            data-tooltip-content="In API testing, the RequestType refers to the type of HTTP request being made to the API. "
             data-tooltip-place="top"
         >
           <FaInfoCircle className="icon" />
         </a>
         </label>
         <Tooltip id="my-tooltip" />
-        <select
+            <select
               type="text"
               name="RequestType"
               value={formData.RequestType}
@@ -376,7 +375,7 @@ function NewTestForm({ formType, testSuitName, apiname }) {
             BaseURI:
         <a
             data-tooltip-id="my-tooltip"
-            data-tooltip-content="Hello world!"
+            data-tooltip-content="base URI refers to the root URL or endpoint that serves as the starting point for all API requests."
             data-tooltip-place="top"
         >
           <FaInfoCircle className="icon" />
@@ -396,7 +395,7 @@ function NewTestForm({ formType, testSuitName, apiname }) {
             BasePath:
         <a
             data-tooltip-id="my-tooltip"
-            data-tooltip-content="Hello world!"
+            data-tooltip-content="initial portion of the URL used to access different API routes or resources."
             data-tooltip-place="top"
         >
           <FaInfoCircle className="icon" />
@@ -416,7 +415,7 @@ function NewTestForm({ formType, testSuitName, apiname }) {
             RequestHeaders:
         <a
             data-tooltip-id="my-tooltip"
-            data-tooltip-content="Hello world!"
+            data-tooltip-content="metadata or attributes sent along with the API request to provide additional details or instructions to the server."
             data-tooltip-place="top"
         >
           <FaInfoCircle className="icon" />
@@ -436,7 +435,7 @@ function NewTestForm({ formType, testSuitName, apiname }) {
             RequestCookies:
         <a
             data-tooltip-id="my-tooltip"
-            data-tooltip-content="Hello world!"
+            data-tooltip-content="Data sent by the client to the server as part of an HTTP request."
             data-tooltip-place="top"
         >
           <FaInfoCircle className="icon" />
@@ -456,7 +455,7 @@ function NewTestForm({ formType, testSuitName, apiname }) {
             QueryParameters:
         <a
             data-tooltip-id="my-tooltip"
-            data-tooltip-content="Hello world!"
+            data-tooltip-content="QueryParameters"
             data-tooltip-place="top"
         >
           <FaInfoCircle className="icon" />
@@ -476,7 +475,7 @@ function NewTestForm({ formType, testSuitName, apiname }) {
             PathParameters:
         <a
             data-tooltip-id="my-tooltip"
-            data-tooltip-content="Hello world!"
+            data-tooltip-content="PathParameters"
             data-tooltip-place="top"
         >
           <FaInfoCircle className="icon" />
@@ -496,7 +495,7 @@ function NewTestForm({ formType, testSuitName, apiname }) {
             RequestBody:
         <a
             data-tooltip-id="my-tooltip"
-            data-tooltip-content="Hello world!"
+            data-tooltip-content="RequestBody"
             data-tooltip-place="top"
         >
           <FaInfoCircle className="icon" />
@@ -516,7 +515,7 @@ function NewTestForm({ formType, testSuitName, apiname }) {
             RequestParameters:
         <a
             data-tooltip-id="my-tooltip"
-            data-tooltip-content="Hello world!"
+            data-tooltip-content="RequestParameters"
             data-tooltip-place="top"
         >
           <FaInfoCircle className="icon" />
@@ -536,7 +535,7 @@ function NewTestForm({ formType, testSuitName, apiname }) {
             MultiPartData:
         <a
             data-tooltip-id="my-tooltip"
-            data-tooltip-content="Hello world!"
+            data-tooltip-content="MultiPartData"
             data-tooltip-place="top"
         >
           <FaInfoCircle className="icon" />
@@ -556,7 +555,7 @@ function NewTestForm({ formType, testSuitName, apiname }) {
             ResponseCode:
         <a
             data-tooltip-id="my-tooltip"
-            data-tooltip-content="Hello world!"
+            data-tooltip-content="numerical status code returned by the API server in response to a request."
             data-tooltip-place="top"
         >
           <FaInfoCircle className="icon" />
@@ -576,7 +575,7 @@ function NewTestForm({ formType, testSuitName, apiname }) {
             ResponseType:
         <a
             data-tooltip-id="my-tooltip"
-            data-tooltip-content="Hello world!"
+            data-tooltip-content=" format or structure of the data returned by the API in the response."
             data-tooltip-place="top"
         >
           <FaInfoCircle className="icon" />
@@ -596,7 +595,7 @@ function NewTestForm({ formType, testSuitName, apiname }) {
             ResponseCookiesToBeSaved:
         <a
             data-tooltip-id="my-tooltip"
-            data-tooltip-content="Hello world!"
+            data-tooltip-content="identifying and saving specific cookies from the API response for subsequent use in subsequent requests."
             data-tooltip-place="top"
         >
           <FaInfoCircle className="icon" />
@@ -616,7 +615,7 @@ function NewTestForm({ formType, testSuitName, apiname }) {
             ResponseHeadersToBeSaved:
         <a
             data-tooltip-id="my-tooltip"
-            data-tooltip-content="Hello world!"
+            data-tooltip-content="storing specific header values from the API response for further analysis or reference."
             data-tooltip-place="top"
         >
           <FaInfoCircle className="icon" />
@@ -636,7 +635,7 @@ function NewTestForm({ formType, testSuitName, apiname }) {
             ResponseBodyFieldToBeSaved:
         <a
             data-tooltip-id="my-tooltip"
-            data-tooltip-content="Hello world!"
+            data-tooltip-content="saving specific fields or data from the API response body for further use or analysis."
             data-tooltip-place="top"
         >
           <FaInfoCircle className="icon" />
@@ -656,7 +655,7 @@ function NewTestForm({ formType, testSuitName, apiname }) {
             ResponseCookieValidation:
         <a
             data-tooltip-id="my-tooltip"
-            data-tooltip-content="Hello world!"
+            data-tooltip-content="ResponseCookieValidation"
             data-tooltip-place="top"
         >
           <FaInfoCircle className="icon" />
@@ -676,7 +675,7 @@ function NewTestForm({ formType, testSuitName, apiname }) {
             ResponseCookieExpressionValidation:
         <a
             data-tooltip-id="my-tooltip"
-            data-tooltip-content="Hello world!"
+            data-tooltip-content="ResponseCookieExpressionValidation"
             data-tooltip-place="top"
         >
           <FaInfoCircle className="icon" />
@@ -696,7 +695,7 @@ function NewTestForm({ formType, testSuitName, apiname }) {
             ResponseHeaderValidation:
         <a
             data-tooltip-id="my-tooltip"
-            data-tooltip-content="Hello world!"
+            data-tooltip-content="ResponseHeaderValidation"
             data-tooltip-place="top"
         >
           <FaInfoCircle className="icon" />
@@ -716,7 +715,7 @@ function NewTestForm({ formType, testSuitName, apiname }) {
             ResponseHeaderExpressionValidation:
         <a
             data-tooltip-id="my-tooltip"
-            data-tooltip-content="Hello world!"
+            data-tooltip-content="ResponseHeaderExpressionValidation"
             data-tooltip-place="top"
         >
           <FaInfoCircle className="icon" />
@@ -736,7 +735,7 @@ function NewTestForm({ formType, testSuitName, apiname }) {
             ResponseBodySchema:
         <a
             data-tooltip-id="my-tooltip"
-            data-tooltip-content="Hello world!"
+            data-tooltip-content="expected structure and format of the response body received from the API.s"
             data-tooltip-place="top"
         >
           <FaInfoCircle className="icon" />
@@ -756,7 +755,7 @@ function NewTestForm({ formType, testSuitName, apiname }) {
             ResponseBody:
         <a
             data-tooltip-id="my-tooltip"
-            data-tooltip-content="Hello world!"
+            data-tooltip-content="data or content returned by the API in response to a specific request."
             data-tooltip-place="top"
         >
           <FaInfoCircle className="icon" />
@@ -776,7 +775,7 @@ function NewTestForm({ formType, testSuitName, apiname }) {
             ResponseBodyParameters:
         <a
             data-tooltip-id="my-tooltip"
-            data-tooltip-content="Hello world!"
+            data-tooltip-content="data or information returned by an API in the response body."
             data-tooltip-place="top"
         >
           <FaInfoCircle className="icon" />
@@ -796,7 +795,7 @@ function NewTestForm({ formType, testSuitName, apiname }) {
             ResponseBodyExpressionValidation:
         <a
             data-tooltip-id="my-tooltip"
-            data-tooltip-content="Hello world!"
+            data-tooltip-content="validating specific expressions or patterns within the response body of an API request."
             data-tooltip-place="top"
         >
           <FaInfoCircle className="icon" />

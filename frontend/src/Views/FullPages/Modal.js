@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
 import "./WelcomePage.css"
+// import FileInput from 'react-file-input';
+
 
 function Modal({
     onSubmit
 }) {
 
+    const [filePath, setFilePath] = useState('');
     const [formData, setFormData] = useState({
         // Initialize the form data state with appropriate fields
         // For example:
@@ -13,6 +16,7 @@ function Modal({
         input2: ""
         // ...
     });
+    const [folderPath, setFolderPath] = useState('');
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -26,6 +30,11 @@ function Modal({
         e.preventDefault();
         onSubmit(formData);
     };
+    const handleFileChange = (event) => {
+        const file = event.target.files[0];
+        const path = URL.createObjectURL(file);
+        setFilePath(path);
+      };
 
     return (
         <div id="modal" class="modal">
@@ -73,10 +82,8 @@ function Modal({
                         <p>
                             If you are using the app for the first time, then please follow the following steps:
                             <ol>
-                                <li>Create a new Excel workbook</li>
-                                <li>Add a new sheet to the Workbook and name it "APITestSuites"</li>
-                                <li>On the first row, add two headers [TestSuitNames,Runables]</li>
-                                <li>Enter the file path below</li>
+                                <li>Create a new Blank Excel workbook</li>
+                                <li>Enter the file path of the workbook below</li>
                             </ol>
                         </p>
                     </div>
@@ -86,15 +93,17 @@ function Modal({
                         type="text"
                         value={formData.input1}
                         onChange={handleChange}
-                        placeholder="Enter The File Path of the workbook you want to use."
+                        placeholder="Enter The absolute file Path of the workbook you want to use."
                     />
-                </div></div>) : (<div><div>
+                </div>
+               
+                </div>) : (<div><div>
                     <input
                         name="input1"
                         type="text"
                         value={formData.input1}
                         onChange={handleChange}
-                        placeholder="Enter Mongodb Server address."
+                        placeholder="Enter Mongodb Server address. eg: mongodb://localhost:27017"
                     />
                 </div>
                     <div>

@@ -75,6 +75,10 @@ function NewCase({ testSuitName,apiname,type}) {
     ResponseBodyExpressionValidation: ""
   };
   const [apiChoices, setApiChoices] = useState([]);
+    const [showDropdown, setShowDropdown] = useState(false);
+    const [searchTerm, setSearchTerm] = useState('');
+    const [suggestions, setSuggestions] = useState([]);
+  
 
   useEffect(() => {
 
@@ -104,6 +108,7 @@ function NewCase({ testSuitName,apiname,type}) {
         console.log(response);
         const apis=[...response.data,'NA'];
         setApiChoices(apis);
+        setSuggestions(apis);
       } catch (error) {
         // Handle error
         setApiChoices([]);
@@ -118,6 +123,50 @@ function NewCase({ testSuitName,apiname,type}) {
     }
     fetchData2();
   }, []);
+
+
+  const handleSearchClick = () => {
+    setShowDropdown(!showDropdown);
+};
+
+const handleInputChange = (event) => {
+    const { value } = event.target;
+    setSearchTerm(value);
+};
+
+const handleSelectSuggestion = (suggestion) => {
+    setShowDropdown(false);
+    setSearchTerm('');
+    console.log(suggestion);
+    const fetchData = (async () => {
+      try {
+        const response = await axios.post('/test-query', {
+          testSuitName: testSuitName,
+          apiname: suggestion,
+        });
+        console.log('Entry Found:', response.data);
+        const currentData = { ...formData, ...response.data.parameters };
+        currentData.testSuitName = testSuitName;
+        console.log(currentData);
+        setFormData(currentData);
+      }
+      catch (err) {
+        console.error('Error submitting form data:', err);
+      }
+
+    })
+    fetchData();
+   
+
+};
+
+const filteredSuggestions = suggestions.filter((suggestion) =>
+    suggestion.toLowerCase().includes(searchTerm.toLowerCase())
+);
+const handleClearSearch = () => {
+    setSearchTerm('');
+    setShowDropdown(false);
+};
 
 
 
@@ -195,13 +244,34 @@ function NewCase({ testSuitName,apiname,type}) {
 
   return (
     <div>
+      <div className="search-container">
+                    <button onClick={handleSearchClick}>Clone From existing test Cases</button>
+                    {showDropdown && (
+                        <div className="dropdown">
+                            <input
+                                type="text"
+                                value={searchTerm}
+                                onChange={handleInputChange}
+                                placeholder="Type to search..."
+                            />
+                            <a className="" onClick={handleClearSearch} >✕</a>
+                            <ul>
+                                {filteredSuggestions.map((suggestion) => (
+                                    <li key={suggestion} onClick={() => handleSelectSuggestion(suggestion)}>
+                                        {suggestion}
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    )}
+                </div>
     <div class="fill-details-form">
       <form onSubmit={handleSubmit}>
           <label>
-            testSuitName:
+            testSuiteName:
         <span
             data-tooltip-id="my-tooltip"
-            data-tooltip-content="testSuite Detail"
+            data-tooltip-content="A test suite name is a descriptive identifier for a collection of test cases designed to verify software functionality."
             data-tooltip-place="top"
         >
           <FaInfoCircle className="icon" />
@@ -219,10 +289,10 @@ function NewCase({ testSuitName,apiname,type}) {
           
           <br />
           <label>
-            apiname:
+            Test Case Name:
         <a
             data-tooltip-id="my-tooltip"
-            data-tooltip-content="api detail"
+            data-tooltip-content="A test case is a single unit of testing that verifies a specific aspect or behavior of a software system or application."
             data-tooltip-place="top"
         >
           <FaInfoCircle className="icon" />
@@ -261,7 +331,7 @@ function NewCase({ testSuitName,apiname,type}) {
             DependOnTest:
         <a
             data-tooltip-id="my-tooltip"
-            data-tooltip-content="Hello world!"
+            data-tooltip-content="Dependency on test refers to the condition where the execution or outcome of one test case relies on the successful execution or outcome of another test case."
             data-tooltip-place="top"
         >
           <FaInfoCircle className="icon" />
@@ -287,7 +357,7 @@ function NewCase({ testSuitName,apiname,type}) {
             Description:
         <a
             data-tooltip-id="my-tooltip"
-            data-tooltip-content="Hello world!"
+            data-tooltip-content="Concise explanation or summary of the purpose, functionality, or behavior of an API endpoint or operation."
             data-tooltip-place="top"
         >
           <FaInfoCircle className="icon" />
@@ -307,7 +377,7 @@ function NewCase({ testSuitName,apiname,type}) {
             RandomValues:
         <a
             data-tooltip-id="my-tooltip"
-            data-tooltip-content="Hello world!"
+            data-tooltip-content="Random values are unpredictable and arbitrary data generated for various purposes."
             data-tooltip-place="top"
         >
           <FaInfoCircle className="icon" />
@@ -327,7 +397,7 @@ function NewCase({ testSuitName,apiname,type}) {
             RequestType:
         <a
             data-tooltip-id="my-tooltip"
-            data-tooltip-content="Hello world!"
+            data-tooltip-content="In API testing, the RequestType refers to the type of HTTP request being made to the API. "
             data-tooltip-place="top"
         >
           <FaInfoCircle className="icon" />
@@ -353,7 +423,7 @@ function NewCase({ testSuitName,apiname,type}) {
             BaseURI:
         <a
             data-tooltip-id="my-tooltip"
-            data-tooltip-content="Hello world!"
+            data-tooltip-content="base URI refers to the root URL or endpoint that serves as the starting point for all API requests."
             data-tooltip-place="top"
         >
           <FaInfoCircle className="icon" />
@@ -373,7 +443,7 @@ function NewCase({ testSuitName,apiname,type}) {
             BasePath:
         <a
             data-tooltip-id="my-tooltip"
-            data-tooltip-content="Hello world!"
+            data-tooltip-content="initial portion of the URL used to access different API routes or resources."
             data-tooltip-place="top"
         >
           <FaInfoCircle className="icon" />
@@ -393,7 +463,7 @@ function NewCase({ testSuitName,apiname,type}) {
             RequestHeaders:
         <a
             data-tooltip-id="my-tooltip"
-            data-tooltip-content="Hello world!"
+            data-tooltip-content="metadata or attributes sent along with the API request to provide additional details or instructions to the server."
             data-tooltip-place="top"
         >
           <FaInfoCircle className="icon" />
@@ -413,7 +483,7 @@ function NewCase({ testSuitName,apiname,type}) {
             RequestCookies:
         <a
             data-tooltip-id="my-tooltip"
-            data-tooltip-content="Hello world!"
+            data-tooltip-content="Data sent by the client to the server as part of an HTTP request."
             data-tooltip-place="top"
         >
           <FaInfoCircle className="icon" />
@@ -433,7 +503,7 @@ function NewCase({ testSuitName,apiname,type}) {
             QueryParameters:
         <a
             data-tooltip-id="my-tooltip"
-            data-tooltip-content="Hello world!"
+            data-tooltip-content="QueryParameters"
             data-tooltip-place="top"
         >
           <FaInfoCircle className="icon" />
@@ -453,7 +523,7 @@ function NewCase({ testSuitName,apiname,type}) {
             PathParameters:
         <a
             data-tooltip-id="my-tooltip"
-            data-tooltip-content="Hello world!"
+            data-tooltip-content="PathParameters"
             data-tooltip-place="top"
         >
           <FaInfoCircle className="icon" />
@@ -473,7 +543,7 @@ function NewCase({ testSuitName,apiname,type}) {
             RequestBody:
         <a
             data-tooltip-id="my-tooltip"
-            data-tooltip-content="Hello world!"
+            data-tooltip-content="RequestBody"
             data-tooltip-place="top"
         >
           <FaInfoCircle className="icon" />
@@ -493,7 +563,7 @@ function NewCase({ testSuitName,apiname,type}) {
             RequestParameters:
         <a
             data-tooltip-id="my-tooltip"
-            data-tooltip-content="Hello world!"
+            data-tooltip-content="RequestParameters"
             data-tooltip-place="top"
         >
           <FaInfoCircle className="icon" />
@@ -513,7 +583,7 @@ function NewCase({ testSuitName,apiname,type}) {
             MultiPartData:
         <a
             data-tooltip-id="my-tooltip"
-            data-tooltip-content="Hello world!"
+            data-tooltip-content="MultiPartData"
             data-tooltip-place="top"
         >
           <FaInfoCircle className="icon" />
@@ -533,7 +603,7 @@ function NewCase({ testSuitName,apiname,type}) {
             ResponseCode:
         <a
             data-tooltip-id="my-tooltip"
-            data-tooltip-content="Hello world!"
+            data-tooltip-content="numerical status code returned by the API server in response to a request."
             data-tooltip-place="top"
         >
           <FaInfoCircle className="icon" />
@@ -553,7 +623,7 @@ function NewCase({ testSuitName,apiname,type}) {
             ResponseType:
         <a
             data-tooltip-id="my-tooltip"
-            data-tooltip-content="Hello world!"
+            data-tooltip-content=" format or structure of the data returned by the API in the response."
             data-tooltip-place="top"
         >
           <FaInfoCircle className="icon" />
@@ -573,7 +643,7 @@ function NewCase({ testSuitName,apiname,type}) {
             ResponseCookiesToBeSaved:
         <a
             data-tooltip-id="my-tooltip"
-            data-tooltip-content="Hello world!"
+            data-tooltip-content="identifying and saving specific cookies from the API response for subsequent use in subsequent requests."
             data-tooltip-place="top"
         >
           <FaInfoCircle className="icon" />
@@ -593,7 +663,7 @@ function NewCase({ testSuitName,apiname,type}) {
             ResponseHeadersToBeSaved:
         <a
             data-tooltip-id="my-tooltip"
-            data-tooltip-content="Hello world!"
+            data-tooltip-content="storing specific header values from the API response for further analysis or reference."
             data-tooltip-place="top"
         >
           <FaInfoCircle className="icon" />
@@ -613,7 +683,7 @@ function NewCase({ testSuitName,apiname,type}) {
             ResponseBodyFieldToBeSaved:
         <a
             data-tooltip-id="my-tooltip"
-            data-tooltip-content="Hello world!"
+            data-tooltip-content="saving specific fields or data from the API response body for further use or analysis."
             data-tooltip-place="top"
         >
           <FaInfoCircle className="icon" />
@@ -633,7 +703,7 @@ function NewCase({ testSuitName,apiname,type}) {
             ResponseCookieValidation:
         <a
             data-tooltip-id="my-tooltip"
-            data-tooltip-content="Hello world!"
+            data-tooltip-content="ResponseCookieValidation"
             data-tooltip-place="top"
         >
           <FaInfoCircle className="icon" />
@@ -653,7 +723,7 @@ function NewCase({ testSuitName,apiname,type}) {
             ResponseCookieExpressionValidation:
         <a
             data-tooltip-id="my-tooltip"
-            data-tooltip-content="Hello world!"
+            data-tooltip-content="ResponseCookieExpressionValidation"
             data-tooltip-place="top"
         >
           <FaInfoCircle className="icon" />
@@ -673,7 +743,7 @@ function NewCase({ testSuitName,apiname,type}) {
             ResponseHeaderValidation:
         <a
             data-tooltip-id="my-tooltip"
-            data-tooltip-content="Hello world!"
+            data-tooltip-content="ResponseHeaderValidation"
             data-tooltip-place="top"
         >
           <FaInfoCircle className="icon" />
@@ -693,7 +763,7 @@ function NewCase({ testSuitName,apiname,type}) {
             ResponseHeaderExpressionValidation:
         <a
             data-tooltip-id="my-tooltip"
-            data-tooltip-content="Hello world!"
+            data-tooltip-content="ResponseHeaderExpressionValidation"
             data-tooltip-place="top"
         >
           <FaInfoCircle className="icon" />
@@ -713,7 +783,7 @@ function NewCase({ testSuitName,apiname,type}) {
             ResponseBodySchema:
         <a
             data-tooltip-id="my-tooltip"
-            data-tooltip-content="Hello world!"
+            data-tooltip-content="expected structure and format of the response body received from the API.s"
             data-tooltip-place="top"
         >
           <FaInfoCircle className="icon" />
@@ -733,7 +803,7 @@ function NewCase({ testSuitName,apiname,type}) {
             ResponseBody:
         <a
             data-tooltip-id="my-tooltip"
-            data-tooltip-content="Hello world!"
+            data-tooltip-content="data or content returned by the API in response to a specific request."
             data-tooltip-place="top"
         >
           <FaInfoCircle className="icon" />
@@ -753,7 +823,7 @@ function NewCase({ testSuitName,apiname,type}) {
             ResponseBodyParameters:
         <a
             data-tooltip-id="my-tooltip"
-            data-tooltip-content="Hello world!"
+            data-tooltip-content="data or information returned by an API in the response body."
             data-tooltip-place="top"
         >
           <FaInfoCircle className="icon" />
@@ -773,7 +843,7 @@ function NewCase({ testSuitName,apiname,type}) {
             ResponseBodyExpressionValidation:
         <a
             data-tooltip-id="my-tooltip"
-            data-tooltip-content="Hello world!"
+            data-tooltip-content="validating specific expressions or patterns within the response body of an API request."
             data-tooltip-place="top"
         >
           <FaInfoCircle className="icon" />

@@ -1,572 +1,172 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results total="11" passed="2" failed="9" skipped="0">
+<testng-results total="5" passed="5" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2023-07-12T08:00:12Z" name="VideoKYC" finished-at="2023-07-12T08:00:15Z" duration-ms="3304">
+  <suite started-at="2023-07-13T10:18:06Z" name="FolderApi@mongo" finished-at="2023-07-13T10:18:08Z" duration-ms="1960">
     <groups>
     </groups>
-    <test started-at="2023-07-12T08:00:12Z" name="VideoKYCTest" finished-at="2023-07-12T08:00:15Z" duration-ms="3304">
+    <test started-at="2023-07-13T10:18:06Z" name="FolderApi@mongoTest" finished-at="2023-07-13T10:18:08Z" duration-ms="1960">
       <class name="testScript.API">
-        <test-method is-config="true" signature="reporting(org.testng.ITestContext)[pri:0, instance:testScript.API@5d7148e2]" started-at="2023-07-12T13:30:12Z" name="reporting" finished-at="2023-07-12T13:30:12Z" duration-ms="37" status="PASS">
+        <test-method is-config="true" signature="reporting(org.testng.ITestContext)[pri:0, instance:testScript.API@7748410a]" started-at="2023-07-13T15:48:06Z" name="reporting" finished-at="2023-07-13T15:48:06Z" duration-ms="79" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@3b2e5c0d]]>
+                <![CDATA[org.testng.TestRunner@2921a36a]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- reporting -->
-        <test-method signature="runAPITest(java.util.Map)[pri:0, instance:testScript.API@5d7148e2]" started-at="2023-07-12T13:30:12Z" name="runAPITest" data-provider="getInput" finished-at="2023-07-12T13:30:15Z" duration-ms="3279" status="PASS">
+        <test-method signature="runAPITest(java.util.Map)[pri:0, instance:testScript.API@7748410a]" started-at="2023-07-13T15:48:06Z" name="runAPITest" data-provider="getInput" finished-at="2023-07-13T15:48:07Z" duration-ms="1251" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[{ResponseHeaderExpressionValidation=NA, Description=This test is to validate post API for upload image., RequestCookies=NA, ResponseBodySchema=NA, BasePath=/upload, PathParameters=NA, ResponseBodyParameters=NA, TestCaseName=uploadImage, RequestParameters=NA, ResponseHeaderValidation=NA, RequestHeaders=Content-Type=multipart/form-data;Accept-Encoding=gzip,deflate;cache-control=no-cache;Accept=*/*, BaseURI=https://v2.convertapi.com, RequestBody=NA, ResponseHeadersToBeSaved=NA, ResponseCode=200, MultiPartData=file=VideoKYC\\files\\Naukri_[3y_0m].doc, ResponseCookiesToBeSaved=NA, ResponseBodyFieldToBeSaved=NA, RandomValues=NA, ResponseBodyExpressionValidation=NA, QueryParameters=NA, ResponseType=JSON, ResponseBody=NA, ResponseCookieExpressionValidation=NA, ResponseCookieValidation=NA, DependOnTest=NA, RequestType=POST}]]>
+                <![CDATA[{isRunableApi=yes, ResponseHeaderExpressionValidation=NA, Description=This test is to validate rlogin API., RequestCookies=_did=%%rnd, ResponseBodySchema=NA, BasePath=/recruit/login, PathParameters=NA, ResponseBodyParameters=NA, TestCaseName=rLogin, RequestParameters=NA, ResponseHeaderValidation=Server=nginx, RequestHeaders=AppId=121;SystemId=jobseeker;Accept-Encoding=gzip,deflate;cache-control=no-cache;Accept=*/*;Content-Type=application/json, BaseURI=https://www.naukri.com, RequestBody=NA, ResponseHeadersToBeSaved=NA, ResponseCode=200, MultiPartData=NA, ResponseCookiesToBeSaved=NA, ResponseBodyFieldToBeSaved=token=auth_token, RandomValues=rnd=String(12), ResponseBodyExpressionValidation=NA, QueryParameters=NA, ResponseType=HTML, ResponseBody=NA, ResponseCookieExpressionValidation=bs_rnd*len=8;bs_rnd*typeof=String, ResponseCookieValidation=test=naukri.com, DependOnTest=NA, RequestType=GET}]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runAPITest -->
-        <test-method is-config="true" signature="afterMethod()[pri:0, instance:testScript.API@5d7148e2]" started-at="2023-07-12T13:30:15Z" name="afterMethod" finished-at="2023-07-12T13:30:15Z" duration-ms="0" status="PASS">
+        <test-method signature="runAPITest(java.util.Map)[pri:0, instance:testScript.API@7748410a]" started-at="2023-07-13T15:48:07Z" name="runAPITest" data-provider="getInput" finished-at="2023-07-13T15:48:08Z" duration-ms="702" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[{isRunableApi=yes, ResponseHeaderExpressionValidation=NA, Description=This test is to validate login service API., RequestCookies=_did=%%rnd, ResponseBodySchema=NA, BasePath=/Login/loginService, PathParameters=NA, ResponseBodyParameters=NA, TestCaseName=loginService, RequestParameters=NA, ResponseHeaderValidation=Content-Type=application/json; charset=utf-8, RequestHeaders=AppId=121;SystemId=jobseeker;Accept-Encoding=gzip,deflate;cache-control=no-cache;Accept=*/*;Content-Type=application/json, BaseURI=https://login.recruit.naukri.com, RequestBody=NA, ResponseHeadersToBeSaved=NA, ResponseCode=200, MultiPartData=NA, ResponseCookiesToBeSaved=strUNID=UNID, ResponseBodyFieldToBeSaved=NA, RandomValues=NA, ResponseBodyExpressionValidation=NA, QueryParameters=username=company16@yopmail.com;password=P@ssw0rd100;g-recaptcha-response='';URL=https://recruit.naukri.com/;isIE7=false;csrf=%%token, ResponseType=JSON, ResponseBody=NA, ResponseCookieExpressionValidation=NA, ResponseCookieValidation=ER=deleted;ERV=deleted, DependOnTest=rLogin, RequestType=POST}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runAPITest -->
+        <test-method is-config="true" signature="afterMethod()[pri:0, instance:testScript.API@7748410a]" started-at="2023-07-13T15:48:07Z" name="afterMethod" finished-at="2023-07-13T15:48:07Z" duration-ms="0" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->
-        <test-method is-config="true" signature="afterSuite()[pri:0, instance:testScript.API@5d7148e2]" started-at="2023-07-12T13:30:15Z" name="afterSuite" finished-at="2023-07-12T13:30:15Z" duration-ms="71" status="PASS">
+        <test-method is-config="true" signature="afterMethod()[pri:0, instance:testScript.API@7748410a]" started-at="2023-07-13T15:48:08Z" name="afterMethod" finished-at="2023-07-13T15:48:08Z" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method is-config="true" signature="afterSuite()[pri:0, instance:testScript.API@7748410a]" started-at="2023-07-13T15:48:08Z" name="afterSuite" finished-at="2023-07-13T15:48:08Z" duration-ms="77" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterSuite -->
       </class> <!-- testScript.API -->
-    </test> <!-- VideoKYCTest -->
-  </suite> <!-- VideoKYC -->
-  <suite started-at="2023-07-12T08:00:15Z" name="zipp" finished-at="2023-07-12T08:00:16Z" duration-ms="760">
+    </test> <!-- FolderApi@mongoTest -->
+  </suite> <!-- FolderApi@mongo -->
+  <suite started-at="2023-07-13T10:18:08Z" name="VideoKYC@mongo" finished-at="2023-07-13T10:18:09Z" duration-ms="1789">
     <groups>
     </groups>
-    <test started-at="2023-07-12T08:00:15Z" name="zippTest" finished-at="2023-07-12T08:00:16Z" duration-ms="760">
+    <test started-at="2023-07-13T10:18:08Z" name="VideoKYC@mongoTest" finished-at="2023-07-13T10:18:09Z" duration-ms="1789">
       <class name="testScript.API">
-        <test-method is-config="true" signature="reporting(org.testng.ITestContext)[pri:0, instance:testScript.API@2c1b194a]" started-at="2023-07-12T13:30:15Z" name="reporting" finished-at="2023-07-12T13:30:15Z" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="reporting(org.testng.ITestContext)[pri:0, instance:testScript.API@6c779568]" started-at="2023-07-13T15:48:08Z" name="reporting" finished-at="2023-07-13T15:48:08Z" duration-ms="3" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@429aeac1]]>
+                <![CDATA[org.testng.TestRunner@2b73bd6b]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- reporting -->
-        <test-method signature="runAPITest(java.util.Map)[pri:0, instance:testScript.API@2c1b194a]" started-at="2023-07-12T13:30:15Z" name="runAPITest" data-provider="getInput" finished-at="2023-07-12T13:30:16Z" duration-ms="745" status="PASS">
+        <test-method signature="runAPITest(java.util.Map)[pri:0, instance:testScript.API@6c779568]" started-at="2023-07-13T15:48:08Z" name="runAPITest" data-provider="getInput" finished-at="2023-07-13T15:48:09Z" duration-ms="1787" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[{ResponseHeaderExpressionValidation=NA, Description=This test is to validate get API., RequestCookies=NA, ResponseBodySchema=NA, BasePath=/33162, PathParameters=NA, ResponseBodyParameters=NA, TestCaseName=zipp1, RequestParameters=NA, ResponseHeaderValidation=NA, RequestHeaders=NA, BaseURI=https://api.zippopotam.us/us, RequestBody=NA, ResponseHeadersToBeSaved=NA, ResponseCode=200, MultiPartData=NA, ResponseCookiesToBeSaved=NA, ResponseBodyFieldToBeSaved=NA, RandomValues=NA, ResponseBodyExpressionValidation=NA, QueryParameters=NA, ResponseType=JSON, ResponseBody={"post code": "33162", "country": "United States", "country abbreviation": "US", "places": [{"place name": "Miami", "longitude": "-80.183", "state": "Florida", "state abbreviation": "FL", "latitude": "25.9286"}]}, ResponseCookieExpressionValidation=NA, ResponseCookieValidation=NA, DependOnTest=NA, RequestType=GET}]]>
+                <![CDATA[{isRunableApi=yes, ResponseHeaderExpressionValidation=NA, Description=This test is to validate post API for upload image., RequestCookies=NA, ResponseBodySchema=NA, BasePath=/upload, PathParameters=NA, ResponseBodyParameters=NA, TestCaseName=uploadImage, RequestParameters=NA, ResponseHeaderValidation=NA, RequestHeaders=Content-Type=multipart/form-data;Accept-Encoding=gzip,deflate;cache-control=no-cache;Accept=*/*, BaseURI=https://v2.convertapi.com, RequestBody=NA, ResponseHeadersToBeSaved=NA, ResponseCode=200, MultiPartData=file=VideoKYC\\files\\Naukri_[3y_0m].doc, ResponseCookiesToBeSaved=NA, ResponseBodyFieldToBeSaved=NA, RandomValues=NA, ResponseBodyExpressionValidation=NA, QueryParameters=NA, ResponseType=JSON, ResponseBody=NA, ResponseCookieExpressionValidation=NA, ResponseCookieValidation=NA, DependOnTest=NA, RequestType=POST}]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runAPITest -->
-        <test-method is-config="true" signature="afterMethod()[pri:0, instance:testScript.API@2c1b194a]" started-at="2023-07-12T13:30:16Z" name="afterMethod" finished-at="2023-07-12T13:30:16Z" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="afterMethod()[pri:0, instance:testScript.API@6c779568]" started-at="2023-07-13T15:48:09Z" name="afterMethod" finished-at="2023-07-13T15:48:09Z" duration-ms="0" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->
-        <test-method is-config="true" signature="afterSuite()[pri:0, instance:testScript.API@2c1b194a]" started-at="2023-07-12T13:30:16Z" name="afterSuite" finished-at="2023-07-12T13:30:16Z" duration-ms="14" status="PASS">
+        <test-method is-config="true" signature="afterSuite()[pri:0, instance:testScript.API@6c779568]" started-at="2023-07-13T15:48:09Z" name="afterSuite" finished-at="2023-07-13T15:48:09Z" duration-ms="18" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterSuite -->
       </class> <!-- testScript.API -->
-    </test> <!-- zippTest -->
-  </suite> <!-- zipp -->
-  <suite started-at="2023-07-12T08:00:16Z" name="CompanyService" finished-at="2023-07-12T08:00:17Z" duration-ms="619">
+    </test> <!-- VideoKYC@mongoTest -->
+  </suite> <!-- VideoKYC@mongo -->
+  <suite started-at="2023-07-13T10:18:09Z" name="zipp@mongo" finished-at="2023-07-13T10:18:11Z" duration-ms="1533">
     <groups>
     </groups>
-    <test started-at="2023-07-12T08:00:16Z" name="CompanyServiceTest" finished-at="2023-07-12T08:00:17Z" duration-ms="619">
+    <test started-at="2023-07-13T10:18:09Z" name="zipp@mongoTest" finished-at="2023-07-13T10:18:11Z" duration-ms="1533">
       <class name="testScript.API">
-        <test-method is-config="true" signature="reporting(org.testng.ITestContext)[pri:0, instance:testScript.API@437da279]" started-at="2023-07-12T13:30:16Z" name="reporting" finished-at="2023-07-12T13:30:16Z" duration-ms="2" status="PASS">
+        <test-method is-config="true" signature="reporting(org.testng.ITestContext)[pri:0, instance:testScript.API@524d6d96]" started-at="2023-07-13T15:48:09Z" name="reporting" finished-at="2023-07-13T15:48:09Z" duration-ms="2" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@79eeff87]]>
+                <![CDATA[org.testng.TestRunner@157d3a45]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- reporting -->
-        <test-method signature="runAPITest(java.util.Map)[pri:0, instance:testScript.API@437da279]" started-at="2023-07-12T13:30:16Z" name="runAPITest" data-provider="getInput" finished-at="2023-07-12T13:30:16Z" duration-ms="342" status="FAIL">
+        <test-method signature="runAPITest(java.util.Map)[pri:0, instance:testScript.API@524d6d96]" started-at="2023-07-13T15:48:09Z" name="runAPITest" data-provider="getInput" finished-at="2023-07-13T15:48:11Z" duration-ms="1531" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[{ResponseHeaderExpressionValidation=NA, Description=This test is to validate Get City API with city id value as 2., RequestCookies=NA, ResponseBodySchema=CompanyService\\sample.json, BasePath=/cities/{cityID}, PathParameters=cityID=2, ResponseBodyParameters=cityname=Agra, TestCaseName=GetCity_2, RequestParameters=NA, ResponseHeaderValidation=NA, RequestHeaders=AppId=114;SystemId=naukriIndia;Accept-Encoding=gzip,deflate;cache-control=no-cache;Accept=*/*;Content-Type=application/json, BaseURI=http://services.test2.mnr-services-test2.cluster.infoedge.com/company-services/company-service-refactor, RequestBody=NA, ResponseHeadersToBeSaved=NA, ResponseCode=200, MultiPartData=NA, ResponseCookiesToBeSaved=NA, ResponseBodyFieldToBeSaved=NA, RandomValues=NA, ResponseBodyExpressionValidation=NA, QueryParameters=NA, ResponseType=JSON, ResponseBody={"cityId":2,"city":"%%cityname","stateId":31,"countryId":66,"stdCode":562,"gulfCityId":"80.29","gulfCountryId":80}, ResponseCookieExpressionValidation=NA, ResponseCookieValidation=NA, DependOnTest=NA, RequestType=GET}]]>
+                <![CDATA[{isRunableApi=yes, ResponseHeaderExpressionValidation=NA, Description=This test is to validate get API., RequestCookies=NA, ResponseBodySchema=NA, BasePath=/33162, PathParameters=NA, ResponseBodyParameters=NA, TestCaseName=zipp1, RequestParameters=NA, ResponseHeaderValidation=NA, RequestHeaders=NA, BaseURI=https://api.zippopotam.us/us, RequestBody=NA, ResponseHeadersToBeSaved=NA, ResponseCode=200, MultiPartData=NA, ResponseCookiesToBeSaved=NA, ResponseBodyFieldToBeSaved=NA, RandomValues=NA, ResponseBodyExpressionValidation=NA, QueryParameters=NA, ResponseType=JSON, ResponseBody={"post code": "33162", "country": "United States", "country abbreviation": "US", "places": [{"place name": "Miami", "longitude": "-80.183", "state": "Florida", "state abbreviation": "FL", "latitude": "25.9286"}]}, ResponseCookieExpressionValidation=NA, ResponseCookieValidation=NA, DependOnTest=NA, RequestType=GET}]]>
               </value>
             </param>
           </params>
-          <exception class="java.lang.AssertionError">
-            <message>
-              <![CDATA[expected [true] but found [false]]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: expected [true] but found [false]
-	at org.testng.Assert.fail(Assert.java:94)
-	at org.testng.Assert.failNotEquals(Assert.java:494)
-	at org.testng.Assert.assertTrue(Assert.java:42)
-	at org.testng.Assert.assertTrue(Assert.java:52)
-	at testScript.API.runAPITest(API.java:363)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:84)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
-	at org.testng.TestRunner.privateRun(TestRunner.java:767)
-	at org.testng.TestRunner.run(TestRunner.java:617)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:348)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:343)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:305)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:254)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1224)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1149)
-	at org.testng.TestNG.run(TestNG.java:1057)
-	at utility.GenerateTestNGXml.CreateTestNGXml(GenerateTestNGXml.java:53)
-	at launch.Master.main(Master.java:35)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runAPITest -->
-        <test-method signature="runAPITest(java.util.Map)[pri:0, instance:testScript.API@437da279]" started-at="2023-07-12T13:30:16Z" name="runAPITest" data-provider="getInput" finished-at="2023-07-12T13:30:16Z" duration-ms="34" status="FAIL">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[{ResponseHeaderExpressionValidation=NA, Description=This test is to validate Get City API with city id value as 3., RequestCookies=NA, ResponseBodySchema={   "$schema": "http://json-schema.org/draft-04/schema#",   "type": "object",   "properties": {     "cityId": {       "type": "integer"     },     "city": {       "type": "string"     },     "stateId": {       "type": "integer"     },     "countryId": {       "type": "integer"     },     "stdCode": {       "type": "integer"     },     "gulfCityId": {       "type": "string"     },     "gulfCountryId": {       "type": "integer"     }   },   "required": [     "cityId",     "city",     "stateId",     "countryId",     "stdCode",     "gulfCityId",     "gulfCountryId"   ] }, BasePath=/cities/{cityID}, PathParameters=cityID=3, ResponseBodyParameters=stateId=11, TestCaseName=GetCity_3, RequestParameters=NA, ResponseHeaderValidation=NA, RequestHeaders=AppId=114;SystemId=naukriIndia;Accept-Encoding=gzip,deflate;cache-control=no-cache;Accept=*/*;Content-Type=application/json, BaseURI=http://services.test2.mnr-services-test2.cluster.infoedge.com/company-services/company-service-refactor, RequestBody=NA, ResponseHeadersToBeSaved=NA, ResponseCode=200, MultiPartData=NA, ResponseCookiesToBeSaved=NA, ResponseBodyFieldToBeSaved=NA, RandomValues=NA, ResponseBodyExpressionValidation=NA, QueryParameters=NA, ResponseType=JSON, ResponseBody=CompanyServices\\getcity3.txt, ResponseCookieExpressionValidation=NA, ResponseCookieValidation=NA, DependOnTest=NA, RequestType=GET}]]>
-              </value>
-            </param>
-          </params>
-          <exception class="java.lang.AssertionError">
-            <message>
-              <![CDATA[expected [true] but found [false]]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: expected [true] but found [false]
-	at org.testng.Assert.fail(Assert.java:94)
-	at org.testng.Assert.failNotEquals(Assert.java:494)
-	at org.testng.Assert.assertTrue(Assert.java:42)
-	at org.testng.Assert.assertTrue(Assert.java:52)
-	at testScript.API.runAPITest(API.java:363)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:84)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
-	at org.testng.TestRunner.privateRun(TestRunner.java:767)
-	at org.testng.TestRunner.run(TestRunner.java:617)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:348)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:343)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:305)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:254)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1224)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1149)
-	at org.testng.TestNG.run(TestNG.java:1057)
-	at utility.GenerateTestNGXml.CreateTestNGXml(GenerateTestNGXml.java:53)
-	at launch.Master.main(Master.java:35)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.AssertionError -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- runAPITest -->
-        <test-method is-config="true" signature="afterMethod()[pri:0, instance:testScript.API@437da279]" started-at="2023-07-12T13:30:16Z" name="afterMethod" finished-at="2023-07-12T13:30:16Z" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="afterMethod()[pri:0, instance:testScript.API@524d6d96]" started-at="2023-07-13T15:48:11Z" name="afterMethod" finished-at="2023-07-13T15:48:11Z" duration-ms="0" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->
-        <test-method signature="runAPITest(java.util.Map)[pri:0, instance:testScript.API@437da279]" started-at="2023-07-12T13:30:16Z" name="runAPITest" data-provider="getInput" finished-at="2023-07-12T13:30:16Z" duration-ms="31" status="FAIL">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[{ResponseHeaderExpressionValidation=NA, Description=This test is to validate Get City API with city id value as 4., RequestCookies=NA, ResponseBodySchema={   "$schema": "http://json-schema.org/draft-04/schema#",   "type": "object",   "properties": {     "cityId": {       "type": "integer"     },     "city": {       "type": "string"     },     "stateId": {       "type": "integer"     },     "countryId": {       "type": "integer"     },     "stdCode": {       "type": "integer"     },     "gulfCityId": {       "type": "string"     },     "gulfCountryId": {       "type": "integer"     }   },   "required": [     "cityId",     "city",     "stateId",     "countryId",     "stdCode",     "gulfCityId",     "gulfCountryId"   ] }, BasePath=/cities/{cityID}, PathParameters=cityID=4, ResponseBodyParameters=Cityid=4, TestCaseName=GetCity_4, RequestParameters=NA, ResponseHeaderValidation=NA, RequestHeaders=AppId=114;SystemId=naukriIndia;Accept-Encoding=gzip,deflate;cache-control=no-cache;Accept=*/*;Content-Type=application/json, BaseURI=http://services.test2.mnr-services-test2.cluster.infoedge.com/company-services/company-service-refactor, RequestBody=NA, ResponseHeadersToBeSaved=NA, ResponseCode=200, MultiPartData=NA, ResponseCookiesToBeSaved=NA, ResponseBodyFieldToBeSaved=NA, RandomValues=NA, ResponseBodyExpressionValidation=NA, QueryParameters=NA, ResponseType=JSON, ResponseBody=CompanyServices\\getcity4.json, ResponseCookieExpressionValidation=NA, ResponseCookieValidation=NA, DependOnTest=NA, RequestType=GET}]]>
-              </value>
-            </param>
-          </params>
-          <exception class="java.lang.AssertionError">
-            <message>
-              <![CDATA[expected [true] but found [false]]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: expected [true] but found [false]
-	at org.testng.Assert.fail(Assert.java:94)
-	at org.testng.Assert.failNotEquals(Assert.java:494)
-	at org.testng.Assert.assertTrue(Assert.java:42)
-	at org.testng.Assert.assertTrue(Assert.java:52)
-	at testScript.API.runAPITest(API.java:363)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:84)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
-	at org.testng.TestRunner.privateRun(TestRunner.java:767)
-	at org.testng.TestRunner.run(TestRunner.java:617)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:348)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:343)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:305)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:254)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1224)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1149)
-	at org.testng.TestNG.run(TestNG.java:1057)
-	at utility.GenerateTestNGXml.CreateTestNGXml(GenerateTestNGXml.java:53)
-	at launch.Master.main(Master.java:35)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.AssertionError -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- runAPITest -->
-        <test-method is-config="true" signature="afterMethod()[pri:0, instance:testScript.API@437da279]" started-at="2023-07-12T13:30:16Z" name="afterMethod" finished-at="2023-07-12T13:30:16Z" duration-ms="0" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterMethod -->
-        <test-method signature="runAPITest(java.util.Map)[pri:0, instance:testScript.API@437da279]" started-at="2023-07-12T13:30:16Z" name="runAPITest" data-provider="getInput" finished-at="2023-07-12T13:30:16Z" duration-ms="42" status="FAIL">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[{ResponseHeaderExpressionValidation=NA, Description=This test is to validate Get City API with city id value as 5., RequestCookies=NA, ResponseBodySchema={   "$schema": "http://json-schema.org/draft-04/schema#",   "type": "object",   "properties": {     "cityId": {       "type": "integer"     },     "city": {       "type": "string"     },     "stateId": {       "type": "integer"     },     "countryId": {       "type": "integer"     },     "stdCode": {       "type": "integer"     },     "gulfCityId": {       "type": "string"     },     "gulfCountryId": {       "type": "integer"     }   },   "required": [     "cityId",     "city",     "stateId",     "countryId",     "stdCode",     "gulfCityId",     "gulfCountryId"   ] }, BasePath=/cities/{cityID}, PathParameters=cityID=5, ResponseBodyParameters=NA, TestCaseName=GetCity_5, RequestParameters=NA, ResponseHeaderValidation=NA, RequestHeaders=AppId=114;SystemId=naukriIndia;Accept-Encoding=gzip,deflate;cache-control=no-cache;Accept=*/*;Content-Type=application/json, BaseURI=http://services.test2.mnr-services-test2.cluster.infoedge.com/company-services/company-service-refactor, RequestBody=NA, ResponseHeadersToBeSaved=NA, ResponseCode=200, MultiPartData=NA, ResponseCookiesToBeSaved=NA, ResponseBodyFieldToBeSaved=NA, RandomValues=NA, ResponseBodyExpressionValidation=NA, QueryParameters=NA, ResponseType=JSON, ResponseBody=city=Aizawl;stdCode=389, ResponseCookieExpressionValidation=NA, ResponseCookieValidation=NA, DependOnTest=NA, RequestType=GET}]]>
-              </value>
-            </param>
-          </params>
-          <exception class="java.lang.AssertionError">
-            <message>
-              <![CDATA[expected [true] but found [false]]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: expected [true] but found [false]
-	at org.testng.Assert.fail(Assert.java:94)
-	at org.testng.Assert.failNotEquals(Assert.java:494)
-	at org.testng.Assert.assertTrue(Assert.java:42)
-	at org.testng.Assert.assertTrue(Assert.java:52)
-	at testScript.API.runAPITest(API.java:363)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:84)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
-	at org.testng.TestRunner.privateRun(TestRunner.java:767)
-	at org.testng.TestRunner.run(TestRunner.java:617)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:348)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:343)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:305)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:254)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1224)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1149)
-	at org.testng.TestNG.run(TestNG.java:1057)
-	at utility.GenerateTestNGXml.CreateTestNGXml(GenerateTestNGXml.java:53)
-	at launch.Master.main(Master.java:35)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.AssertionError -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- runAPITest -->
-        <test-method is-config="true" signature="afterMethod()[pri:0, instance:testScript.API@437da279]" started-at="2023-07-12T13:30:16Z" name="afterMethod" finished-at="2023-07-12T13:30:16Z" duration-ms="0" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterMethod -->
-        <test-method signature="runAPITest(java.util.Map)[pri:0, instance:testScript.API@437da279]" started-at="2023-07-12T13:30:16Z" name="runAPITest" data-provider="getInput" finished-at="2023-07-12T13:30:16Z" duration-ms="24" status="FAIL">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[{ResponseHeaderExpressionValidation=NA, Description=This test is to validate Put City API with city id value as 5000., RequestCookies=NA, ResponseBodySchema=NA, BasePath=/cities/, PathParameters=NA, ResponseBodyParameters=NA, TestCaseName=PutCity_1, RequestParameters=NA, ResponseHeaderValidation=NA, RequestHeaders=AppId=114;SystemId=naukriIndia;Accept-Encoding=gzip,deflate;cache-control=no-cache;Accept=*/*;Content-Type=application/json, BaseURI=http://services.test2.mnr-services-test2.cluster.infoedge.com/company-services/company-service-refactor, RequestBody={"cityId":5000,"city": "Sumant", "stateId": 100, "countryId": 1000,"stdCode": 10000,"gulfCityId":"180.28","gulfCountryId":"180"}, ResponseHeadersToBeSaved=NA, ResponseCode=200, MultiPartData=NA, ResponseCookiesToBeSaved=NA, ResponseBodyFieldToBeSaved=NA, RandomValues=NA, ResponseBodyExpressionValidation=NA, QueryParameters=NA, ResponseType=JSON, ResponseBody=NA, ResponseCookieExpressionValidation=NA, ResponseCookieValidation=NA, DependOnTest=NA, RequestType=PUT}]]>
-              </value>
-            </param>
-          </params>
-          <exception class="java.lang.AssertionError">
-            <message>
-              <![CDATA[expected [true] but found [false]]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: expected [true] but found [false]
-	at org.testng.Assert.fail(Assert.java:94)
-	at org.testng.Assert.failNotEquals(Assert.java:494)
-	at org.testng.Assert.assertTrue(Assert.java:42)
-	at org.testng.Assert.assertTrue(Assert.java:52)
-	at testScript.API.runAPITest(API.java:363)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:84)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
-	at org.testng.TestRunner.privateRun(TestRunner.java:767)
-	at org.testng.TestRunner.run(TestRunner.java:617)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:348)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:343)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:305)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:254)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1224)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1149)
-	at org.testng.TestNG.run(TestNG.java:1057)
-	at utility.GenerateTestNGXml.CreateTestNGXml(GenerateTestNGXml.java:53)
-	at launch.Master.main(Master.java:35)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.AssertionError -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- runAPITest -->
-        <test-method is-config="true" signature="afterMethod()[pri:0, instance:testScript.API@437da279]" started-at="2023-07-12T13:30:16Z" name="afterMethod" finished-at="2023-07-12T13:30:16Z" duration-ms="0" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterMethod -->
-        <test-method is-config="true" signature="afterMethod()[pri:0, instance:testScript.API@437da279]" started-at="2023-07-12T13:30:16Z" name="afterMethod" finished-at="2023-07-12T13:30:16Z" duration-ms="0" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterMethod -->
-        <test-method signature="runAPITest(java.util.Map)[pri:0, instance:testScript.API@437da279]" started-at="2023-07-12T13:30:16Z" name="runAPITest" data-provider="getInput" finished-at="2023-07-12T13:30:16Z" duration-ms="32" status="FAIL">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[{ResponseHeaderExpressionValidation=NA, Description=This test is to validate Put City API with city id value as 100., RequestCookies=NA, ResponseBodySchema=NA, BasePath=/cities/, PathParameters=NA, ResponseBodyParameters=NA, TestCaseName=PutCity_2, RequestParameters=cityid=100;cityname=gurugram, ResponseHeaderValidation=NA, RequestHeaders=AppId=114;SystemId=naukriIndia;Accept-Encoding=gzip,deflate;cache-control=no-cache;Accept=*/*;Content-Type=application/json, BaseURI=http://services.test2.mnr-services-test2.cluster.infoedge.com/company-services/company-service-refactor, RequestBody={"cityId":%%cityid,"city": "%%cityname", "stateId": 100, "countryId": 1000,"stdCode": 10000,"gulfCityId":"180.28","gulfCountryId":"180"}, ResponseHeadersToBeSaved=NA, ResponseCode=200, MultiPartData=NA, ResponseCookiesToBeSaved=NA, ResponseBodyFieldToBeSaved=NA, RandomValues=NA, ResponseBodyExpressionValidation=NA, QueryParameters=NA, ResponseType=JSON, ResponseBody=NA, ResponseCookieExpressionValidation=NA, ResponseCookieValidation=NA, DependOnTest=NA, RequestType=PUT}]]>
-              </value>
-            </param>
-          </params>
-          <exception class="java.lang.AssertionError">
-            <message>
-              <![CDATA[expected [true] but found [false]]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: expected [true] but found [false]
-	at org.testng.Assert.fail(Assert.java:94)
-	at org.testng.Assert.failNotEquals(Assert.java:494)
-	at org.testng.Assert.assertTrue(Assert.java:42)
-	at org.testng.Assert.assertTrue(Assert.java:52)
-	at testScript.API.runAPITest(API.java:363)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:84)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
-	at org.testng.TestRunner.privateRun(TestRunner.java:767)
-	at org.testng.TestRunner.run(TestRunner.java:617)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:348)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:343)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:305)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:254)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1224)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1149)
-	at org.testng.TestNG.run(TestNG.java:1057)
-	at utility.GenerateTestNGXml.CreateTestNGXml(GenerateTestNGXml.java:53)
-	at launch.Master.main(Master.java:35)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.AssertionError -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- runAPITest -->
-        <test-method is-config="true" signature="afterMethod()[pri:0, instance:testScript.API@437da279]" started-at="2023-07-12T13:30:16Z" name="afterMethod" finished-at="2023-07-12T13:30:16Z" duration-ms="0" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterMethod -->
-        <test-method signature="runAPITest(java.util.Map)[pri:0, instance:testScript.API@437da279]" started-at="2023-07-12T13:30:16Z" name="runAPITest" data-provider="getInput" finished-at="2023-07-12T13:30:17Z" duration-ms="29" status="FAIL">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[{ResponseHeaderExpressionValidation=NA, Description=This test is to validate Put City API with city id value as 90., RequestCookies=NA, ResponseBodySchema=NA, BasePath=/cities/, PathParameters=NA, ResponseBodyParameters=NA, TestCaseName=PutCity_3, RequestParameters=cityid=90;cityname=delhi, ResponseHeaderValidation=NA, RequestHeaders=AppId=114;SystemId=naukriIndia;Accept-Encoding=gzip,deflate;cache-control=no-cache;Accept=*/*;Content-Type=application/json, BaseURI=http://services.test2.mnr-services-test2.cluster.infoedge.com/company-services/company-service-refactor, RequestBody=CompanyService\\sample.txt, ResponseHeadersToBeSaved=NA, ResponseCode=200, MultiPartData=NA, ResponseCookiesToBeSaved=NA, ResponseBodyFieldToBeSaved=NA, RandomValues=NA, ResponseBodyExpressionValidation=NA, QueryParameters=NA, ResponseType=JSON, ResponseBody=NA, ResponseCookieExpressionValidation=NA, ResponseCookieValidation=NA, DependOnTest=NA, RequestType=PUT}]]>
-              </value>
-            </param>
-          </params>
-          <exception class="java.lang.AssertionError">
-            <message>
-              <![CDATA[expected [true] but found [false]]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: expected [true] but found [false]
-	at org.testng.Assert.fail(Assert.java:94)
-	at org.testng.Assert.failNotEquals(Assert.java:494)
-	at org.testng.Assert.assertTrue(Assert.java:42)
-	at org.testng.Assert.assertTrue(Assert.java:52)
-	at testScript.API.runAPITest(API.java:363)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:84)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
-	at org.testng.TestRunner.privateRun(TestRunner.java:767)
-	at org.testng.TestRunner.run(TestRunner.java:617)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:348)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:343)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:305)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:254)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1224)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1149)
-	at org.testng.TestNG.run(TestNG.java:1057)
-	at utility.GenerateTestNGXml.CreateTestNGXml(GenerateTestNGXml.java:53)
-	at launch.Master.main(Master.java:35)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.AssertionError -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- runAPITest -->
-        <test-method is-config="true" signature="afterMethod()[pri:0, instance:testScript.API@437da279]" started-at="2023-07-12T13:30:17Z" name="afterMethod" finished-at="2023-07-12T13:30:17Z" duration-ms="0" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterMethod -->
-        <test-method signature="runAPITest(java.util.Map)[pri:0, instance:testScript.API@437da279]" started-at="2023-07-12T13:30:17Z" name="runAPITest" data-provider="getInput" finished-at="2023-07-12T13:30:17Z" duration-ms="22" status="FAIL">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[{ResponseHeaderExpressionValidation=NA, Description=This test is to validate Put City API with city id value as 80., RequestCookies=NA, ResponseBodySchema=NA, BasePath=/cities/, PathParameters=NA, ResponseBodyParameters=NA, TestCaseName=PutCity_4, RequestParameters=cityid=80;cityname=noida, ResponseHeaderValidation=NA, RequestHeaders=AppId=114;SystemId=naukriIndia;Accept-Encoding=gzip,deflate;cache-control=no-cache;Accept=*/*;Content-Type=application/json, BaseURI=http://services.test2.mnr-services-test2.cluster.infoedge.com/company-services/company-service-refactor, RequestBody=CompanyService\\sample.json, ResponseHeadersToBeSaved=NA, ResponseCode=200, MultiPartData=NA, ResponseCookiesToBeSaved=NA, ResponseBodyFieldToBeSaved=NA, RandomValues=NA, ResponseBodyExpressionValidation=NA, QueryParameters=NA, ResponseType=JSON, ResponseBody=NA, ResponseCookieExpressionValidation=NA, ResponseCookieValidation=NA, DependOnTest=NA, RequestType=PUT}]]>
-              </value>
-            </param>
-          </params>
-          <exception class="java.lang.AssertionError">
-            <message>
-              <![CDATA[expected [true] but found [false]]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: expected [true] but found [false]
-	at org.testng.Assert.fail(Assert.java:94)
-	at org.testng.Assert.failNotEquals(Assert.java:494)
-	at org.testng.Assert.assertTrue(Assert.java:42)
-	at org.testng.Assert.assertTrue(Assert.java:52)
-	at testScript.API.runAPITest(API.java:363)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:84)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
-	at org.testng.TestRunner.privateRun(TestRunner.java:767)
-	at org.testng.TestRunner.run(TestRunner.java:617)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:348)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:343)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:305)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:254)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1224)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1149)
-	at org.testng.TestNG.run(TestNG.java:1057)
-	at utility.GenerateTestNGXml.CreateTestNGXml(GenerateTestNGXml.java:53)
-	at launch.Master.main(Master.java:35)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.AssertionError -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- runAPITest -->
-        <test-method is-config="true" signature="afterMethod()[pri:0, instance:testScript.API@437da279]" started-at="2023-07-12T13:30:17Z" name="afterMethod" finished-at="2023-07-12T13:30:17Z" duration-ms="1" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterMethod -->
-        <test-method signature="runAPITest(java.util.Map)[pri:0, instance:testScript.API@437da279]" started-at="2023-07-12T13:30:17Z" name="runAPITest" data-provider="getInput" finished-at="2023-07-12T13:30:17Z" duration-ms="25" status="FAIL">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[{ResponseHeaderExpressionValidation=NA, Description=This test is to validate Get State API with state id value as 31., RequestCookies=NA, ResponseBodySchema={   "$schema": "http://json-schema.org/draft-04/schema#",   "type": "object",   "properties": {     "stateId": {       "type": "integer"    },     "state": {       "type": "string"    },     "countryId": {       "type": "integer"    },     "gstnStateId": {       "type": "string"    },     "igst": {       "type": "number"    },     "cgst": {       "type": "number"     },     "sgst": {       "type": "number"     }   },   "required": [     "stateId",     "state",     "countryId",     "gstnStateId",     "igst",     "cgst",     "sgst"   ] }, BasePath=/states/{stateId}, PathParameters=stateId=31, ResponseBodyParameters=NA, TestCaseName=GetState, RequestParameters=NA, ResponseHeaderValidation=NA, RequestHeaders=AppId=114;SystemId=naukriIndia;Accept-Encoding=gzip,deflate;cache-control=no-cache;Accept=*/*;Content-Type=application/json, BaseURI=http://services.test2.mnr-services-test2.cluster.infoedge.com/company-services/company-service-refactor, RequestBody=NA, ResponseHeadersToBeSaved=NA, ResponseCode=200, MultiPartData=NA, ResponseCookiesToBeSaved=NA, ResponseBodyFieldToBeSaved=NA, RandomValues=NA, ResponseBodyExpressionValidation=NA, QueryParameters=NA, ResponseType=JSON, ResponseBody={"stateId":31,"state":"Uttar Pradesh","countryId":66,"gstnStateId":"9","igst":18.0,"cgst":9.0,"sgst":9.0}, ResponseCookieExpressionValidation=NA, ResponseCookieValidation=NA, DependOnTest=NA, RequestType=GET}]]>
-              </value>
-            </param>
-          </params>
-          <exception class="java.lang.AssertionError">
-            <message>
-              <![CDATA[expected [true] but found [false]]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.AssertionError: expected [true] but found [false]
-	at org.testng.Assert.fail(Assert.java:94)
-	at org.testng.Assert.failNotEquals(Assert.java:494)
-	at org.testng.Assert.assertTrue(Assert.java:42)
-	at org.testng.Assert.assertTrue(Assert.java:52)
-	at testScript.API.runAPITest(API.java:363)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:84)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
-	at org.testng.TestRunner.privateRun(TestRunner.java:767)
-	at org.testng.TestRunner.run(TestRunner.java:617)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:348)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:343)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:305)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:254)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1224)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1149)
-	at org.testng.TestNG.run(TestNG.java:1057)
-	at utility.GenerateTestNGXml.CreateTestNGXml(GenerateTestNGXml.java:53)
-	at launch.Master.main(Master.java:35)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.AssertionError -->
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- runAPITest -->
-        <test-method is-config="true" signature="afterMethod()[pri:0, instance:testScript.API@437da279]" started-at="2023-07-12T13:30:17Z" name="afterMethod" finished-at="2023-07-12T13:30:17Z" duration-ms="0" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- afterMethod -->
-        <test-method is-config="true" signature="afterSuite()[pri:0, instance:testScript.API@437da279]" started-at="2023-07-12T13:30:17Z" name="afterSuite" finished-at="2023-07-12T13:30:17Z" duration-ms="13" status="PASS">
+        <test-method is-config="true" signature="afterSuite()[pri:0, instance:testScript.API@524d6d96]" started-at="2023-07-13T15:48:11Z" name="afterSuite" finished-at="2023-07-13T15:48:11Z" duration-ms="12" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterSuite -->
       </class> <!-- testScript.API -->
-    </test> <!-- CompanyServiceTest -->
-  </suite> <!-- CompanyService -->
+    </test> <!-- zipp@mongoTest -->
+  </suite> <!-- zipp@mongo -->
+  <suite started-at="2023-07-13T10:18:11Z" name="CompanyService@mongo" finished-at="2023-07-13T10:18:11Z" duration-ms="4">
+    <groups>
+    </groups>
+    <test started-at="2023-07-13T10:18:11Z" name="CompanyService@mongoTest" finished-at="2023-07-13T10:18:11Z" duration-ms="4">
+      <class name="testScript.API">
+        <test-method is-config="true" signature="reporting(org.testng.ITestContext)[pri:0, instance:testScript.API@1bb266b3]" started-at="2023-07-13T15:48:11Z" name="reporting" finished-at="2023-07-13T15:48:11Z" duration-ms="1" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[org.testng.TestRunner@750ed637]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- reporting -->
+        <test-method signature="runAPITest(java.util.Map)[pri:0, instance:testScript.API@1bb266b3]" started-at="2023-07-13T15:48:11Z" name="runAPITest" data-provider="getInput" finished-at="2023-07-13T15:48:11Z" duration-ms="2" status="PASS">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[{isRunableApi=yes, ResponseHeaderExpressionValidation=NA, Description=This test is to validate Get City API with city id value as 1., RequestCookies=NA, ResponseBodySchema=CompanyService\\sample.txt, BasePath=/cities/{cityID}, PathParameters=cityID=1, ResponseBodyParameters=NA, TestCaseName=GetCity_1, RequestParameters=NA, ResponseHeaderValidation=NA, RequestHeaders=AppId=114;SystemId=naukriIndia;Accept-Encoding=gzip,deflate;cache-control=no-cache;Accept=*/*;Content-Type=application/json, BaseURI=http://services.test2.mnr-services-test2.cluster.infoedge.com/company-services/company-service-refactor, RequestBody=NA, ResponseHeadersToBeSaved=NA, ResponseCode=200, MultiPartData=NA, ResponseCookiesToBeSaved=NA, ResponseBodyFieldToBeSaved=NA, RandomValues=NA, ResponseBodyExpressionValidation=NA, QueryParameters=NA, ResponseType=JSON, ResponseBody={"cityId":1,"city":"Mathura_23","stateId":100,"countryId":1000,"stdCode":10000,"gulfCityId":"180.28","gulfCountryId":180}, ResponseCookieExpressionValidation=NA, ResponseCookieValidation=NA, DependOnTest=NA, RequestType=}]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runAPITest -->
+        <test-method is-config="true" signature="afterMethod()[pri:0, instance:testScript.API@1bb266b3]" started-at="2023-07-13T15:48:11Z" name="afterMethod" finished-at="2023-07-13T15:48:11Z" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method is-config="true" signature="afterSuite()[pri:0, instance:testScript.API@1bb266b3]" started-at="2023-07-13T15:48:11Z" name="afterSuite" finished-at="2023-07-13T15:48:11Z" duration-ms="11" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterSuite -->
+      </class> <!-- testScript.API -->
+    </test> <!-- CompanyService@mongoTest -->
+  </suite> <!-- CompanyService@mongo -->
 </testng-results>
